@@ -1,0 +1,28 @@
+# virtual environments
+.venv/
+venv/
+env/
+
+# jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# data (keep sample data in /data, not large files)
+*.zip
+*.csv.gz
+
+# secrets
+.env
+*.key
+
+# OS
+.DS_Store
+Thumbs.db
