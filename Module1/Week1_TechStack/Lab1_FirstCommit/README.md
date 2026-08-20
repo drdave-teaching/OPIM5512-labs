@@ -10,8 +10,9 @@ Hartford: **Sep 2** · Stamford: **Sep 9** — same lab, run twice.
 > **Tonight the deliverable is a repo, not a notebook.**
 
 You and a partner will each analyze a *different half* of the same problem — one of you takes
-the weather, one takes the electricity demand — and neither of you can finish the punchline
-alone. The only way to see the final plot is to **merge your work together**. That's the lab.
+the weather, one takes the electricity demand — and neither of you can answer the question
+alone. The only way to get to the analysis is to **merge your work together**. Then you write
+up what you found, for a manager who doesn't know what a p-value is. That's the lab.
 
 ## What you'll be able to do at 7:30 that you couldn't at 5:30
 
@@ -20,6 +21,7 @@ alone. The only way to see the final plot is to **merge your work together**. Th
 3. Agree on a data contract *before* anybody writes code
 4. Resolve a merge conflict without panicking
 5. Move a notebook between **Colab** and **GitHub** in both directions
+6. Explore a dataset you've never seen and write up what you found for someone who isn't a data scientist
 
 > There's no scraping tonight and no modeling tonight. Both are coming (Module 3 and
 > Module 2). Week 1 is about the workflow you'll use for the rest of the semester.
@@ -32,6 +34,8 @@ alone. The only way to see the final plot is to **merge your work together**. Th
 - Have a **GitHub account** and **GitHub Desktop** installed and signed in
   → [setup_guide.md](../setup_guide.md)
 - Skim [github_fundamentals.md](../github_fundamentals.md) §8–§12 (branches, PRs, conflicts)
+- Have [GITHUB_DESKTOP_WALKTHROUGH.md](GITHUB_DESKTOP_WALKTHROUGH.md) open during the lab —
+  it's every click you'll need tonight, in order
 - Read [BRANCHING_MENTAL_MODEL.md](BRANCHING_MENTAL_MODEL.md) — 5 minutes, and it's the
   difference between the lab making sense and the lab being button-mashing
 
@@ -43,10 +47,30 @@ alone. The only way to see the final plot is to **merge your work together**. Th
 | **GitHub Desktop** | Where you see *what changed*, switch branches, and merge. |
 | **github.com** | Where pull requests and reviews happen. |
 
+📎 Click by click, in the order you'll need it:
+[GITHUB_DESKTOP_WALKTHROUGH.md](GITHUB_DESKTOP_WALKTHROUGH.md)
+📎 Moving notebooks and data between Colab and GitHub:
+[COLAB_AND_GITHUB.md](COLAB_AND_GITHUB.md)
+
 Colab is the *editor*. GitHub Desktop is the *map*. You need both because Colab can show you
 your code but it can't show you your team.
 
-📎 The mechanics of moving files between them: [COLAB_AND_GITHUB.md](COLAB_AND_GITHUB.md)
+---
+
+## 🚫 No AI tonight
+
+No Claude, no ChatGPT, no Copilot, no Colab autocomplete suggestions. Type it yourself.
+
+This isn't because those tools are bad — **Module 3 is an entire unit on using them**, and
+you'll lean on them hard for the rest of the semester. It's because of what tonight is:
+
+- **Git is muscle memory.** Watching a model resolve a merge conflict teaches you nothing you
+  can use at 11pm in November when a merge goes sideways and nobody's around.
+- **You're going to approve your partner's pull request.** Approving code you didn't write and
+  don't understand is the single habit that makes code review worthless. Tonight is where you
+  learn to actually read a diff.
+
+Not never. Not yet.
 
 ---
 
@@ -93,11 +117,11 @@ has to actually work.
 | Time | What happens |
 |---|---|
 | **5:30–5:45** | Pair up. Stack check: GitHub Desktop signed in, Colab opens. |
-| **5:45–6:10** | **The contract.** A creates the repo from the template, adds B, turns on branch protection. Then *together* you write the data dictionary in the README — column names, units, timestamps, filenames. |
-| **6:10–6:45** | **Split and work.** A on branch `dev-weather`, B on branch `dev-demand`. Separate files, no overlap. Clean your half, save a tidy CSV, make one plot. |
-| **6:45–7:05** | **The ping-pong.** Two PRs open at once. Each of you reviews the *other's* diff on github.com and must actually choose Approve / Comment / Request changes. Merge. Delete branch. |
-| **7:05–7:20** | **The join.** Both pull `main`. Now — and only now — you both have both files. Run `notebooks/join_and_plot.ipynb` together and find the punchline. |
-| **7:20–7:30** | **Rounds.** Two or three network graphs on screen. Each pair says their one insight out loud. |
+| **5:45–6:05** | **The contract.** A creates the repo, adds B, turns on branch protection. Then *together* you write the data dictionary in the README — column names, units, timestamps, filenames. Each opens a PR on it. |
+| **6:05–6:40** | **Split and clean.** A on branch `dev-weather`, B on branch `dev-demand`. Separate files, no overlap. Clean your half, save a tidy CSV, get it into the repo. |
+| **6:40–6:55** | **The ping-pong.** Two PRs open at once. Each of you reviews the *other's* diff on github.com and must actually choose Approve / Comment / Request changes. Merge. Delete branch. |
+| **6:55–7:20** | **Joint EDA + the report.** Both pull `main`. Now — and only now — you both have both files. One screen, two people. Explore, then write `REPORT.md`. |
+| **7:20–7:30** | **Read-outs.** Every pair puts one figure on the screen and says what it means in one sentence. |
 
 ### The collision (it's on purpose)
 
@@ -108,29 +132,46 @@ conversation you'd otherwise be having in November with a broken model.
 
 ---
 
-## The punchline you're hunting
+## The last 25 minutes: you have a manager
 
-Once the two files are joined, plot **demand against temperature**, and separately plot demand
-by **hour of day**.
+Once your two files are merged, the lab stops being about git and starts being about the data.
 
-There is something in there that surprises most people the first time: **the hottest hour of the
-month is not the highest-demand hour of the month** — and it isn't even the same day. Find both.
-Then argue about why.
+> **From:** your manager
+> **Subject:** weather and our load
+>
+> We keep hearing that hot weather drives up electricity demand. Before I take a position on
+> it, I want to see it in our own data. Come back with a one-page summary. **I have about
+> ninety seconds and I do not know what a correlation coefficient is.**
 
-That's your "one real insight." It's worth more than a pretty chart.
+**Work at one screen.** One drives, one navigates, swap after ten minutes. Only the driver's
+laptop commits the notebook — notebooks don't merge, so you can't both edit it on separate
+branches. The navigator reviews the PR. That's pair programming, and it's how most real
+analysis actually gets done.
 
----
+**Find three things.** At least one has to surprise you. Then write it up:
+
+- `REPORT.md` — copy the skeleton from [REPORT_TEMPLATE.md](REPORT_TEMPLATE.md)
+- `figures/` — your best two or three, titled and labeled well enough for someone who's never
+  seen this data
+
+Then commit it on a branch, open a PR, and have your partner review it. Last loop of the night.
+
+> 💡 A number your manager will understand: **"each degree above 75 °F adds roughly ___ MW"**
+> lands far better than "r = 0.57". See if you can produce one sentence of that shape.
+
+There's at least one genuinely surprising thing in this dataset. We're not going to tell you
+what it is. If nobody finds it by 7:25, Dave will.
 
 ## Definition of done — what's in the repo at 7:30
 
 - [ ] Both partners listed as collaborators; branch protection on `main` (PR + 1 approval)
 - [ ] `README.md` with a data dictionary covering **both** cleaned files
-- [ ] `src/clean_weather.py` and `src/clean_demand.py`
 - [ ] `data/clean/weather_hourly.csv` and `data/clean/demand_hourly.csv`
-- [ ] `notebooks/` — two EDA notebooks plus the joint join-and-plot notebook
-- [ ] **≥4 merged pull requests** (2 each), branches deleted
+- [ ] `notebooks/` — two cleaning notebooks plus the joint EDA notebook
+- [ ] **`REPORT.md`** — three findings, two or three figures, honest caveats, plain English
+- [ ] `figures/` — the images the report points at
+- [ ] **≥4 merged pull requests**, branches deleted, both of you authoring and reviewing
 - [ ] A network graph showing the loop going both ways
-- [ ] One sentence in the README: *"The thing we found was ___."*
 
 ---
 

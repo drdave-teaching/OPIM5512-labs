@@ -25,24 +25,30 @@ notebook."*
 - The **network graph** view bookmarked (`Insights → Network` on any repo) — you'll want it
   three times tonight
 - Have `solutions/` open in a second window but **do not share the link**
+- Know your line on AI: **no Claude, no ChatGPT, no Copilot tonight.** Reason below.
 
 ## Timing
 
 | Time | Segment | Watch for |
 |---|---|---|
 | 5:30–5:45 | Pair up, stack check | Anyone not signed into GitHub Desktop — fix now, not at 6:40 |
-| 5:45–6:10 | **The contract** | This is the segment everyone wants to skip. Don't let them. |
-| 6:10–6:45 | Split and work | Quiet room. Circulate. |
-| 6:45–7:05 | **The ping-pong** | Two PRs open at once. Force a real Approve click. |
-| 7:05–7:20 | **The join** | The payoff. Get a pair to put the scatter on the projector. |
-| 7:20–7:30 | Rounds | Each pair says their one insight out loud. |
+| 5:45–6:05 | **The contract** | This is the segment everyone wants to skip. Don't let them. |
+| 6:05–6:40 | Split and clean | Quiet room. Circulate. |
+| 6:40–6:55 | **The ping-pong** | Two PRs open at once. Force a real Approve click. |
+| 6:55–7:20 | **Joint EDA + report** | The heart of the night. Hands off — let them explore. |
+| 7:20–7:30 | Read-outs | One figure per pair, one sentence. |
 
-Running long is normal. **Protect the join.** If you're behind at 7:00, cut the second
-ping-pong round, not the merge — a pair that never merges never learns the lesson.
+Running long is normal. **Protect the joint EDA — it's 25 minutes and it needs all 25.** If
+you're behind, take it out of the contract segment or the ping-pong, never out of 6:55–7:20. A
+pair that merges but never explores did a git tutorial, not a data science lab.
+
+Only **one** ping-pong round is scheduled now. They'll have already done the loop once on the
+README PRs at 5:45, so by the time they merge the cleaned data they've each opened two PRs and
+reviewed two. That's enough repetition for one night.
 
 ---
 
-## The contract segment (5:45–6:10) — don't shorten this
+## The contract segment (5:45–6:05) — don't shorten this
 
 Pairs will want to start coding. The whole point is that they can't, yet, because they haven't
 agreed on what the output looks like.
@@ -61,6 +67,59 @@ even starts, which takes the fear out of the loop.
 
 ---
 
+## The no-AI rule (say it at 5:35, don't apologize for it)
+
+Tonight is hands-on-keyboard. No Claude, no ChatGPT, no Copilot, no Colab AI autocomplete.
+
+The honest reason, and it's worth giving them: **git is muscle memory and review judgment,
+neither of which transfers by watching.** A student who has Claude generate the merge-conflict
+resolution has learned nothing they can use at 11pm in November when a merge goes sideways and
+they're alone. Worse, they'll be approving a partner's pull request they didn't actually read
+— which is the one habit that makes code review worthless.
+
+Frame it as **"not yet," not "never."** Module 3 is an entire unit on LLM-assisted ETL and
+they'll use it hard. Say that when you set the rule, or it reads as arbitrary.
+
+Practical enforcement is light: Colab's AI suggestions are off unless they turn them on, and
+you'll see it in the room. If somebody's clearly generating, the useful intervention is to ask
+them to explain their own diff in the PR review — which is the actual skill being dodged.
+
+---
+
+## Running the joint EDA (6:55–7:20) — hands off
+
+This is the segment where you have to resist yourself. They will flounder for the first three
+minutes. **Let them.** That's what open-ended looks like from the inside, and it's the first
+time all night they haven't been following instructions.
+
+Set it up in 60 seconds and then get out of the way:
+
+> *"You've got 744 hours of weather and demand in one table. Your manager wants a page. Three
+> findings, one of them surprising, and be honest about what the data can't tell you. One
+> screen, two people, swap the keyboard at 7:05."*
+
+**Circulate silently.** When a pair is stuck, ask a question instead of giving a plot:
+*"what's the biggest number in the load column, and when did it happen?"* — that alone gets
+most pairs moving.
+
+**Push on figure quality**, not on quantity. The single most useful correction you can make all
+night is *"that title names your columns; make it state your finding."* Two good figures beat
+six mediocre ones.
+
+**The caveats section is the real assessment.** A pair that writes "we only have one month and
+it's summer, so this says nothing about winter heating" has understood something most
+first-semester students haven't. Call it out loud when you see it.
+
+### The read-outs (7:20–7:30)
+One figure per pair on the projector, one sentence of interpretation. Not a presentation —
+seven pairs at ninety seconds each. Then close the loop yourself:
+
+**If nobody has found it, reveal the hottest-hour / peak-hour split at 7:25** (numbers below).
+It works far better as your closing move than as an assignment, and it hands you the Module 4
+teaser for free.
+
+---
+
 ## The engineered collision
 
 Both partners must edit the data dictionary section of `README.md`. Second to merge gets the
@@ -75,7 +134,7 @@ better than any lecture. Full argument in `BRANCHING_MENTAL_MODEL.md`.
 
 ---
 
-## The punchline
+## The punchline — your closing reveal
 
 Joined, the data says (verified 2026-08-20 by `tools/verify_lab1.py`):
 
@@ -106,12 +165,16 @@ insight to fish for. Three reasons worth landing:
 > the Boston–Providence–Hartford corridor. Neither cohort can see this alone — you can, and
 > it's a nice thing to mention in week 2.
 
-If a pair gets there on their own, have them present it. It's a better ending than anything
-you'd say.
+If a pair finds this on their own, **have them present it instead of you.** It's a better
+ending than anything you'd say. If nobody does, it's your 7:25 close.
 
-**Backup insight** if a pair is way ahead: ask them what the *lowest*-demand hours look like
-and whether the relationship is really a straight line. (It isn't — it's a U, they just can't
-see the heating side in a July–August sample. That's the Module 4 tease.)
+**For a pair that's way ahead:** ask whether the relationship is really a straight line. It
+isn't — it's a U, and they can't see the heating side in a July–August sample. If they work
+that out from first principles and write it into their caveats, that's an A-grade instinct.
+
+**Other things pairs reliably find** (so you can react well): the weekday/weekend gap, the
+morning shoulder around 7am, and the fact that dew point tracks load about as well as
+temperature does. All three are correct and worth affirming.
 
 ---
 
