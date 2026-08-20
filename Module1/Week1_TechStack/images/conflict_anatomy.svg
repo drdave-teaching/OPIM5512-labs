@@ -1,0 +1,40 @@
+<svg viewBox="0 0 820 340" width="820" xmlns="http://www.w3.org/2000/svg" role="img" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <title>Anatomy of a merge conflict</title>
+  <desc>Conflict markers split the file into your branch version on top and the incoming version below. Choose one, both, or rewrite, then delete all three marker lines before committing.</desc>
+  <rect x="0" y="0" width="820" height="340" rx="14" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="819" height="339" rx="14" fill="none" stroke="#d0d7de"/>
+
+  <text x="40" y="44" font-size="16" font-weight="700" fill="#1f2328">What a conflict looks like in your file</text>
+
+  <!-- code block -->
+  <rect x="40" y="64" width="470" height="236" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
+  <g font-family="monospace" font-size="15">
+    <rect x="40" y="76" width="470" height="26" fill="#ffebe9"/>
+    <text x="56" y="95" fill="#cf222e" font-weight="700">&#60;&#60;&#60;&#60;&#60;&#60;&#60; HEAD</text>
+
+    <rect x="40" y="102" width="470" height="26" fill="#e6ffec"/>
+    <text x="56" y="121" fill="#1a7f37">Color: maroon</text>
+
+    <rect x="40" y="128" width="470" height="26" fill="#fff8c5"/>
+    <text x="56" y="147" fill="#9a6700" font-weight="700">=======</text>
+
+    <rect x="40" y="154" width="470" height="26" fill="#ddf4ff"/>
+    <text x="56" y="173" fill="#0969da">Color: teal</text>
+
+    <rect x="40" y="180" width="470" height="26" fill="#ffebe9"/>
+    <text x="56" y="199" fill="#cf222e" font-weight="700">&#62;&#62;&#62;&#62;&#62;&#62;&#62; main</text>
+  </g>
+
+  <!-- braces / labels -->
+  <text x="540" y="100" font-size="13" font-weight="700" fill="#1a7f37">YOUR branch's version</text>
+  <path d="M 516 80 q 10 0 10 14 q 0 14 10 14" fill="none" stroke="#1a7f37" stroke-width="1.5"/>
+
+  <text x="540" y="178" font-size="13" font-weight="700" fill="#0969da">INCOMING (main) version</text>
+  <path d="M 516 158 q 10 0 10 14 q 0 14 10 14" fill="none" stroke="#0969da" stroke-width="1.5"/>
+
+  <text x="540" y="252" font-size="13" font-weight="700" fill="#cf222e">Delete all 3 marker lines</text>
+  <text x="540" y="270" font-size="12" fill="#57606a">before you commit the merge</text>
+  <line x1="516" y1="246" x2="200" y2="89" stroke="#cf222e" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="516" y1="246" x2="200" y2="141" stroke="#cf222e" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="516" y1="246" x2="200" y2="193" stroke="#cf222e" stroke-width="1.2" stroke-dasharray="4 3"/>
+</svg>

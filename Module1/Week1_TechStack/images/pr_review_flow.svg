@@ -1,0 +1,62 @@
+<svg viewBox="0 0 840 400" width="840" xmlns="http://www.w3.org/2000/svg" role="img" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <title>The collaborate-and-approve flow between two partners</title>
+  <desc>The author creates a branch and opens a pull request in GitHub Desktop. The reviewer reads the diff on GitHub and approves. The author then merges, and both partners pull the updated main.</desc>
+  <rect x="0" y="0" width="840" height="400" rx="14" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="839" height="399" rx="14" fill="none" stroke="#d0d7de"/>
+
+  <!-- lane labels -->
+  <text x="24" y="74" font-size="14" font-weight="700" fill="#6e40c9">AUTHOR · Student A</text>
+  <text x="24" y="330" font-size="14" font-weight="700" fill="#1a7f37">REVIEWER · Student B</text>
+  <text x="24" y="90" font-size="11" fill="#57606a">works in GitHub Desktop</text>
+  <text x="24" y="346" font-size="11" fill="#57606a">reviews on github.com</text>
+
+  <!-- center PR card -->
+  <rect x="340" y="168" width="160" height="64" rx="10" fill="#ddf4ff" stroke="#0969da" stroke-width="2"/>
+  <text x="420" y="196" text-anchor="middle" font-size="14" font-weight="700" fill="#0969da">Pull Request</text>
+  <text x="420" y="216" text-anchor="middle" font-size="11" fill="#57606a">on github.com</text>
+
+  <!-- author steps (top) -->
+  <g>
+    <rect x="40" y="108" width="150" height="58" rx="9" fill="#ffffff" stroke="#6e40c9" stroke-width="2"/>
+    <text x="115" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#6e40c9">1. Branch + commit</text>
+    <text x="115" y="150" text-anchor="middle" font-size="11" fill="#57606a">publish to GitHub</text>
+
+    <rect x="225" y="108" width="150" height="58" rx="9" fill="#ffffff" stroke="#6e40c9" stroke-width="2"/>
+    <text x="300" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#6e40c9">2. Open PR</text>
+    <text x="300" y="150" text-anchor="middle" font-size="11" fill="#57606a">"Create Pull Request"</text>
+
+    <rect x="650" y="108" width="150" height="58" rx="9" fill="#ffffff" stroke="#6e40c9" stroke-width="2"/>
+    <text x="725" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#6e40c9">5. Merge it</text>
+    <text x="725" y="150" text-anchor="middle" font-size="11" fill="#57606a">once approved</text>
+  </g>
+
+  <!-- reviewer steps (bottom) -->
+  <g>
+    <rect x="465" y="234" width="150" height="58" rx="9" fill="#ffffff" stroke="#1a7f37" stroke-width="2"/>
+    <text x="540" y="258" text-anchor="middle" font-size="13" font-weight="700" fill="#1a7f37">3. Read the diff</text>
+    <text x="540" y="276" text-anchor="middle" font-size="11" fill="#57606a">comment on changes</text>
+
+    <rect x="650" y="234" width="150" height="58" rx="9" fill="#ffffff" stroke="#1a7f37" stroke-width="2"/>
+    <text x="725" y="258" text-anchor="middle" font-size="13" font-weight="700" fill="#1a7f37">4. Approve ✓</text>
+    <text x="725" y="276" text-anchor="middle" font-size="11" fill="#57606a">"Approve" review</text>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#8c959f" stroke-width="2.5" fill="#8c959f">
+    <!-- 1 -> 2 -->
+    <line x1="190" y1="137" x2="221" y2="137"/><polygon points="225,137 217,132 217,142"/>
+    <!-- 2 -> PR -->
+    <line x1="375" y1="155" x2="392" y2="166"/><polygon points="396,168 387,166 392,158"/>
+    <!-- PR -> 3 (down to reviewer) -->
+    <line x1="470" y1="232" x2="505" y2="232"/><polygon points="509,247 501,236 511,234"/>
+    <!-- 3 -> 4 -->
+    <line x1="615" y1="263" x2="646" y2="263"/><polygon points="650,263 642,258 642,268"/>
+    <!-- 4 (approve) -> 5 (merge) up -->
+    <line x1="725" y1="234" x2="725" y2="170"/><polygon points="725,166 720,174 730,174"/>
+  </g>
+  <text x="710" y="206" text-anchor="end" font-size="11" fill="#1a7f37" font-weight="700">approved</text>
+
+  <!-- result -->
+  <rect x="300" y="318" width="240" height="40" rx="9" fill="#dafbe1" stroke="#1a7f37"/>
+  <text x="420" y="343" text-anchor="middle" font-size="13" font-weight="700" fill="#1a7f37">main updated → both partners Pull</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg viewBox="0 0 820 460" width="820" xmlns="http://www.w3.org/2000/svg" role="img" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <title>Anatomy of the GitHub Desktop window</title>
+  <desc>The changes list shows files you edited, the diff shows added and removed lines, the summary box and commit button save a snapshot, and the push button sends it to GitHub.</desc>
+  <rect x="0" y="0" width="820" height="460" rx="14" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="819" height="459" rx="14" fill="none" stroke="#d0d7de"/>
+
+  <!-- app window -->
+  <rect x="24" y="56" width="560" height="372" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
+
+  <!-- top bar with push button -->
+  <rect x="24" y="56" width="560" height="40" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+  <text x="44" y="81" font-size="13" font-weight="700" fill="#57606a">Current branch: main</text>
+  <rect x="446" y="64" width="124" height="24" rx="6" fill="#1a7f37"/>
+  <text x="508" y="81" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Push origin</text>
+
+  <!-- left: changes list -->
+  <rect x="24" y="96" width="200" height="332" fill="#ffffff" stroke="#d0d7de"/>
+  <text x="40" y="120" font-size="13" font-weight="700" fill="#1f2328">Changes (2)</text>
+  <rect x="40" y="132" width="13" height="13" rx="3" fill="#1a7f37"/>
+  <text x="62" y="143" font-size="12" fill="#1f2328">README.md</text>
+  <rect x="40" y="156" width="13" height="13" rx="3" fill="#1a7f37"/>
+  <text x="62" y="167" font-size="12" fill="#1f2328">cleaning.py</text>
+
+  <!-- commit box bottom-left -->
+  <rect x="40" y="318" width="168" height="32" rx="6" fill="#ffffff" stroke="#0969da"/>
+  <text x="50" y="338" font-size="11" fill="#8c959f">Summary (required)</text>
+  <rect x="40" y="356" width="168" height="30" rx="6" fill="#1a7f37"/>
+  <text x="124" y="376" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Commit to main</text>
+
+  <!-- right: diff -->
+  <rect x="224" y="96" width="360" height="332" fill="#ffffff" stroke="#d0d7de"/>
+  <text x="240" y="120" font-size="13" font-weight="700" fill="#1f2328">Diff — README.md</text>
+  <rect x="240" y="132" width="328" height="22" fill="#e6ffec"/>
+  <text x="250" y="148" font-size="12" font-family="monospace" fill="#1a7f37">+ Hello World! My favorite color is teal.</text>
+  <rect x="240" y="158" width="328" height="22" fill="#ffebe9"/>
+  <text x="250" y="174" font-size="12" font-family="monospace" fill="#cf222e">- (old line removed)</text>
+  <text x="250" y="200" font-size="12" font-family="monospace" fill="#57606a">  unchanged line…</text>
+
+  <!-- callout annotations -->
+  <g font-size="12.5" fill="#6e40c9" font-weight="700">
+    <text x="612" y="142">1. Files you changed</text>
+    <path d="M 606 138 L 228 138" fill="none" stroke="#6e40c9" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+    <text x="612" y="230">2. Read the diff</text>
+    <text x="612" y="246" font-size="11" fill="#57606a" font-weight="400">green = added, red = removed</text>
+    <path d="M 606 226 L 410 226" fill="none" stroke="#6e40c9" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+    <text x="612" y="334">3. Write a clear message</text>
+    <path d="M 606 330 L 212 330" fill="none" stroke="#6e40c9" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+    <text x="612" y="372">4. Commit the snapshot</text>
+    <path d="M 606 368 L 212 368" fill="none" stroke="#6e40c9" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+    <text x="612" y="78">5. Push to the cloud</text>
+    <path d="M 606 74 L 574 74" fill="none" stroke="#6e40c9" stroke-width="1.5" stroke-dasharray="4 3"/>
+  </g>
+</svg>

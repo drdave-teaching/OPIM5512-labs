@@ -1,0 +1,51 @@
+<svg viewBox="0 0 780 440" width="780" xmlns="http://www.w3.org/2000/svg" role="img" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <title>How Git, GitHub, GitHub Desktop, and VS Code fit together</title>
+  <desc>On your laptop you edit in VS Code, commit in GitHub Desktop, and Git tracks the project. Push sends commits to GitHub in the cloud; pull brings them back.</desc>
+  <rect x="0" y="0" width="780" height="440" rx="14" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="779" height="439" rx="14" fill="none" stroke="#d0d7de"/>
+
+  <!-- Laptop panel -->
+  <rect x="28" y="56" width="400" height="356" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="48" y="84" font-size="15" font-weight="700" fill="#57606a" letter-spacing="1.5">YOUR LAPTOP</text>
+
+  <!-- Cloud panel -->
+  <rect x="500" y="150" width="252" height="180" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="520" y="178" font-size="15" font-weight="700" fill="#57606a" letter-spacing="1.5">THE CLOUD</text>
+
+  <!-- VS Code box -->
+  <rect x="64" y="100" width="328" height="58" rx="9" fill="#ffffff" stroke="#0a66c2" stroke-width="2"/>
+  <text x="80" y="126" font-size="16" font-weight="700" fill="#0a66c2">VS Code</text>
+  <text x="80" y="146" font-size="13" fill="#57606a">edit your files here</text>
+
+  <!-- GitHub Desktop box -->
+  <rect x="64" y="196" width="328" height="58" rx="9" fill="#ffffff" stroke="#6e40c9" stroke-width="2"/>
+  <text x="80" y="222" font-size="16" font-weight="700" fill="#6e40c9">GitHub Desktop</text>
+  <text x="80" y="242" font-size="13" fill="#57606a">commit snapshots here</text>
+
+  <!-- Git engine box -->
+  <rect x="64" y="292" width="328" height="68" rx="9" fill="#ffffff" stroke="#f1502f" stroke-width="2"/>
+  <text x="80" y="320" font-size="16" font-weight="700" fill="#f1502f">Git engine</text>
+  <text x="80" y="340" font-size="13" fill="#57606a">tracks history + your project folder</text>
+
+  <!-- GitHub cloud box -->
+  <rect x="528" y="196" width="196" height="96" rx="9" fill="#ffffff" stroke="#1f2328" stroke-width="2"/>
+  <text x="548" y="232" font-size="16" font-weight="700" fill="#1f2328">GitHub</text>
+  <text x="548" y="252" font-size="13" fill="#57606a">github.com</text>
+  <text x="548" y="272" font-size="13" fill="#57606a">your repo lives here</text>
+
+  <!-- vertical arrows in laptop -->
+  <line x1="228" y1="158" x2="228" y2="194" stroke="#8c959f" stroke-width="2"/>
+  <polygon points="228,196 223,188 233,188" fill="#8c959f"/>
+  <line x1="228" y1="254" x2="228" y2="290" stroke="#8c959f" stroke-width="2"/>
+  <polygon points="228,292 223,284 233,284" fill="#8c959f"/>
+
+  <!-- push arrow -->
+  <line x1="392" y1="210" x2="520" y2="225" stroke="#1a7f37" stroke-width="2.5"/>
+  <polygon points="528,226 516,219 519,231" fill="#1a7f37"/>
+  <text x="430" y="205" font-size="13" font-weight="700" fill="#1a7f37">push  &#8594;</text>
+
+  <!-- pull arrow -->
+  <line x1="520" y1="262" x2="392" y2="247" stroke="#0969da" stroke-width="2.5"/>
+  <polygon points="384,246 396,239 393,251" fill="#0969da"/>
+  <text x="430" y="282" font-size="13" font-weight="700" fill="#0969da">&#8592;  pull</text>
+</svg>

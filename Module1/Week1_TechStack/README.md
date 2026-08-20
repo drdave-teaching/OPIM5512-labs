@@ -38,6 +38,26 @@ This week is about setup, not running scripts. Follow the guide:
 
 ---
 
+## 🧪 The live lab — [Lab 1: First Commit](Lab1_FirstCommit/)
+
+**Hartford Wed Sep 2 · Stamford Wed Sep 9 · 5:30–7:30.** Same lab, run twice.
+
+You and a partner each analyze *half* of one problem — one takes the airport weather, one
+takes New England's electricity demand — and neither of you can reach the punchline alone.
+The only way to see the final plot is to merge your work together.
+
+| Read this | Why |
+|---|---|
+| [Lab1_FirstCommit/README.md](Lab1_FirstCommit/README.md) | the lab itself, run of show, what "done" means |
+| [BRANCHING_MENTAL_MODEL.md](Lab1_FirstCommit/BRANCHING_MENTAL_MODEL.md) | **read before class** — how to think about branches and merging |
+| [COLAB_AND_GITHUB.md](Lab1_FirstCommit/COLAB_AND_GITHUB.md) | moving notebooks and data between Colab and GitHub in both directions |
+| [github_fundamentals.md](github_fundamentals.md) | the buttons — clone, commit, branch, PR, conflicts |
+
+We develop in **Colab** and keep the work in **GitHub**, using **GitHub Desktop** to see what
+changed and to merge. Colab is the editor; Desktop is the map.
+
+---
+
 ## The notebooks
 
 The `notebooks/` folder has the original class notebooks for reference:
