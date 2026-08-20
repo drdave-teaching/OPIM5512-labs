@@ -31,7 +31,7 @@ So you need to move things between them. Here's every path you'll actually use.
 
 **The easy way** — click the badge in the repo:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/drdave-teaching/OPIM5512-labs/blob/main/Module1/Week1_TechStack/Lab1_FirstCommit/notebooks/Lab1_Starter.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/drdave-teaching/OPIM5512-labs/blob/master/Module1/Week1_TechStack/Lab1_FirstCommit/notebooks/Lab1_Starter.ipynb)
 
 **The menu way** — in Colab: **File → Open notebook → GitHub** tab → paste the repo URL →
 pick the branch → pick the notebook.
@@ -56,7 +56,7 @@ Don't upload CSVs by hand every session. Read them straight from the repo:
 ```python
 import pandas as pd
 
-RAW = "https://raw.githubusercontent.com/drdave-teaching/OPIM5512-labs/main/Module1/Week1_TechStack/Lab1_FirstCommit/data"
+RAW = "https://raw.githubusercontent.com/drdave-teaching/OPIM5512-labs/master/Module1/Week1_TechStack/Lab1_FirstCommit/data"
 
 demand_raw = pd.read_csv(f"{RAW}/isone_demand_hourly_raw.csv", header=None, names=["tag","date","he","load_mw"])
 ```

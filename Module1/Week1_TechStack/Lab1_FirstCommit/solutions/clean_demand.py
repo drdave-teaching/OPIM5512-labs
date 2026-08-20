@@ -10,7 +10,7 @@ import io
 import urllib.request
 import pandas as pd
 
-RAW = ("https://raw.githubusercontent.com/drdave-teaching/OPIM5512-labs/main/"
+RAW = ("https://raw.githubusercontent.com/drdave-teaching/OPIM5512-labs/master/"
        "Module1/Week1_TechStack/Lab1_FirstCommit/data")
 
 

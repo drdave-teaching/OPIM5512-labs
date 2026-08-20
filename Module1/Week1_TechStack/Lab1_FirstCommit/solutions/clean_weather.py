@@ -9,7 +9,7 @@ import argparse
 import pandas as pd
 
 STATIONS = {"hartford": "KBDL", "stamford": "KBDR"}
-RAW = ("https://raw.githubusercontent.com/drdave-teaching/OPIM5512-labs/main/"
+RAW = ("https://raw.githubusercontent.com/drdave-teaching/OPIM5512-labs/master/"
        "Module1/Week1_TechStack/Lab1_FirstCommit/data")
 
 
