@@ -30,8 +30,9 @@ def clean_weather(campus="hartford"):
                 .agg(temp_f=("tmpf", "mean"),
                      dewpoint_f=("dwpf", "mean"),
                      humidity_pct=("relh", "mean"),
-                     wind_kt=("sknt", "mean"))
-                .round(2))
+                     wind_kt=("sknt", "mean")))
+    num = hourly.select_dtypes("number").columns
+    hourly[num] = hourly[num].round(2)
     return hourly
 
 

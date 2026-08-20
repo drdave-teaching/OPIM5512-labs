@@ -46,6 +46,10 @@ https://colab.research.google.com/github/OWNER/REPO/blob/BRANCH/path/nb.ipynb
 
 > ⚠️ **Watch the branch in the URL.** Opening `/blob/main/...` gives you `main`'s version, not
 > your branch's. If your edits "disappeared," this is why 90% of the time.
+>
+> 🔷 And note the class labs repo's default branch is **`master`**, while a repo you create on
+> GitHub today defaults to **`main`**. Same idea, different name — GitHub changed the default in
+> 2020 and old repos kept theirs. You'll meet both in the wild; always check which one you're on.
 
 ---
 
