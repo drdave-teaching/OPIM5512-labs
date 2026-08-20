@@ -18,7 +18,7 @@ up what you found, for a manager who doesn't know what a p-value is. That's the 
 
 1. Share a repo with a partner without stepping on each other
 2. Branch → commit → push → open a PR → **review a real person's work** → merge → delete branch
-3. Agree on a data contract *before* anybody writes code
+3. Agree on a data contract *before* anybody writes code — and find out at 7:00 whether it held
 4. Resolve a merge conflict without panicking
 5. Move a notebook between **Colab** and **GitHub** in both directions
 6. Explore a dataset you've never seen and write up what you found for someone who isn't a data scientist
@@ -117,7 +117,7 @@ has to actually work.
 | Time | What happens |
 |---|---|
 | **5:30–5:45** | Pair up. Stack check: GitHub Desktop signed in, Colab opens. |
-| **5:45–6:05** | **The contract.** A creates the repo, adds B, turns on branch protection. Then *together* you write the data dictionary in the README — column names, units, timestamps, filenames. Each opens a PR on it. |
+| **5:45–6:05** | **The contract.** A creates the repo, adds B, turns on branch protection. Then *together* you write the data dictionary in the README — column names, units, and above all **what one row's timestamp means**. Each opens a PR on it. |
 | **6:05–6:40** | **Split and clean.** A on branch `dev-weather`, B on branch `dev-demand`. Separate files, no overlap. Clean your half, save a tidy CSV, get it into the repo. |
 | **6:40–6:55** | **The ping-pong.** Two PRs open at once. Each of you reviews the *other's* diff on github.com and must actually choose Approve / Comment / Request changes. Merge. Delete branch. |
 | **6:55–7:20** | **Joint EDA + the report.** Both pull `main`. Now — and only now — you both have both files. One screen, two people. Explore, then write `REPORT.md`. |

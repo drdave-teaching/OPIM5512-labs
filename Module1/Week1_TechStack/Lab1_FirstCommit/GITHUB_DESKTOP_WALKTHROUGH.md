@@ -85,14 +85,145 @@ If you don't see it, click the refresh icon, and make sure Partner B accepted th
 
 # Part 2 — The contract (both, 5:45–6:05)
 
-Before either of you writes code, agree on what your two output files look like and write it
-down in the README. Column names, units, filenames, and — the one that bites — **what a
-timestamp means.**
+Before either of you writes a line of code, you're going to agree on what your two output files
+look like — and write it down in the README as a **data dictionary**.
 
-Each of you makes this a real pull request, so you've done the loop once before it matters.
+This is the segment everybody wants to skip. Don't. The merge conflict you get at 6:50 is a
+disagreement you're having *right now* and haven't noticed yet.
 
-Follow **Part 3** below for the mechanics; the only difference is you're editing `README.md`
-instead of adding a CSV. Use branch names `contract-<yourname>`.
+---
+
+## What you're each starting from
+
+**Partner A — the raw weather file.** Ten columns, and the names are aviation shorthand:
+
+```
+station            valid  tmpf  dwpf   relh  sknt   drct  p01i  vsby skyc1
+    BDL 2026-07-20 00:51  65.0  51.0  60.49   5.0  340.0   0.0  10.0   CLR
+    BDL 2026-07-20 01:51  60.0  51.0  72.13   4.0  330.0   0.0  10.0   CLR
+    BDL 2026-07-20 02:51  60.0  51.0  72.13   0.0    0.0   0.0  10.0   CLR
+```
+
+| raw | what it is | unit |
+|---|---|---|
+| `station` | airport identifier | — |
+| `valid` | observation time, **local**, at :51 past the hour | — |
+| `tmpf` | air temperature | °F |
+| `dwpf` | dew point | °F |
+| `relh` | relative humidity | % |
+| `sknt` | wind speed | **knots** |
+| `drct` | wind direction | degrees |
+| `p01i` | precipitation, past hour | inches |
+| `vsby` | visibility | statute miles |
+| `skyc1` | sky cover code | `CLR` / `FEW` / `BKN` / `OVC` |
+
+**Partner B — the raw demand file.** Three usable columns, buried under row tags:
+
+```
+"C","Real-Time Hourly System Load Report"
+"H","Date","Hour Ending","Total Load"
+"H","Date","HE","MWh"
+"D","07/20/2026","01",12158.9
+"D","07/20/2026","02",11672.76
+```
+
+| raw | what it is | unit |
+|---|---|---|
+| `Date` | calendar date | — |
+| `Hour Ending` | **1–24**, not 0–23 | — |
+| `Total Load` | New England system demand | MW |
+
+Neither of these is a set of names you'd want to live with. `tmpf` is fine for a pilot and
+`Total Load` is fine for a report header, but `df["Total Load"]` is going to annoy you by
+October. Renaming is your job.
+
+---
+
+## House style — use this
+
+Every column in every file you make this semester:
+
+- **lowercase**, `snake_case`, no spaces, no capitals
+  → `df.temp_f` works; `df["Total Load"]` forces you to type brackets forever
+- **put the unit in the name** when a reader could reasonably guess wrong
+  → `temp_f` beats `temperature`. `wind_kt` beats `wind` — knots aren't mph and somebody
+    *will* assume mph.
+- **no unit in the name** when it can't be misread → `hour` is a timestamp, that's obvious
+- **name the thing, not the source** → `load_mw`, not `isone_total_load_col3`
+
+### One column, done properly
+
+Here's a finished data dictionary entry. It's for `p01i` — a column **neither of you needs
+tonight** — so you can copy the *format* without copying your answer:
+
+> **`precip_in`** — precipitation recorded in the hour before the observation, in inches.
+> Source: `p01i` in the raw METAR file. The raw file uses `T` for a **trace** — it rained, but
+> less than 0.01 in. That's neither zero nor missing, and we had to decide: we treated `T` as
+> missing, which slightly understates how many hours saw *some* rain. 34 of 744 hours are
+> affected at KBDL.
+
+Notice what that entry does: **name, meaning, unit, source, and what an odd value means.** All
+five. The last two are the parts everybody forgets and the parts that save you later.
+
+That entry also does the most important thing a data dictionary can do: **it admits a judgment
+call.** Somebody reading your file six months from now can disagree with you — but only because
+you told them. That's the whole job.
+
+---
+
+## The three decisions
+
+Work through these together, out loud, before either of you opens Colab.
+
+### 1. What do your columns get called?
+
+Partner A has four or five to name, Partner B has one. Apply the house style. Write every name
+into the README with a full dictionary entry, in the format above.
+
+### 2. ⚠️ What does one row *mean*?
+
+**This is the one that decides whether your join works.**
+
+Partner A's observations are stamped `00:51`, `01:51`, `02:51`. Partner B's rows say
+`Hour Ending 01`, `02`, `03`.
+
+Those are two different clocks. Before you write code, answer this together:
+
+> **If a row's timestamp says `2026-07-20 01:00`, does it describe the hour that just finished,
+> or the hour that's about to start?**
+
+Pick one. Write the sentence into the README. Both of you then build your `hour` column to mean
+*exactly that*.
+
+> 🔑 **What the lab fixes for you, so you can spend the time on what matters:**
+> the timestamp column is called **`hour`** in both files, and the files are called
+> **`data/clean/weather_hourly.csv`** and **`data/clean/demand_hourly.csv`**. Keys and paths
+> are the kind of thing real teams standardize once and stop arguing about.
+>
+> **Everything else is yours** — every other column name, and, crucially, *what `hour` means*.
+> That last one is the decision that matters.
+
+Get this wrong and your merge returns **0 rows** at 7:00. That is a completely recoverable
+mistake and an extremely memorable one.
+
+### 3. What happens to a missing hour?
+
+The airport occasionally skips an observation, so Partner A will have slightly fewer than 744
+rows. Decide now: **drop that hour, or keep the row with a blank temperature?**
+
+Either answer is defensible. An undocumented answer is not. Whichever you choose, say so in the
+dictionary — and Partner B should know, because it changes what the join returns.
+
+---
+
+## Now make it a pull request
+
+Each of you writes your half of the data dictionary and opens a PR on the README. Use
+**Part 3** below for the mechanics — the only difference is you're editing `README.md` instead
+of adding a CSV. Branch names: `contract-<yourname>`.
+
+Yes, you're both editing the same file. Yes, that's going to collide. That's Part 5, and it's
+on purpose.
 
 ---
 
