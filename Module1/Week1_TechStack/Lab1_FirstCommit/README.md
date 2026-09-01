@@ -1,4 +1,4 @@
-# Lab 1 — First Commit
+﻿# Lab 1 — First Commit
 
 **OPIM 5512 · Module 1 · Wed 5:30–7:30**
 Hartford: **Sep 2** · Stamford: **Sep 9** — same lab, run twice.
@@ -34,7 +34,7 @@ up what you found, for a manager who doesn't know what a p-value is. That's the 
 - Have a **GitHub account** and **GitHub Desktop** installed and signed in
   → [setup_guide.md](../setup_guide.md)
 - Skim [github_fundamentals.md](../github_fundamentals.md) §8–§12 (branches, PRs, conflicts)
-- Have [GITHUB_DESKTOP_WALKTHROUGH.md](GITHUB_DESKTOP_WALKTHROUGH.md) open during the lab —
+- Have [Lab1_instructions_opim5512.md](Lab1_instructions_opim5512.md) open during the lab —
   it's every click you'll need tonight, in order
 - Read [BRANCHING_MENTAL_MODEL.md](BRANCHING_MENTAL_MODEL.md) — 5 minutes, and it's the
   difference between the lab making sense and the lab being button-mashing
@@ -48,7 +48,7 @@ up what you found, for a manager who doesn't know what a p-value is. That's the 
 | **github.com** | Where pull requests and reviews happen. |
 
 📎 Click by click, in the order you'll need it:
-[GITHUB_DESKTOP_WALKTHROUGH.md](GITHUB_DESKTOP_WALKTHROUGH.md)
+[Lab1_instructions_opim5512.md](Lab1_instructions_opim5512.md)
 📎 Moving notebooks and data between Colab and GitHub:
 [COLAB_AND_GITHUB.md](COLAB_AND_GITHUB.md)
 

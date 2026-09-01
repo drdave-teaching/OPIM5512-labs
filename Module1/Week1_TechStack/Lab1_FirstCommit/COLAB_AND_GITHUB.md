@@ -103,8 +103,17 @@ error, not "branch protection blocked this." If saving mysteriously fails, check
 weren't aiming at `main`.
 
 **Outputs get committed too.** Your plots, your `df.head()` tables, everything — as base64
-inside the JSON. Your partner's PR review will show a wall of unreadable diff. That's normal
-and it's the reason for the next rule.
+inside the JSON. Your partner's PR review will show a wall of unreadable diff. So before any
+save that's heading for a PR: **Runtime → Restart and run all** (proves the notebook works
+top-to-bottom, not just in the order you happened to click cells), then
+**Edit → Clear all outputs**. Measured on this very lab: an empty starter is ~8&nbsp;KB;
+one run of it with outputs is ~118&nbsp;KB, of which your actual code is about 2&nbsp;KB.
+Your partner should review your code, not scroll past your pictures.
+
+**Saving again = editing, saving to a new path = a second notebook.** When you re-save after
+fixes, keep the **same repo, same branch, and the same file path** in the save dialog — that
+updates the notebook and your open PR picks it up automatically. Change the path and you've
+silently created a *second* notebook while the PR still shows the old one.
 
 > ### 🚨 The rule that saves the semester
 > **One notebook per person.** Never two people editing the same `.ipynb` on two branches.
@@ -136,6 +145,26 @@ mysterious: you can *see* the file arrive, see the diff, and choose whether it g
 > In Module 3 we replace this whole dance with a scheduled job on GCP that writes to cloud
 > storage, and nobody ever downloads a CSV again. Feel the friction first — it's the reason
 > that lesson lands.
+
+**Same story for report figures.** A matplotlib chart isn't a file until you save it —
+embedding a chart that exists only as notebook output puts nothing in `figures/`:
+
+```python
+import os
+os.makedirs("figures", exist_ok=True)
+
+ax = hourly.plot(x="hour", y="temperature", figsize=(12, 4))
+ax.set_title("KBDL hourly temperature")
+ax.get_figure().savefig("figures/temperature.png", dpi=150, bbox_inches="tight")
+
+from google.colab import files
+files.download("figures/temperature.png")
+```
+
+Then commit the PNG through GitHub Desktop like the CSV, and reference it from `REPORT.md`
+with a repo-relative path: `![caption](figures/temperature.png)`. Don't paste images into a
+GitHub comment box instead — that hosts them *outside* your repo, and anyone who clones the
+repo gets a report with holes in it.
 
 ---
 

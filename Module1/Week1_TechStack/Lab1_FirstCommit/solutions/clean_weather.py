@@ -17,9 +17,14 @@ def clean_weather(campus="hartford"):
     station = STATIONS[campus]
     url = f"{RAW}/{campus}/airport_{station}_hourly_raw.csv"
 
-    # "M" is missing and "T" is a trace of precipitation. Without na_values every
-    # numeric column comes back as dtype object and nothing downstream works.
-    wx = pd.read_csv(url, na_values=["M", "T"])
+    # "M" is missing - without na_values, any column containing one comes back as
+    # dtype object and nothing downstream works. "T" (trace precipitation) is NOT
+    # missing, so it does not go in na_values: it means "rained, less than 0.01
+    # inch". This file doesn't carry p01i through to the output, but if you add it,
+    # convert T explicitly and assign the result back:
+    #     wx["p01i"] = pd.to_numeric(wx["p01i"].replace("T", 0.005))
+    # and write down what you chose in the data dictionary.
+    wx = pd.read_csv(url, na_values=["M"])
 
     # Observations land at :51 or :52. Floor, do not round - the 6:51 report
     # describes the 6 o'clock hour.

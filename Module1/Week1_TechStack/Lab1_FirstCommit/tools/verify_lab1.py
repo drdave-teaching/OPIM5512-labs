@@ -36,7 +36,7 @@ check("load is plausible for New England", 8000 < demand.load_mw.min() and deman
 for campus in ("hartford", "stamford"):
     station = cw.STATIONS[campus]
     url = (DATA / campus / f"airport_{station}_hourly_raw.csv").as_uri()
-    wx = pd.read_csv(url, na_values=["M", "T"])
+    wx = pd.read_csv(url, na_values=["M"])   # "T" is trace precip, not missing
     wx["hour"] = pd.to_datetime(wx["valid"]).dt.floor("h")
     hourly = (wx.groupby("hour", as_index=False)
                 .agg(temp_f=("tmpf", "mean"), dewpoint_f=("dwpf", "mean"),

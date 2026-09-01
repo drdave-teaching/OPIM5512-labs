@@ -1,4 +1,4 @@
-# GitHub Desktop — the walkthrough for Lab 1
+﻿# Lab 1 instructions — OPIM 5512 (the GitHub Desktop walkthrough)
 
 **OPIM 5512 · Module 1 · keep this open during the lab**
 
@@ -57,7 +57,7 @@ This is the rule that makes the whole night work: it means nobody — including 
 straight to `main`. Every change has to go through a pull request that the other person
 approves.
 
-**Settings** → **Rules → Rulesets** in the left sidebar → **New ruleset → New branch ruleset**.
+**Settings** → **Rulesets** in the left sidebar → **New ruleset → New branch ruleset**.
 
 - **Ruleset name:** `protect-main`
 - **Enforcement status:** switch it to **Active** ← easy to miss, and it does nothing without this
@@ -312,6 +312,19 @@ like that you kept the missing hour instead of dropping it."*
 
 → **Submit review**
 
+Three mechanics that trip everyone the first time:
+
+- To comment on a **specific line**, hover it and click the blue **+**. Then choose **Start a
+  review** (batches your comments into one notification), *not* **Add single comment** (which
+  emails your partner once per comment).
+- **Only Approve unlocks the merge.** A "Comment" review feels like participating, but your
+  partner stays blocked with no visible reason. If it's good, say Approve.
+- **Approving with small suggestions is normal.** The choice isn't "perfect" or "Request
+  changes" — you can approve *and* note two nits in the same review. Save Request changes for
+  things that are actually wrong.
+- One thing GitHub enforces for you: **you can't review your own PR.** That's why this lab
+  needs two of you.
+
 ### 4.2 Merge
 
 Once your partner has approved *your* PR, go to your PR → **Merge pull request** → **Confirm
@@ -329,6 +342,31 @@ In GitHub Desktop:
 
 Now look in `data/clean/`. **Both files are there.** Neither of you could have gotten here
 alone — that's the point of the last hour.
+
+One piece of housekeeping while you're here: your merged branch still exists on your laptop
+even though you deleted it on github.com — branches live in two places. In GitHub Desktop:
+**Branch menu → Delete** (it will only offer this for branches that are safely merged).
+Deleting a merged branch never deletes work: the branch is a sticky note pointing at commits
+that now live in `main`. Short-lived branches are the habit — make one, merge it, delete it.
+
+### 4.5 — You got "Request changes." Now what?
+
+This is the part nobody tells you, so read it now, before it happens.
+
+1. **Do NOT open a new pull request.** Fix it on the *same branch*.
+2. Make the fix (in Colab or locally), commit, push — exactly like Part 3.
+3. **Your PR updates itself.** Same PR number, new commit, the diff refreshes. A pull request
+   tracks a *branch*, not a snapshot — anything you push to that branch is automatically part
+   of the request.
+4. Reply on the **Conversation** tab — one line saying what changed.
+5. **Re-request review**: in the Reviewers box (right side), click the **⟳** next to your
+   partner's name. Without this they never get pinged.
+6. ⚠️ **The red "Changes requested" badge does NOT clear when you re-request.** It stays red
+   until your partner submits a *new* approving review. Red does not mean your fix failed —
+   it means they haven't re-reviewed yet. Don't start over.
+
+And the mirror, for the reviewer: after you submit "Request changes," **you** are the one
+blocking the merge. Watch for the re-request so your partner isn't stuck waiting on you.
 
 ---
 
