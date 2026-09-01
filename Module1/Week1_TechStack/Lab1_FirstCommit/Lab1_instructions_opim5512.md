@@ -337,6 +337,13 @@ Set `CAMPUS` to your campus, clean your half, and produce your CSV. Two things l
 they leave *differently*:
 
 - **The notebook** → **File → Save a copy in GitHub** → your repo, your branch. (No download.)
+  > ⚠️ **Three things to get right in that dialog, every save:**
+  > 1. **Repository** — scroll to **YOUR** repo (`opim5512-lab1-<netid>…`). Colab defaults to
+  >    the *class* repo (`OPIM5512-labs`); the list is long and not searchable, so hunt for yours.
+  > 2. **Branch** — `dev-weather` (create + Publish it in GitHub Desktop first, or it won't appear).
+  > 3. **File path** — shorten the pre-filled path to **`notebooks/Lab1_A_Weather_Starter.ipynb`**
+  >    and use that **exact same path every time.** A different path = a second notebook, not an
+  >    update. (Wrong path just means a link 404s — nothing's lost; browse the branch to find it.)
 - **The CSV** → download it, then drag it into your repo in the next step.
 
 Full details, both directions, in [COLAB_AND_GITHUB.md](COLAB_AND_GITHUB.md). Come back when the
