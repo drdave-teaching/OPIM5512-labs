@@ -239,3 +239,30 @@ Everything in `data/` was pulled **2026-08-20** and covers **Jul 20 – Aug 19, 
 Refresh both with `tools/refresh_lab1_data.py`. Do it once in late August so the "current
 month" framing stays true, and re-run the solution notebook afterward to confirm the punchline
 still holds.
+
+---
+
+## Tooling progression — why Colab now, VS Code soon (design rationale)
+
+**Week 1 / Lab 1 uses Colab on purpose.** The real subject of Lab 1 is the GitHub
+collaboration loop, not Python setup. Colab hands all ~30 students an identical, zero-install
+environment in the browser, so nobody is stuck at 5:40 with a broken `pip`/kernel while the
+rest do git. The one-line principle:
+
+> **Colab GUARANTEES the environment. VS Code ASSUMES it.** Week 1 you can't assume it yet.
+
+You *could* run the whole lab in VS Code (edit notebook, run, clean, commit, push — one tool,
+all local, and it dodges Colab's cross-repo save quirks). The cost is that it requires VS Code
++ Python + pandas/matplotlib + the Jupyter extension + the right kernel on every laptop. That
+assumption is what eats the first hour of a mixed Windows/Mac room.
+
+**The planned hand-off (Dave, Sep 1):**
+- **A02 (Ping Pong)** → **VS Code, run locally.** The A02 notebook already carries the
+  virtual-environment + `requirements.txt` + Windows/Mac/Linux "run the code" sections — it is
+  built to move students off Colab and onto their own machine.
+- **Lab 2** → **VS Code** as well.
+
+So the sequence is Colab (Lab 1) → local/VS Code (A02, Lab 2) → cloud (Module 3, GCP). Each
+step is "now make it run somewhere less forgiving," and that escalation is itself the
+curriculum. Don't quietly flip Lab 1 to VS Code to "simplify" — the browser start is load-
+bearing.
