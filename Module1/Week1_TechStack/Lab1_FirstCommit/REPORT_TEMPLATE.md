@@ -1,3 +1,22 @@
+<!-- ↓↓↓ WORKING NOTE — delete this whole box before you submit ↓↓↓ -->
+
+> 🛠 **How to build this report together (then delete this box).**
+> A report notebook and its figures **can't be merged by git** — a notebook is JSON and figures
+> are binary images, so if two people edit at once, one person's work overwrites the other's.
+> The rule: **never two people in it at the same time.** Two safe ways to collaborate:
+>
+> - **Same screen (in person):** one *drives*, one *navigates*, swap every ~10 minutes. Only the
+>   driver's laptop commits; the partner reviews the pull request. Fastest in the 25-minute window.
+> - **Relay (remote / online-only, if there's time):** Partner A pulls `main` → adds a plot or two
+>   → pushes → merges. **Then** Partner B pulls `main` (now B has A's work) → adds more → pushes →
+>   merges. Take turns. ⚠️ **Pull `main` at the start of every turn** — skip that and you build on
+>   an old copy and wipe your partner's plots.
+>
+> Underneath both: **divide when the files are separate, pair when they're not.** Column names in
+> a text file → work apart and merge. A shared notebook full of plots → one person at a time.
+
+<!-- ↑↑↑ delete everything above this line before submitting ↑↑↑ -->
+
 # Weather and New England's electricity demand
 
 **Prepared by:** _(both names)_

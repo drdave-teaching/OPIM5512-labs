@@ -143,9 +143,16 @@ Once your two files are merged, the lab stops being about git and starts being a
 > it, I want to see it in our own data. Come back with a one-page summary. **I have about
 > ninety seconds and I do not know what a correlation coefficient is.**
 
-**Work at one screen.** One drives, one navigates, swap after ten minutes. Only the driver's
-laptop commits the notebook — notebooks don't merge, so you can't both edit it on separate
-branches. The navigator reviews the PR. That's pair programming, and it's how most real
+**Never two people in the report notebook at once** — a notebook is JSON and figures are binary,
+so git can't merge them; simultaneous edits mean one of you overwrites the other. Two safe ways:
+
+- **Same screen (in person):** one drives, one navigates, swap after ten minutes. Only the
+  driver's laptop commits; the navigator reviews the PR. **Fastest in this 25-minute window.**
+- **Relay (remote / online-only, if there's time):** A pulls `main` → adds plots → pushes →
+  merges; **then** B pulls `main` (now has A's work) → adds plots → pushes → merges. Take turns,
+  and **pull `main` at the start of every turn** or you'll wipe your partner's plots.
+
+Same idea either way — **divide when files are separate, pair when they're not.** That's how real
 analysis actually gets done.
 
 **Find three things.** At least one has to surprise you. Then write it up:
