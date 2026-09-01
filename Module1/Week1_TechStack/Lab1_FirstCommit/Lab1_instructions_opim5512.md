@@ -81,6 +81,19 @@ list → note the **Local path** (remember where it is, you'll be dragging files
 
 If you don't see it, click the refresh icon, and make sure Partner B accepted the invite.
 
+> **You clone ONCE.** The repo will look almost empty — just a README. That's correct, not a
+> mistake: the clone is your empty workbench, and you're about to put things on it. You will
+> **never clone this repo again.** After tonight you keep it current by **Fetch → Pull**, not by
+> re-cloning.
+
+> ### 🧭 How the two tools stay in sync (read this once)
+> Tonight your work arrives through **two doors**: your **notebook** comes in through **Colab**
+> (Save in GitHub → pushes straight to GitHub), and your **CSV + README** go in through **GitHub
+> Desktop** (from your laptop). GitHub is the meeting point in the middle.
+> The one habit that keeps them from fighting: **Pull in GitHub Desktop after Colab saves**, so
+> your laptop matches what Colab just pushed. The whole night is:
+> **clone once → work on a branch → open a PR → merge → Pull `main`.**
+
 ---
 
 # Part 2 — The contract (both, 5:45–6:05)
@@ -307,6 +320,10 @@ Click **Current branch** → **New branch** → name it:
 > Check the top bar. Check it again before every commit.
 
 Click **Publish branch** so it exists on GitHub too.
+
+> ⚠️ **Do this before you save from Colab.** Colab's *Save in GitHub* dialog only lists branches
+> that **already exist on GitHub** — it can't create one for you. So make your branch here and
+> **Publish** it first; then it shows up in Colab's Branch dropdown and you can save onto it.
 
 ### 3.2 Do the work in Colab
 
