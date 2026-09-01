@@ -94,6 +94,14 @@ If you don't see it, click the refresh icon, and make sure Partner B accepted th
 > your laptop matches what Colab just pushed. The whole night is:
 > **clone once → work on a branch → open a PR → merge → Pull `main`.**
 
+> ### 👀 "Why don't I see my files in GitHub Desktop?"
+> Because GitHub Desktop's left panel shows **changes, not files** — only things you've edited
+> since your last commit. When it says **"No local changes,"** that's the *good* state: your
+> laptop and GitHub agree. Your files are still there. To actually *see* your files, use **Show
+> in Explorer**, open the folder in **VS Code**, or browse the repo on **github.com**. The one
+> time the left panel fills up is right after you change, add, or delete something — which is
+> exactly when you want it to.
+
 ---
 
 # Part 2 — The contract (both, 5:45–6:05)
