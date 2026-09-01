@@ -192,8 +192,26 @@ Those are two different clocks. Before you write code, answer this together:
 > **If a row's timestamp says `2026-07-20 01:00`, does it describe the hour that just finished,
 > or the hour that's about to start?**
 
-Pick one. Write the sentence into the README. Both of you then build your `hour` column to mean
-*exactly that*.
+Pick one, write the sentence into the README, and both build your `hour` column to mean
+*exactly that*. Here is the convention this lab uses — and the one mechanical step it forces:
+
+> ### ⚠️ `hour` = the hour that BEGINS. Partner B, subtract 1.
+> ISO-NE ships **Hour Ending 1–24**. "HE 01" covers 00:00 → 01:00, so to put it on an
+> hour-*begins* clock, **Partner B subtracts 1**:  HE 01 → `00:00`,  HE 02 → `01:00`,  …,
+> HE 24 → `23:00`. (Subtracting also rescues HE 24, which is not a real clock hour and will
+> otherwise crash your parse.)
+>
+> **Partner A** floors each `:51` observation down to the hour:  `06:51` → `06:00`.
+>
+> Do both and your two clocks line up. Skip either and the 7:00 join returns **0 rows**.
+
+```python
+# Partner B — ISO-NE Hour Ending 1-24  →  hour that BEGINS
+demand["hour"] = pd.to_datetime(demand["date"]) + pd.to_timedelta(demand["he"] - 1, unit="h")
+
+# Partner A — observation at :51  →  hour that BEGINS
+weather["hour"] = pd.to_datetime(weather["valid"]).dt.floor("h")
+```
 
 > 🔑 **What the lab fixes for you, so you can spend the time on what matters:**
 > the timestamp column is called **`hour`** in both files, and the files are called
@@ -213,6 +231,48 @@ rows. Decide now: **drop that hour, or keep the row with a blank temperature?**
 
 Either answer is defensible. An undocumented answer is not. Whichever you choose, say so in the
 dictionary — and Partner B should know, because it changes what the join returns.
+
+---
+
+## Copy this into your README
+
+Don't hand-build a table. Copy your half below straight into `README.md`, then fill the blanks
+(`____`) with the decisions you just made. The fixed cells (`hour`, `load_mw`, file names) are
+already standardized for you.
+
+**Partner A — paste this:**
+
+```markdown
+## Data Dictionary
+
+### data/clean/weather_hourly.csv  (Partner A)
+| column       | meaning                                          | units |
+|--------------|--------------------------------------------------|-------|
+| hour         | timestamp — the hour that BEGINS                 | —     |
+| temp_f       | air temperature                                  | °F    |
+| dewpoint_f   | dew point                                        | °F    |
+| humidity_pct | relative humidity                                | %     |
+| wind_kt      | wind speed                                        | knots |
+
+**Convention:** `hour` is the hour that BEGINS. Weather is floored from the :51 observation.
+**Missing hours:** ____ (drop the row, or keep it blank? — write which).
+```
+
+**Partner B — paste this under the same `## Data Dictionary` heading:**
+
+```markdown
+### data/clean/demand_hourly.csv  (Partner B)
+| column   | meaning                                   | units |
+|----------|-------------------------------------------|-------|
+| hour     | timestamp — the hour that BEGINS          | —     |
+| load_mw  | New England system demand for that hour   | MW    |
+
+**Convention:** `hour` is the hour that BEGINS. ISO-NE ships Hour Ending 1–24, so **subtract 1**
+(HE 01 → 00:00).
+```
+
+> You're both writing under the **same `## Data Dictionary` heading**, on your own branches.
+> That's deliberate — it's what makes the merge collide in Part 5. Good.
 
 ---
 
@@ -250,9 +310,20 @@ Click **Publish branch** so it exists on GitHub too.
 
 ### 3.2 Do the work in Colab
 
-Open your starter notebook, clean your half, produce your CSV, and download it — that's all in
-[COLAB_AND_GITHUB.md](COLAB_AND_GITHUB.md). Come back here when the file is in your Downloads
-folder.
+**Open the starter straight from GitHub — you do NOT download the `.ipynb`.** Click the
+**"Open in Colab"** badge at the top of the starter notebook on GitHub, or use this link:
+
+- Partner A → `colab.research.google.com/github/drdave-teaching/OPIM5512-labs/blob/master/Module1/Week1_TechStack/Lab1_FirstCommit/notebooks/Lab1_A_Weather_Starter.ipynb`
+- Partner B → same path, `Lab1_B_Demand_Starter.ipynb`
+
+Set `CAMPUS` to your campus, clean your half, and produce your CSV. Two things leave Colab, and
+they leave *differently*:
+
+- **The notebook** → **File → Save a copy in GitHub** → your repo, your branch. (No download.)
+- **The CSV** → download it, then drag it into your repo in the next step.
+
+Full details, both directions, in [COLAB_AND_GITHUB.md](COLAB_AND_GITHUB.md). Come back when the
+CSV is in your Downloads folder.
 
 ### 3.3 Put the file in the repo
 
