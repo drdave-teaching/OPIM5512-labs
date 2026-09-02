@@ -65,7 +65,7 @@ approves.
 - Under **Branch rules**, tick:
   - ✅ **Require a pull request before merging**
   - set **Required approvals** to **1**
-  - ✅ **Block force pushes**
+  - **Block force pushes** — usually already checked by default; just leave it on
 
 Click **Create**.
 
