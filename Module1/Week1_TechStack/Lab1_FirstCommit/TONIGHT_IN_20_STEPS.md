@@ -1,6 +1,6 @@
 # Lab 1 — First Commit · Tonight in 20 Steps
 
-**OPIM 5512 · Module 1** — Hartford **Sep 2**, Stamford **Sep 9** (same lab, run twice)
+**OPIM 5512 · Module 1** — same lab, run once per campus; come to YOUR campus's night
 
 > **The one-sentence version: tonight the deliverable is a *repo*, not a notebook.**
 > Two people each analyze a different half of the same problem, and the only way to the
@@ -20,7 +20,7 @@
 
 ## The 20 steps, in order
 
-**Set up (steps 1–6)**
+### Set up (steps 1–6)
 1. **Pair up.** Decide who's **Partner A (weather)** / **Partner B (demand)**. *(Solo/online? Two accounts, or pair over Teams.)*
 2. **Partner A:** create a new **public** repo for the pair.
 3. **Partner A:** add Partner B as a **collaborator** → **Partner B accepts** the invite.
@@ -28,7 +28,7 @@
 5. **Both:** **clone** the repo **once** in GitHub Desktop.
 6. **Each:** make your branch (`dev-weather` / `dev-demand`) → **Publish** it.
 
-**Grab data & build your half (steps 7–13)**
+### Grab data & build your half (steps 7–13)
 7. **Each:** open your **starter** in Colab (new tab) → **run the first cell, look at your raw data.**
 8. **Together:** write the **data dictionary** (your contract) in `README.md` — names, units, what one timestamp means.
 9. **Each:** clean your half in Colab → **File → Save** to your branch *(drop a `#TEST` to prove it saved).*
@@ -37,13 +37,13 @@
 12. **Each:** **commit** (real message) → **push**.
 13. **Each:** open **one pull request** (your branch → `main`): notebook + contract + CSV + plot.
 
-**Review & merge (steps 14–17)**
+### Review & merge (steps 14–17)
 14. **Each:** request your **partner** as reviewer.
 15. **Each:** **review your partner's PR** — read the diff, then **Approve**.
 16. **Merge** both PRs → **delete** the branches. *(Whoever merges the README **second** resolves the **merge conflict** — keep both halves.)*
 17. **Both:** switch to `main` → **Fetch → Pull.** Now you each have **both** files.
 
-**Join & report (steps 18–20)**
+### Join & report (steps 18–20)
 18. **Together (one screen):** open the **joint EDA** notebook → run the **join** → find **three things**, one surprising.
 19. **Write `REPORT.md`** (from the template) + save **figures** → branch → PR → partner reviews → merge.
 20. **Read-out:** one figure on screen, one sentence — and check your **network graph** shows the loop both ways.
