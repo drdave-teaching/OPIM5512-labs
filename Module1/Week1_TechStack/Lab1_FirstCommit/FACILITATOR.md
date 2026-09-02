@@ -187,7 +187,10 @@ temperature does. All three are correct and worth affirming.
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| Colab "Save a copy in GitHub" does nothing | popup blocked | allow popups for `colab.research.google.com` |
+| "Where's *Save a copy in GitHub*?" | there is no such item — the notebook was opened *from* GitHub | use plain **File → Save**; it pops the Copy-to-GitHub dialog |
+| Colab **File → Save** does nothing | popup blocked | allow popups for `colab.research.google.com` |
+| "I saved but GitHub didn't change" | they hit Ctrl+S (autosaves to Drive only) | GitHub save is a deliberate snapshot — **File → Save**, and re-save after each edit |
+| Can't type their branch in the Colab save dialog | branch field is existing-only | make the branch in GitHub Desktop first, then pick it from the dropdown |
 | Save to GitHub fails with a vague error | they aimed at protected `main` | save to the dev branch |
 | `raw.githubusercontent.com` 404s | pair repo is **private** | make it public — nothing in it is sensitive |
 | Temperature column is a string | didn't set `na_values=["M"]` | that's the lesson; let them find it |

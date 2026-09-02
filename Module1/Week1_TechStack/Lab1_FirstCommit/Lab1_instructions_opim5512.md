@@ -208,13 +208,39 @@ Set `CAMPUS` to your campus and run the **first cell** — the one that just rea
 raw file. Actually look: the aviation column names, the `:51` timestamps, the `M`/`T` values, the
 `Hour Ending 1–24`. **This is the data you're about to write a contract for.**
 
-**3. Save the starter into your repo** → **File → Save a copy in GitHub**.
-> ⚠️ Three things to get right in that dialog, every save:
+**3. Save the starter into your repo** → in the Colab menu, **File → Save**.
+> ℹ️ There is **no "Save a copy in GitHub"** item — plain **Save** is the one that talks to
+> GitHub here, because you opened this notebook *from* GitHub. It pops the **Copy to GitHub**
+> dialog. Three things to get right in that dialog, every single save:
 > 1. **Repository** — scroll to **YOUR** repo (`opim5512-lab1-<netid>…`). Colab defaults to the
 >    *class* repo (`OPIM5512-labs`); the list is long and not searchable, so hunt for yours.
 > 2. **Branch** — your `dev-` branch (you published it in step 1, so it's in the dropdown).
-> 3. **File path** — shorten it to `notebooks/<the starter's name>.ipynb` and use that **exact
->    same path every time**. A different path makes a second notebook, not an update.
+> 3. **File path** — keep it simple: just the **filename at the top level** of your repo
+>    (e.g. `Lab1_A_Weather_Starter.ipynb`), **no folder** — nothing to mistype. Use the **exact
+>    same path every single time**, or you'll make a second notebook instead of updating the first.
+>
+> ✍️ The dialog also asks for a **commit message** — write a real one that says what changed
+> (`import starter`, then later `clean weather: M→NaN, keep trace T`). "Update" tells your
+> partner nothing when they review your pull request.
+
+> 💾 **Ctrl+S is not enough — and a GitHub save is a snapshot, not a mirror.**
+> - The quick **Ctrl+S** just autosaves to your Google **Drive**. Your partner can't see that,
+>   and it never touches GitHub. Getting your work onto GitHub is a **deliberate** act: **File → Save**.
+> - Each GitHub save is a **snapshot** (a commit) frozen at that moment. Edit the notebook again?
+>   GitHub does **not** update itself — you have to **File → Save again** to push a fresh snapshot.
+>   New save = new commit, so give each one a message that says what you changed.
+
+**✅ Prove it really saved (do this once — 30 seconds).** The first save always feels like it
+went into a void. Make it concrete:
+1. In your notebook, add a comment line at the very top: `#TEST`. **File → Save** to GitHub
+   (commit message: `test: does this really save?`).
+2. On **github.com**, switch to your `dev-` branch and open the notebook — you can see your
+   `#TEST`. *That's your code, on GitHub, in your repo.* It worked.
+3. Change it to `#TEST2` and **File → Save again** — **same repository, same branch, same
+   filename** (commit message: `test: does it update?`). Refresh GitHub: the notebook **updated
+   in place** — still one file, now showing `#TEST2`, not a second copy. That's snapshot #2, and
+   that's exactly what "same path every time" buys you.
+4. Delete the test comment (and save once more) once you believe it. Now go do the real cleaning.
 
 **4. Pull in GitHub Desktop** (Fetch → Pull) so your laptop matches the notebook Colab pushed.
 
@@ -384,8 +410,9 @@ you'll do it hundreds of times in your career.
 Back in the starter you opened in Part 2, finish cleaning your half and produce your CSV. When
 it's ready, two things leave Colab, and they leave *differently*:
 
-- **The notebook** → **File → Save a copy in GitHub** again — **same repo, same branch, same
-  path** as before, so it *updates* your notebook instead of making a new one.
+- **The notebook** → **File → Save** again — **same repo, same branch, same path** as before, so
+  this snapshot *updates* your notebook instead of making a new one (commit message:
+  `clean weather: M→NaN, keep trace T`).
 - **The CSV** → download it (it lands in your Downloads folder); you'll drag it into the repo next.
 
 Full details, both directions, in [COLAB_AND_GITHUB.md](COLAB_AND_GITHUB.md). Come back when the

@@ -16,7 +16,7 @@ So you need to move things between them. Here's every path you'll actually use.
    github.com  ────────►  Colab          "open the starter"
    (the truth)            (the editor)
 
-   Colab       ────────►  a branch       "Save a copy in GitHub"
+   Colab       ────────►  a branch       File → Save  (a snapshot/commit)
                           on github.com
 
    github.com  ────────►  your laptop    GitHub Desktop: Fetch / Pull
@@ -75,15 +75,21 @@ opening the file on github.com and clicking **Raw**.
 
 ## 3. Save your notebook *to* GitHub — the important one
 
-In Colab: **File → Save a copy in GitHub.**
+In Colab: **File → Save.** There is **no "Save a copy in GitHub"** menu item — because you
+opened this notebook *from* GitHub, plain **Save** is the one that commits back to GitHub (it
+pops the **Copy to GitHub** dialog).
+
+> 💾 **Ctrl+S ≠ GitHub.** The quick Ctrl+S only autosaves to Google Drive. A GitHub save is a
+> deliberate **snapshot** (a commit): do **File → Save**, and do it *again* every time you want
+> a new snapshot — GitHub doesn't update itself.
 
 The dialog asks for four things. All four matter:
 
 | Field | What to put |
 |---|---|
 | **Repository** | your pair repo |
-| **Branch** | ⚠️ **your dev branch** — `dev-weather` or `dev-demand`. **Never `main`.** You can *type a new branch name here* and Colab will create it. |
-| **File path** | `notebooks/weather_eda.ipynb` — the path inside the repo |
+| **Branch** | ⚠️ **your dev branch** — `dev-weather` or `dev-demand`. **Never `main`.** This is a **dropdown of branches that already exist** — you *can't* type a new one here. Make the branch first in **GitHub Desktop**, then pick it from this list. |
+| **File path** | just the **filename at the repo root** — `weather_eda.ipynb`. Same path every save, or you make duplicates. |
 | **Commit message** | a real sentence. "Updated" is not a real sentence. |
 
 The first time, a GitHub authorization popup appears. **Allow popups** for
@@ -125,7 +131,7 @@ silently created a *second* notebook while the PR still shows the old one.
 ## 4. Get a *data file* out of Colab and into the repo
 
 Colab's disk is temporary — when the runtime disconnects, your `weather_hourly.csv` is gone.
-"Save a copy in GitHub" only saves the **notebook**, not the files it wrote.
+**File → Save** only saves the **notebook**, not the files it wrote.
 
 For Week 1, the honest path — and it's two minutes:
 
@@ -184,7 +190,7 @@ don't, one of you is reading a stale branch — check the URL.
 | I want to… | Do this |
 |---|---|
 | Start from the class starter | Click the Colab badge in the repo |
-| Save my work | File → Save a copy in GitHub → **dev branch** |
+| Save my work | File → Save → **dev branch** (a snapshot; re-save for each new one) |
 | Get my data file into the repo | `files.download()` → drag into repo folder → commit in Desktop |
 | See what actually changed | GitHub Desktop, **Changes** tab |
 | Get my partner's work | Desktop → `main` → Fetch → Pull |

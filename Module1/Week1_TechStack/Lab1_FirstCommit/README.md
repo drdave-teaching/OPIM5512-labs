@@ -174,7 +174,7 @@ what it is. If nobody finds it by 7:25, Dave will.
 - [ ] Both partners listed as collaborators; branch protection on `main` (PR + 1 approval)
 - [ ] `README.md` with a data dictionary covering **both** cleaned files
 - [ ] `data/clean/weather_hourly.csv` and `data/clean/demand_hourly.csv`
-- [ ] `notebooks/` — two cleaning notebooks plus the joint EDA notebook
+- [ ] Both cleaning notebooks plus the joint EDA notebook (repo root is fine — just keep the same filename on every save)
 - [ ] **`REPORT.md`** — three findings, two or three figures, honest caveats, plain English
 - [ ] `figures/` — the images the report points at
 - [ ] **≥3 merged pull requests** (one each for your halves + the report), branches deleted, both of you authoring and reviewing
