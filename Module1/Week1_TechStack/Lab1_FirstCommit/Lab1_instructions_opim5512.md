@@ -190,7 +190,9 @@ different branches, so nothing collides.
 > exist on GitHub — it can't create one for you.
 
 **2. Open your starter in Colab and LOOK at your data.** Open it straight from GitHub (the
-**Open in Colab** badge on the notebook), or click your link:
+**Open in Colab** badge on the notebook), or click your link — **open it in a new tab**
+(Ctrl-click / Cmd-click, or right-click → *Open link in new tab*) so you keep these instructions
+open beside Colab all night:
 - **Partner A — weather:** [Lab1_A_Weather_Starter.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-labs/blob/master/Module1/Week1_TechStack/Lab1_FirstCommit/notebooks/Lab1_A_Weather_Starter.ipynb)
 - **Partner B — demand:** [Lab1_B_Demand_Starter.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-labs/blob/master/Module1/Week1_TechStack/Lab1_FirstCommit/notebooks/Lab1_B_Demand_Starter.ipynb)
 - *(the joint report starter, [Lab1_Joint_EDA_and_Report.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-labs/blob/master/Module1/Week1_TechStack/Lab1_FirstCommit/notebooks/Lab1_Joint_EDA_and_Report.ipynb), comes later in Part 6)*
