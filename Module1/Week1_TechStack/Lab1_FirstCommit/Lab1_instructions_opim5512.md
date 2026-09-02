@@ -174,10 +174,15 @@ October. Renaming is your job.
 
 ---
 
-## First: open your data on your branch (both, at the same time)
+## First: make your branch — *then* open your data (both, at the same time)
 
 Do this in parallel — Partner A on `dev-weather`, Partner B on `dev-demand`. Different files,
 different branches, so nothing collides.
+
+> ## 🛑 STEP 1 — MAKE YOUR BRANCH BEFORE YOU OPEN COLAB
+> Don't skip to the notebook link below. **Make and publish your branch first.** Colab can only
+> save to a branch that already exists on GitHub, so if you clean your data before this, you'll
+> have nowhere to save it and have to backtrack.
 
 **1. Make your branch.** In GitHub Desktop, top bar → **Current branch → New branch** →
 - Partner A: `dev-weather`   ·   Partner B: `dev-demand`
@@ -186,10 +191,8 @@ different branches, so nothing collides.
 
 > 🔴 The most common mistake tonight is doing work while `main` is selected. Read the top bar —
 > and read it again before every commit.
-> ⚠️ Publish **before** you save from Colab: Colab's save dialog only lists branches that already
-> exist on GitHub — it can't create one for you.
 
-**2. Open your starter in Colab and LOOK at your data.** Open it straight from GitHub (the
+**2. Now open your starter in Colab and LOOK at your data.** Open it straight from GitHub (the
 **Open in Colab** badge on the notebook), or click your link — **open it in a new tab**
 (Ctrl-click / Cmd-click, or right-click → *Open link in new tab*) so you keep these instructions
 open beside Colab all night:
