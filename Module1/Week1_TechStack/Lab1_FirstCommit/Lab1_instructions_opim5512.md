@@ -413,24 +413,28 @@ you'll do it hundreds of times in your career.
 
 ### 3.1 Clean your data in Colab
 
-Back in the starter you opened in Part 2, finish cleaning your half and produce your CSV. When
-it's ready, two things leave Colab, and they leave *differently*:
+Back in the starter you opened in Part 2, finish cleaning your half, produce your CSV, **and save
+your plot to a file**. When it's ready, three things leave Colab:
 
 - **The notebook** → **File → Save** again — **same repo, same branch, same path** as before, so
   this snapshot *updates* your notebook instead of making a new one (commit message:
-  `clean weather: M→NaN, keep trace T`).
-- **The CSV** → download it (it lands in your Downloads folder); you'll drag it into the repo next.
+  `clean weather: M→NaN, keep trace T`). *(Or download the `.ipynb` and drag it in — Option B.)*
+- **The CSV** → download it (lands in Downloads); you'll drag it into the repo next.
+- **The plot** → save it in the notebook (`ax.get_figure().savefig("monthly_temp.png", …)`) and
+  download it too. A figure you only *looked at* isn't a deliverable; the file is.
 
-Full details, both directions, in [COLAB_AND_GITHUB.md](COLAB_AND_GITHUB.md). Come back when the
-CSV is in your Downloads folder.
+Full details, both directions, in [COLAB_AND_GITHUB.md](COLAB_AND_GITHUB.md). Come back when your
+CSV and PNG are in your Downloads folder.
 
-### 3.2 Put your CSV in the repo
+### 3.2 Put your CSV and plot in the repo
 
-Open your repo folder on disk (the Local path from step 1.4). Make a folder called `data`, and
-inside it one called `clean`. Drag your downloaded CSV in:
+First, **open your repo folder**: in **GitHub Desktop**, click **Repository → Show in Explorer**
+(Windows) / **Reveal in Finder** (Mac) — that opens the actual folder on disk you drag into.
+Make a `data/clean/` folder and an `images/` folder if they aren't there, then drag your
+downloads in from **Downloads**:
 
-- Partner A → `data/clean/weather_hourly.csv`
-- Partner B → `data/clean/demand_hourly.csv`
+- Partner A → `data/clean/weather_hourly.csv` and `images/monthly_temp.png`
+- Partner B → `data/clean/demand_hourly.csv` and `images/monthly_demand.png`
 
 ### 3.3 Commit
 
