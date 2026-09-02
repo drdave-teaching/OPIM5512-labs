@@ -8,6 +8,7 @@
 | 🗺️ | **Tonight in 20 steps** (the one-page map) | [TONIGHT_IN_20_STEPS.md](TONIGHT_IN_20_STEPS.md) |
 | 🎞️ | **Run-of-show slides** (PDF) | [OPIM5512_Lab1_RunOfShow_Deck.pdf](handouts/OPIM5512_Lab1_RunOfShow_Deck.pdf) |
 | 🖨️ | **Printable instructions** (PDF — one-monitor friendly) | [OPIM5512_Lab1_Instructions_PRINT.pdf](handouts/OPIM5512_Lab1_Instructions_PRINT.pdf) |
+| 🖨️ | **Printable 20 steps** (PDF, one page-ish) | [OPIM5512_Lab1_Tonight_in_20_Steps_PRINT.pdf](handouts/OPIM5512_Lab1_Tonight_in_20_Steps_PRINT.pdf) |
 
 ## Starter notebooks — open in Colab (right-click → *Open in new tab*)
 
