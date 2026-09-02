@@ -242,7 +242,13 @@ went into a void. Make it concrete:
    that's exactly what "same path every time" buys you.
 4. Delete the test comment (and save once more) once you believe it. Now go do the real cleaning.
 
-**4. Pull in GitHub Desktop** (Fetch → Pull) so your laptop matches the notebook Colab pushed.
+**4. Bring it down to your laptop.** Colab **pushed** your notebook *up* to GitHub. To get it
+*down* to your computer, open **GitHub Desktop** → click **Fetch origin** (that's the *peek*:
+does the cloud have anything new?). When it finds your notebook, the button changes to **Pull
+origin** — click it to **download** it.
+> 🔁 push = send up · fetch = peek · pull = download. You don't *push* here — Colab already did.
+> Now open the repo folder in **File Explorer** (or VS Code) and there's your `.ipynb`, sitting
+> right at the top of the repo. That's the round trip: Colab → GitHub → your laptop.
 
 Now you've each got your branch, your starter, and — most important — *eyes on your raw data.*
 Regroup for the contract.
