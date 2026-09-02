@@ -39,7 +39,7 @@ Go to **github.com** → green **New** button (or the **+** at top right → New
 | Description | "Weather and electricity demand — OPIM 5512 Lab 1" |
 | **Public / Private** | ⚠️ **Public.** Colab reads your CSVs over a raw URL, and raw URLs don't work on private repos. There's nothing sensitive in here. |
 | Add a README file | ✅ **check it** — you need at least one commit to exist before you can protect a branch |
-| .gitignore template | **Python** |
+| .gitignore template | **Python** — this tells git to skip Python junk (`__pycache__/`, `.ipynb_checkpoints/`, `venv/`) so it never lands in your repo or clutters a PR. It does **not** ignore `.csv`, so your cleaned data still commits fine. Free hygiene now, and it saves you when Module 2's assignment moves to a local virtual environment. |
 
 Click **Create repository**.
 
