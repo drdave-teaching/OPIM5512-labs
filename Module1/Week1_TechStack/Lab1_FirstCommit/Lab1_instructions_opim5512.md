@@ -88,7 +88,10 @@ In **GitHub Desktop**: `File → Clone repository` → **GitHub.com** tab → fi
 list → note the **Local path** (remember where it is, you'll be dragging files there) →
 **Clone**.
 
-If you don't see it, click the refresh icon, and make sure Partner B accepted the invite.
+If you don't see it, click the refresh icon (just right of the search box), and make sure
+Partner B accepted the invite. A brand-new repo often doesn't appear until you refresh.
+
+![Where the refresh icon is in the GitHub Desktop Clone dialog](images/ghdesktop_refresh.png)
 
 > **You clone ONCE.** The repo will look almost empty — just a README. That's correct, not a
 > mistake: the clone is your empty workbench, and you're about to put things on it. You will
