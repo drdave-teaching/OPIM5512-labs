@@ -191,7 +191,7 @@ different branches, so nothing collides.
 branch** in two places — the **toolbar button** (top right) and a big **"Publish your branch"
 card** in the middle of the window. Either one works.
 
-![The GitHub Desktop top bar, with the Publish branch button](images/ghdesktop_publish.png)
+![The GitHub Desktop top bar, with the Publish branch button](images/ghdesktop_publish_v2.png)
 
 > 🔴 The most common mistake tonight is doing work while `main` is selected. Read the top bar —
 > and read it again before every commit.
