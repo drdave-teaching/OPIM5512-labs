@@ -1,4 +1,4 @@
-﻿# Lab 1 instructions — OPIM 5512 (the GitHub Desktop walkthrough)
+# Lab 1 instructions — OPIM 5512 (the GitHub Desktop walkthrough)
 
 **OPIM 5512 · Module 1 · keep this open during the lab**
 
