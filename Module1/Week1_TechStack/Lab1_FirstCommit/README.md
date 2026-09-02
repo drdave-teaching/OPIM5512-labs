@@ -117,9 +117,9 @@ has to actually work.
 | Time | What happens |
 |---|---|
 | **5:30–5:45** | Pair up. Stack check: GitHub Desktop signed in, Colab opens. |
-| **5:45–6:05** | **The contract.** A creates the repo, adds B, turns on branch protection. Then *together* you write the data dictionary in the README — column names, units, and above all **what one row's timestamp means**. Each opens a PR on it. |
-| **6:05–6:40** | **Split and clean.** A on branch `dev-weather`, B on branch `dev-demand`. Separate files, no overlap. Clean your half, save a tidy CSV, get it into the repo. |
-| **6:40–6:55** | **The ping-pong.** Two PRs open at once. Each of you reviews the *other's* diff on github.com and must actually choose Approve / Comment / Request changes. Merge. Delete branch. |
+| **5:45–6:05** | **Grab data + the contract.** A creates the repo, adds B, turns on branch protection; both clone. Each makes a branch (`dev-weather` / `dev-demand`), opens their starter and *looks* at their raw data — then *together* you write the data dictionary in the README: column names, units, and above all **what one row's timestamp means**. Each writes their half on their own branch. |
+| **6:05–6:40** | **Clean it — one PR each.** Clean your half in Colab, save the notebook + a tidy CSV to your branch, and open **one** pull request that carries your notebook, your contract, and your CSV. |
+| **6:40–6:55** | **The ping-pong.** Both PRs open at once. Each of you reviews the *other's* diff on github.com and must actually choose Approve / Comment / Request changes. Merge. Delete branch. |
 | **6:55–7:20** | **Joint EDA + the report.** Both pull `main`. Now — and only now — you both have both files. One screen, two people. Explore, then write `REPORT.md`. |
 | **7:20–7:30** | **Read-outs.** Every pair puts one figure on the screen and says what it means in one sentence. |
 
@@ -177,7 +177,7 @@ what it is. If nobody finds it by 7:25, Dave will.
 - [ ] `notebooks/` — two cleaning notebooks plus the joint EDA notebook
 - [ ] **`REPORT.md`** — three findings, two or three figures, honest caveats, plain English
 - [ ] `figures/` — the images the report points at
-- [ ] **≥4 merged pull requests**, branches deleted, both of you authoring and reviewing
+- [ ] **≥3 merged pull requests** (one each for your halves + the report), branches deleted, both of you authoring and reviewing
 - [ ] A network graph showing the loop going both ways
 
 ---

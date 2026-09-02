@@ -116,10 +116,12 @@ Partner B accepted the invite. A brand-new repo often doesn't appear until you r
 
 ---
 
-# Part 2 — The contract (both, 5:45–6:05)
+# Part 2 — Grab your data, then agree the contract (both — parallel, then together, 5:45–6:05)
 
-Before either of you writes a line of code, you're going to agree on what your two output files
-look like — and write it down in the README as a **data dictionary**.
+First you'll **each open your own raw data and look at it**, on your own branch — Partner A and
+Partner B at the same time, no waiting. *Then*, having actually seen the columns, the two of you
+agree on what your output files look like and write it into the README as a **data dictionary**.
+You can't name a column you haven't looked at.
 
 This is the segment everybody wants to skip. Don't. The merge conflict you get at 6:50 is a
 disagreement you're having *right now* and haven't noticed yet.
@@ -169,6 +171,46 @@ station            valid  tmpf  dwpf   relh  sknt   drct  p01i  vsby skyc1
 Neither of these is a set of names you'd want to live with. `tmpf` is fine for a pilot and
 `Total Load` is fine for a report header, but `df["Total Load"]` is going to annoy you by
 October. Renaming is your job.
+
+---
+
+## First: open your data on your branch (both, at the same time)
+
+Do this in parallel — Partner A on `dev-weather`, Partner B on `dev-demand`. Different files,
+different branches, so nothing collides.
+
+**1. Make your branch.** In GitHub Desktop, top bar → **Current branch → New branch** →
+- Partner A: `dev-weather`   ·   Partner B: `dev-demand`
+
+→ **Create branch**, then **Publish branch** so it exists on GitHub too.
+
+> 🔴 The most common mistake tonight is doing work while `main` is selected. Read the top bar —
+> and read it again before every commit.
+> ⚠️ Publish **before** you save from Colab: Colab's save dialog only lists branches that already
+> exist on GitHub — it can't create one for you.
+
+**2. Open your starter in Colab and LOOK at your data.** Open it straight from GitHub (the
+**Open in Colab** badge on the notebook), or click your link:
+- **Partner A — weather:** [Lab1_A_Weather_Starter.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-labs/blob/master/Module1/Week1_TechStack/Lab1_FirstCommit/notebooks/Lab1_A_Weather_Starter.ipynb)
+- **Partner B — demand:** [Lab1_B_Demand_Starter.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-labs/blob/master/Module1/Week1_TechStack/Lab1_FirstCommit/notebooks/Lab1_B_Demand_Starter.ipynb)
+- *(the joint report starter, [Lab1_Joint_EDA_and_Report.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-labs/blob/master/Module1/Week1_TechStack/Lab1_FirstCommit/notebooks/Lab1_Joint_EDA_and_Report.ipynb), comes later in Part 6)*
+
+Set `CAMPUS` to your campus and run the **first cell** — the one that just reads and prints the
+raw file. Actually look: the aviation column names, the `:51` timestamps, the `M`/`T` values, the
+`Hour Ending 1–24`. **This is the data you're about to write a contract for.**
+
+**3. Save the starter into your repo** → **File → Save a copy in GitHub**.
+> ⚠️ Three things to get right in that dialog, every save:
+> 1. **Repository** — scroll to **YOUR** repo (`opim5512-lab1-<netid>…`). Colab defaults to the
+>    *class* repo (`OPIM5512-labs`); the list is long and not searchable, so hunt for yours.
+> 2. **Branch** — your `dev-` branch (you published it in step 1, so it's in the dropdown).
+> 3. **File path** — shorten it to `notebooks/<the starter's name>.ipynb` and use that **exact
+>    same path every time**. A different path makes a second notebook, not an update.
+
+**4. Pull in GitHub Desktop** (Fetch → Pull) so your laptop matches the notebook Colab pushed.
+
+Now you've each got your branch, your starter, and — most important — *eyes on your raw data.*
+Regroup for the contract.
 
 ---
 
@@ -309,67 +351,38 @@ already standardized for you.
 
 ---
 
-## Now make it a pull request
+## Write your half — on your branch
 
-Each of you writes your half of the data dictionary and opens a PR on the README. Use
-**Part 3** below for the mechanics — the only difference is you're editing `README.md` instead
-of adding a CSV. Branch names: `contract-<yourname>`.
+Each of you writes **your half** of the data dictionary into `README.md`, on the same `dev-`
+branch you made above. Copy the stub from *"Copy this into your README"* and fill it in.
 
-Yes, you're both editing the same file. Yes, that's going to collide. That's Part 5, and it's
-on purpose.
+**Don't open a pull request yet.** Your README edit rides on the same branch as your notebook and
+(next) your CSV — you'll open **one** pull request at the end of Part 3 with all three together.
+
+Yes, you're both editing the same README section. Yes, it collides when the second PR merges.
+That's Part 5, and it's on purpose.
 
 ---
 
-# Part 3 — The loop (each of you, on your own branch, 6:05–6:40)
+# Part 3 — Clean it, then open your one pull request (each on your branch, 6:05–6:40)
 
-This is the core cycle. You'll do it several times tonight and hundreds of times in your career.
+You already have your branch, your starter, and your half of the README contract on it (Part 2).
+Now finish the analysis and ship all three in **one** pull request. This is the core cycle —
+you'll do it hundreds of times in your career.
 
-### 3.1 Make your branch
+### 3.1 Clean your data in Colab
 
-In GitHub Desktop, look at the **top bar**. It has three boxes: current repository, **current
-branch**, and the publish/push button. You'll be reading this bar constantly.
+Back in the starter you opened in Part 2, finish cleaning your half and produce your CSV. When
+it's ready, two things leave Colab, and they leave *differently*:
 
-Click **Current branch** → **New branch** → name it:
-
-- Partner A: `dev-weather`
-- Partner B: `dev-demand`
-
-→ **Create branch**. The top bar should now show your branch name, not `main`.
-
-> 🔴 **The single most common mistake tonight is doing work while `main` is selected.**
-> Check the top bar. Check it again before every commit.
-
-Click **Publish branch** so it exists on GitHub too.
-
-> ⚠️ **Do this before you save from Colab.** Colab's *Save in GitHub* dialog only lists branches
-> that **already exist on GitHub** — it can't create one for you. So make your branch here and
-> **Publish** it first; then it shows up in Colab's Branch dropdown and you can save onto it.
-
-### 3.2 Do the work in Colab
-
-**Open the starter straight from GitHub — you do NOT download the `.ipynb`.** Click the
-**"Open in Colab"** badge at the top of the starter notebook on GitHub, or use this link:
-
-- Partner A → `colab.research.google.com/github/drdave-teaching/OPIM5512-labs/blob/master/Module1/Week1_TechStack/Lab1_FirstCommit/notebooks/Lab1_A_Weather_Starter.ipynb`
-- Partner B → same path, `Lab1_B_Demand_Starter.ipynb`
-
-Set `CAMPUS` to your campus, clean your half, and produce your CSV. Two things leave Colab, and
-they leave *differently*:
-
-- **The notebook** → **File → Save a copy in GitHub** → your repo, your branch. (No download.)
-  > ⚠️ **Three things to get right in that dialog, every save:**
-  > 1. **Repository** — scroll to **YOUR** repo (`opim5512-lab1-<netid>…`). Colab defaults to
-  >    the *class* repo (`OPIM5512-labs`); the list is long and not searchable, so hunt for yours.
-  > 2. **Branch** — `dev-weather` (create + Publish it in GitHub Desktop first, or it won't appear).
-  > 3. **File path** — shorten the pre-filled path to **`notebooks/Lab1_A_Weather_Starter.ipynb`**
-  >    and use that **exact same path every time.** A different path = a second notebook, not an
-  >    update. (Wrong path just means a link 404s — nothing's lost; browse the branch to find it.)
-- **The CSV** → download it, then drag it into your repo in the next step.
+- **The notebook** → **File → Save a copy in GitHub** again — **same repo, same branch, same
+  path** as before, so it *updates* your notebook instead of making a new one.
+- **The CSV** → download it (it lands in your Downloads folder); you'll drag it into the repo next.
 
 Full details, both directions, in [COLAB_AND_GITHUB.md](COLAB_AND_GITHUB.md). Come back when the
 CSV is in your Downloads folder.
 
-### 3.3 Put the file in the repo
+### 3.2 Put your CSV in the repo
 
 Open your repo folder on disk (the Local path from step 1.4). Make a folder called `data`, and
 inside it one called `clean`. Drag your downloaded CSV in:
@@ -377,7 +390,7 @@ inside it one called `clean`. Drag your downloaded CSV in:
 - Partner A → `data/clean/weather_hourly.csv`
 - Partner B → `data/clean/demand_hourly.csv`
 
-### 3.4 Commit
+### 3.3 Commit
 
 Switch to GitHub Desktop. It noticed. The **Changes** tab on the left now lists your file.
 
@@ -390,7 +403,10 @@ Switch to GitHub Desktop. It noticed. The **Changes** tab on the left now lists 
 3. Click **Commit to `dev-weather`** (it names your branch on the button — read it).
 4. Click **Push origin** in the top bar.
 
-### 3.5 Open the pull request
+### 3.4 Open your one pull request
+
+Your branch now carries all three: your **notebook**, your half of the **README contract**, and
+your **CSV**. Time for a single PR that covers the lot.
 
 After pushing, Desktop shows a blue banner: **Create Pull Request**. Click it — it opens
 github.com.
@@ -401,7 +417,7 @@ github.com.
   is a great PR description.
 - **Create pull request**
 
-Now tell your partner. Out loud. They're sitting next to you.
+Now tell your partner. Out loud. They're sitting next to you (or on the call).
 
 ---
 

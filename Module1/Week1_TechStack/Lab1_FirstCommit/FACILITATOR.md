@@ -32,9 +32,9 @@ notebook."*
 | Time | Segment | Watch for |
 |---|---|---|
 | 5:30–5:45 | Pair up, stack check | Anyone not signed into GitHub Desktop — fix now, not at 6:40 |
-| 5:45–6:05 | **The contract** | This is the segment everyone wants to skip. Don't let them. |
-| 6:05–6:40 | Split and clean | Quiet room. Circulate. |
-| 6:40–6:55 | **The ping-pong** | Two PRs open at once. Force a real Approve click. |
+| 5:45–6:05 | **Grab data + the contract** | They open their starter and *look* first, then write the contract. Don't let them skip the contract. |
+| 6:05–6:40 | Clean it — one PR each | Quiet room. Circulate. |
+| 6:40–6:55 | **The ping-pong** | Both PRs open at once (one each). Force a real Approve click. |
 | 6:55–7:20 | **Joint EDA + report** | The heart of the night. Hands off — let them explore. |
 | 7:20–7:30 | Read-outs | One figure per pair, one sentence. |
 
@@ -42,28 +42,33 @@ Running long is normal. **Protect the joint EDA — it's 25 minutes and it needs
 you're behind, take it out of the contract segment or the ping-pong, never out of 6:55–7:20. A
 pair that merges but never explores did a git tutorial, not a data science lab.
 
-Only **one** ping-pong round is scheduled now. They'll have already done the loop once on the
-README PRs at 5:45, so by the time they merge the cleaned data they've each opened two PRs and
-reviewed two. That's enough repetition for one night.
+**One branch, one PR per partner.** Each person's single `dev-` branch carries their starter
+notebook, their half of the README contract, *and* their CSV — so they open **one** pull request
+that covers all three (the README half is what collides in Part 5). Two PRs total (one each),
+plus the report PR at the end = three merged PRs. Earlier drafts split the contract into its own
+PR; that was two branches per person and confused even the instructor — collapsed to one on
+purpose. Fewer, cleaner loops beat more, confusing ones.
 
 ---
 
-## The contract segment (5:45–6:05) — don't shorten this
+## Grab data + the contract segment (5:45–6:05) — don't shorten this
 
-Pairs will want to start coding. The whole point is that they can't, yet, because they haven't
-agreed on what the output looks like.
+First have each partner make their branch, open their starter in Colab, and **run the first cell
+to actually look at their raw data** — they can't name columns they haven't seen. Then, before
+any cleaning code, they agree the contract.
 
-Make them write, in the README, before any code:
+Make them write, in the README (on their own branch), before any cleaning:
 - exact **column names** for both cleaned files
 - **units** for every column
-- the **timestamp convention** — this is the one that bites
+- the **timestamp convention** — this is the one that bites (ISO-NE Hour Ending → subtract 1)
 - the **filenames** and where they live
 
 > Say out loud: *"the merge conflict you get at 7:05 is a disagreement you're having right now
 > and haven't noticed yet."*
 
-Then have each partner open a PR on the README. That's PR #1 and #2, done before the coding
-even starts, which takes the fear out of the loop.
+The contract goes on each partner's `dev-` branch — **not a separate PR.** It rides out with
+their notebook and CSV in the one PR at the end of Part 3, and the two halves collide when the
+second PR merges (Part 5).
 
 ---
 
