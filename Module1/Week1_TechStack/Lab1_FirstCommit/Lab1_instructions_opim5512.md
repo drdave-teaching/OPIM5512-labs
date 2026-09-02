@@ -69,6 +69,15 @@ approves.
 
 Click **Create**.
 
+> 🧪 **Rehearsing solo? Then DON'T set Required approvals to 1** — leave it at **0**.
+> That **Required approvals: 1** box is the two-person gate: it's exactly what stops you from
+> approving your own pull request (GitHub won't let anyone approve their own PR). Great for a
+> real pair, but with a single account it leaves you unable to merge. If you're testing the lab
+> alone on one account, set **Required approvals to 0** so you can open *and* merge your own PRs
+> (you can still leave *Comment* reviews to feel the flow). **For the real lab with students,
+> keep it at 1** — the approval handshake is the whole point. (Rehearsing with two accounts is
+> the other way to get real approvals without dropping the rule.)
+
 > ⚠️ **Target the default branch only.** If you protect `[All branches]` you'll block your own
 > `dev-` branches and nothing will push. If that happens tonight: it's a two-click fix, and
 > honestly it's worth seeing once.
