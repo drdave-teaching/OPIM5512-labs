@@ -1,5 +1,7 @@
 # Lab 1 — First Commit · START HERE
 
+> 🟣 **Stamford (Sep 9) — use the [simple edition →](simple/START_HERE.md).** Data pre-cleaned, one histogram each, same git workflow. This page is the **extended edition** Hartford ran on Sep 2 (you clean the data yourselves).
+
 **Tonight the deliverable is a repo, not a notebook.** Everything you need, in order.
 
 | | What | Link |
