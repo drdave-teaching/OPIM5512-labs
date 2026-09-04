@@ -27,5 +27,7 @@
 
 ## More
 
+- [Lab 1 debrief & skills check — Hartford (from the recording)](LAB1_DEBRIEF_HARTFORD.md)
+
 - [README](README.md) — the why, the data, the run of show
 - [REPORT_TEMPLATE.md](REPORT_TEMPLATE.md) · [COLAB_AND_GITHUB.md](COLAB_AND_GITHUB.md) · [BRANCHING_MENTAL_MODEL.md](BRANCHING_MENTAL_MODEL.md)
