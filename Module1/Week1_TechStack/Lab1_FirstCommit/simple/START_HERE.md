@@ -1,11 +1,11 @@
 # Lab 1 — First Commit · **simple edition** · START HERE
 
 **Tonight the deliverable is a repo, not a notebook.** Two partners, two halves, one merge.
-Nobody cleans data tonight — it's done. You **run, plot, ship, review, merge, report.**
+Nobody cleans data tonight — it's done. You **build a repo from scratch, plot, ship, review, merge** — and your deliverable is the **network graph.**
 
 | | What | Link |
 |---|---|---|
-| 🧰 | **The template repo** — Partner A clicks **Use this template** (data, notebooks, folders already in it) | [opim5512-lab1-template](https://github.com/drdave-teaching/opim5512-lab1-template) |
+| 🧰 | **Build your own repo from scratch** — the starter notebooks live in the class repo; open them in Colab | [OPIM5512-labs → Lab1_FirstCommit/notebooks](https://github.com/drdave-teaching/OPIM5512-labs/tree/master/Module1/Week1_TechStack/Lab1_FirstCommit/notebooks) |
 | 📋 | **Instructions — every click, in order** (keep open beside Colab) | [Lab1_instructions_simple.md](Lab1_instructions_simple.md) |
 | 🗺️ | **Tonight in 20 steps** (the one-page map) | [TONIGHT_IN_20_STEPS_simple.md](TONIGHT_IN_20_STEPS_simple.md) |
 | 🗂️ | **Where every file goes** (one picture) | [where_files_go.png](images/where_files_go.png) |
@@ -28,7 +28,7 @@ Nobody cleans data tonight — it's done. You **run, plot, ship, review, merge, 
 | you write | **one histogram** of `temp_f` | **one histogram** of `load_mw` |
 | you ship | notebook + `images/weather_line.png` + `images/weather_hist.png` | notebook + `images/demand_line.png` + `images/demand_hist.png` |
 
-Then together: review each other's pull request, merge both, fill in `REPORT.md` (the image links are already there), and put one plot on the screen for the read-out.
+Then together: review each other's pull request, merge both, and post the **network-graph screenshot** to HuskyCT — that's the deliverable. Ahead of time? Add a short `REPORT.md` and merge it through a PR too.
 
 ---
 

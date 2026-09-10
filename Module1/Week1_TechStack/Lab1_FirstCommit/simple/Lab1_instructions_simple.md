@@ -17,20 +17,21 @@ The data is already clean. Tonight is about the **workflow**: branch → commit 
 
 ---
 
-# Part 1 — Set up the shared repo (Partner A drives, ~10 min)
+# Part 1 — Build the shared repo (Partner A drives, ~10 min)
 
 Only **one** of you does this. Partner B watches — you'll need to know it too.
 
-### 1.1 Make the repo from the template
-Open **https://github.com/drdave-teaching/opim5512-lab1-template** → green **Use this template** → **Create a new repository**.
+### 1.1 Make a new repo — from scratch
+The point of tonight is your *first commit*, so you build the repo yourself. On **github.com**, click **➕ (top right) → New repository**. *(Do NOT use a template — build it.)*
 
 | Field | What to put |
 |---|---|
 | Owner | **you** (your personal account) |
 | Repository name | `opim5512-lab1-<netidA>-<netidB>` |
 | Visibility | **Public** (raw file links need it; there's nothing secret) |
+| Initialize | ✅ **Add a README** · ✅ **Add .gitignore → Python** |
 
-Click **Create repository.** You now have a repo that already contains the cleaned data, both notebooks, an empty `images/` folder, a README with the data dictionary, and a `REPORT.md` skeleton. **You did not have to make any of that.** Look at the picture above — grey is what you got.
+Click **Create repository.** You now have a clean repo with a README and a Python `.gitignore`. Everything else — the folders, the notebook, the plots — **you'll add tonight through the workflow.** That's the whole point.
 
 ### 1.2 Add your partner
 Repo **Settings → Collaborators → Add people** → type Partner B's GitHub username → **Add**.
@@ -61,15 +62,18 @@ This is the two-person gate: from now on nothing lands on `main` without your pa
 
 # Part 2 — Plot & ship (each partner, on your own branch, ~30 min)
 
-### 2.1 Open *your* notebook in Colab, from *your* repo
-**colab.research.google.com → File → Open notebook → GitHub tab** → paste your repo URL (e.g. `https://github.com/<you>/opim5512-lab1-…`) → press Enter → click
-`notebooks/Lab1_A_Weather.ipynb` (Partner A) or `notebooks/Lab1_B_Demand.ipynb` (Partner B).
+### 2.1 Open the starter notebook in Colab
+The starter notebooks live in the **class repo**. In **colab.research.google.com → File → Open notebook → GitHub tab**, paste:
+`https://github.com/drdave-teaching/OPIM5512-labs`
+then open (under `Module1/Week1_TechStack/Lab1_FirstCommit/notebooks/`):
+- Partner A → **`Lab1_A_Weather.ipynb`**
+- Partner B → **`Lab1_B_Demand.ipynb`**
 
 Open it in its **own tab** so these instructions stay open beside it.
 
 ### 2.2 Run it
 - **Partner A:** set `CAMPUS = "hartford"` or `"stamford"` in the first cell.
-- **Runtime → Run all.** The setup loads the clean data and the **line plot** appears — it already saved a PNG. Read the short "how this was cleaned" note while it runs; that's your data dictionary.
+- **Runtime → Run all.** The setup loads the clean data and a **line plot** appears — it already saved a PNG. Read the short "how this was cleaned" note while it runs; that's your data dictionary.
 
 ### 2.3 Write your histogram (the one thing you code)
 In the cell marked **TODO**, write the histogram. The shape is printed right above it — roughly:
@@ -80,30 +84,25 @@ ax.set_xlabel("temperature (F)")
 ax.get_figure().savefig("weather_hist.png", dpi=150, bbox_inches="tight")
 ```
 
-(Partner B: `dem["load_mw"]` → `demand_hist.png`.) Run it. **Look at it.** Retitle it with what a reader should notice. Keep the filename **exactly** as given — the report links to it.
+(Partner B: `dem["load_mw"]` → `demand_hist.png`.) Run it. **Look at it.** Retitle it with what a reader should notice. Keep the filename **exactly** as given.
 
-### 2.4 Download the two PNGs
-Run the **download** cell. Two files land in your **Downloads** folder. If it says a file isn't found yet, run the cell that makes it (your histogram) and re-run.
+### 2.4 Download your notebook and your PNGs
+1. Run the **download** cell → your two PNGs land in your **Downloads** folder.
+2. **File → Download → Download .ipynb** → your notebook lands in Downloads too.
 
-### 2.5 Save the notebook back to GitHub (File → Save)
-In the Colab menu: **File → Save.** (There is no "Save a copy in GitHub" item — plain **Save** commits to GitHub because you opened it *from* GitHub. **Ctrl+S alone only autosaves to Drive.**) In the dialog:
+> 💡 Colab *can* save straight to GitHub, but **we're not using that tonight** — you're moving the files in by hand so you see exactly where they live in the repo.
 
-1. **Repository** — scroll to **your** repo (the list is long and not searchable).
-2. **Branch** — your `dev-` branch.
-3. **File path** — leave it as `notebooks/Lab1_A_Weather.ipynb` (or `…B_Demand…`). **Same path every time**, or you create a second notebook.
-4. **Commit message** — a real one: `add temperature histogram`.
+### 2.5 Drag everything into your repo
+**GitHub Desktop → Repository → Show in Explorer** (Reveal in Finder on Mac). That's your repo folder. Make two folders — **`notebooks/`** and **`images/`** — then drag from **Downloads**:
+- your notebook (`.ipynb`) → **`notebooks/`**
+- your two PNGs → **`images/`**
 
-> 💡 Prove it worked once: add `#TEST` at the top, save, refresh the file on github.com — you'll see it. Then change it to `#TEST2`, save again, and watch it **update in place**. Each save is a snapshot; editing more means saving again.
+> ⚠️ If a filename shows **`(1)`** or **`(2)`** — Downloads renamed it because you downloaded twice — **rename it back** to the exact name before dragging.
 
-### 2.6 Drag the PNGs into the repo
-**GitHub Desktop → Repository → Show in Explorer** (Reveal in Finder on Mac). That's your repo folder. Drag both PNGs from **Downloads** into the **`images/`** folder.
+### 2.6 Commit and push
+Back in **GitHub Desktop**: your notebook and PNGs are under **Changes**. Confirm the top bar says **your `dev-` branch**. Bottom-left: **Summary** = `add weather plots` → **Commit to dev-weather** → **Push origin**.
 
-> ⚠️ If a filename shows **`(1)`** or **`(2)`** — Downloads renamed it because you downloaded twice — **rename it back** to the exact name before dragging. `REPORT.md` links to the exact names.
-
-### 2.7 Commit and push
-Back in **GitHub Desktop**: the two PNGs are under **Changes**. Confirm the top bar says **your `dev-` branch**. Bottom-left: **Summary** = `add weather plots` → **Commit to dev-weather** → **Push origin**.
-
-If it says **Pull origin** first — that's your Colab save waiting to come down. Click it, then Push.
+If it says **Pull origin** first, click it, then Push.
 
 ---
 
@@ -113,7 +112,7 @@ If it says **Pull origin** first — that's your Colab save waiting to come down
 On github.com your repo shows a yellow bar: **Compare & pull request** → check it's **`dev-weather` → `main`** → title `Weather plots` → **Create pull request** → right side, **Reviewers** → your partner.
 
 ### 3.2 Review your partner's
-Open your **partner's** PR → **Files changed**. Actually read it: their histogram cell (does the title say something? units on the axis?) and their two PNGs. Then **Review changes → Approve → Submit review.** Leave one real comment if you have one.
+Open your **partner's** PR → **Files changed**. Actually read it: their histogram cell (does the title say something? units on the axis?) and their two PNGs. GitHub won't unlock **Approve** until you **scroll** through the changes. Then **Review changes → Approve → Submit review.** Leave one real comment if you have one.
 
 ### 3.3 Merge, delete, pull
 - **Merge pull request → Confirm** → **Delete branch.** Both PRs.
@@ -121,19 +120,16 @@ Open your **partner's** PR → **Files changed**. Actually read it: their histog
 
 ---
 
-# Part 4 — The report (one screen, two people, ~20 min)
+# Part 4 — Read-out & deliverable (~15 min)
 
-### 4.1 Fill in `REPORT.md`
-On github.com, open **`REPORT.md`** → ✏️ **Edit.** The four plots already render. Replace each **➜** line with **one sentence** — every number gets a unit (°F, MW, hours). Add one honest sentence under *What this data can't tell us*.
+### 4.1 Your deliverable — the network graph
+On your repo: **Insights → Network.** The branches leaving `main` and coming back are your night — proof you both authored *and* reviewed. **Take a screenshot** and post it to **Lab 1 participation** on HuskyCT. That's what's due.
 
-### 4.2 It goes through a pull request too
-**Commit changes…** → choose **Create a new branch for this commit and start a pull request** → branch name `report` → **Propose changes** → **Create pull request** → the *other* partner **approves** → **Merge** → delete branch. `main` is protected — that's the rule working, not a bug.
+### 4.2 If you're ahead — a short report
+Add a **`REPORT.md`** (github.com → **Add file → Create new file** → `REPORT.md`). Drop in your four plots with `![caption](images/weather_line.png)` and write **one sentence** under each — every number gets a unit (°F, MW, hours). Commit it on a `report` branch → PR → the *other* partner approves → **Merge**. `main` is protected — that's the rule working.
 
-### 4.3 If you're ahead: the joint plot
-Open `notebooks/Lab1_Joint_Optional.ipynb` the same way, run it → download `temp_vs_load.png` → drag into `images/` → commit on a branch → PR → merge. It drops into section 5 of the report. Chase the question at the bottom of that notebook — it's the surprise.
-
-### 4.4 Read-out
-One plot on the screen, one sentence. Then **Insights → Network** on your repo: the branches leaving `main` and coming back are your night.
+### 4.3 If you're really flying — the joint plot
+Open `notebooks/Lab1_Joint_Optional.ipynb` (same GitHub tab, class repo), run it → download `temp_vs_load.png` → drag into `images/` → commit on a branch → PR → merge. Chase the question at the bottom of that notebook — it's the surprise (the hottest hour is **not** the peak-demand hour).
 
 ---
 
@@ -142,11 +138,10 @@ One plot on the screen, one sentence. Then **Insights → Network** on your repo
 | Symptom | Fix |
 |---|---|
 | Push rejected on `main` | You're on `main`. Switch to your `dev-` branch and commit there. The rejection is the protection working. |
-| "Where's *Save a copy in GitHub*?" | It doesn't exist. Plain **File → Save**. |
-| Saved but GitHub didn't change | You hit Ctrl+S (Drive autosave). **File → Save**, and re-save after each edit. |
-| Can't pick my branch in the Colab save dialog | It only lists *existing* branches. Make it in GitHub Desktop first (1.5), then save. |
-| Report shows a broken image | Filename mismatch — usually a `(1)` in the PNG name, or it's in the wrong folder. Exact name, in `images/`. |
+| Can't find the starter notebook | Colab → Open notebook → **GitHub tab** → paste `drdave-teaching/OPIM5512-labs` → `Module1/Week1_TechStack/Lab1_FirstCommit/notebooks/`. |
+| "Should I use Colab's Save to GitHub?" | Not tonight. **Download** the `.ipynb` and **drag** it into `notebooks/` so you see where it lives. |
+| Report/README shows a broken image | Filename mismatch — usually a `(1)` in the PNG name, or it's in the wrong folder. Exact name, in `images/`. |
 | Deleted a branch by mistake | Merged PRs have a **Restore branch** button. Committed work is very hard to lose. |
 | Fetch/Pull will overwrite my work? | No. Fetch peeks, Pull downloads. The scary buttons are the *Discard* ones. Commit first and you're safe. |
 
-*Extended edition (you clean the data, and stage a merge conflict on purpose): one folder up, [Lab1_instructions_opim5512.md](../Lab1_instructions_opim5512.md).*
+*Extended edition (you clean the data yourself, and stage a merge conflict on purpose): one folder up, [Lab1_instructions_opim5512.md](../Lab1_instructions_opim5512.md). Those notebooks are in [`notebooks/extended/`](../notebooks/extended).*
