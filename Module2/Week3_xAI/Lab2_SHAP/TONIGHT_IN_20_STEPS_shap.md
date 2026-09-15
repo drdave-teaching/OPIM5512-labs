@@ -66,7 +66,7 @@
 - [ ] Both partners are collaborators; **branch protection** on `main`
 - [ ] `images/` has **four PNGs** with the exact filenames (two per partner)
 - [ ] Both notebooks saved back with **one SHAP line** each
-- [ ] **`REPORT.md`** — one real sentence per plot, plus one "what SHAP can't tell us"
+- [ ] **`REPORT.md`** — one real sentence per plot, plus one **honest-limits** line: *SHAP explains the **model**, not the real world — it shows the pattern the model leaned on, not proof of cause.*
 - [ ] **≥3 merged pull requests** (one each + the report), branches deleted, both authoring **and** reviewing
 - [ ] A **network graph** showing the loop going both ways
 
