@@ -15,6 +15,13 @@
 - [ ] Roles picked: **Partner A = global**, **Partner B = local**
 - [ ] Your only code is **one SHAP line.** Type it.
 
+> ### ⚠️ The 3 things that trip everyone up (read this first)
+> 1. **Partner B must ACCEPT the email invite before anything works.** No accept = your name won't appear as a reviewer and your pushes get rejected. Check your inbox (and spam) the moment Partner A adds you.
+> 2. **Never commit straight to `main`.** Always work on your `dev-` branch → push → pull request. Pushing to `main` is what makes the network graph loop — skipping it means no loop, no credit.
+> 3. **After you publish a branch, click Fetch/Pull in GitHub Desktop** or the folder looks empty. And **GitHub can lag on lab night** — if the network graph or a PR doesn't show, wait ~30s and refresh.
+
+> **Flying solo (no partner / online)?** You *are* both A and B. Make the repo, set approvals to **0**, and make **two branches** (`dev-global`, `dev-local`) so you still get the branch → PR → merge loop and a network graph. Do the global notebook first, then the local one.
+
 ---
 
 ## The 20 steps, in order
@@ -22,10 +29,10 @@
 ### Set up (steps 1–6)
 1. **Pair up:** Partner A (global) / Partner B (local). *(Solo/online? Two accounts, or pair over Teams.)*
 2. **Partner A:** open the [template repo](https://github.com/drdave-teaching/opim5512-lab2-template) → **Use this template → Create a new repository** → owner = *you*, name `opim5512-lab2-<netidA>-<netidB>`, **Public** → Create.
-3. **Partner A:** **Settings → Collaborators → Add people** → Partner B → **B accepts** the invite.
-4. **Partner A:** **Settings → Rules** → ruleset on `main`: **require a pull request** + **1 approval**. *(Solo? approvals = 0.)*
-5. **Both:** GitHub Desktop → **File → Clone repository** → pick the repo → **Clone.** Once.
-6. **Each:** **Current branch → New branch** → `dev-global` (A) / `dev-local` (B) → **Publish branch.**
+3. **Partner A:** **Settings → Collaborators → Add people** → Partner B. → **⛔ STOP: Partner B opens their email and ACCEPTS the invite now.** Nothing else works until this is done — check spam if it's not there.
+4. **Partner A:** **Settings → Rules** → ruleset on `main`: **require a pull request** + **1 approval**. *(Solo? approvals = 0.)* This lock is what forces the PR loop — don't skip it.
+5. **Both:** GitHub Desktop → **File → Clone repository** → pick the repo → **Clone.** Once. *(If the repo isn't listed for Partner B, the invite wasn't accepted — go back to step 3.)*
+6. **Each:** **Current branch → New branch** → `dev-global` (A) / `dev-local` (B) → **Publish branch.** Then **Fetch/Pull** so your local folder actually has the files (a fresh branch can look empty until you do).
 
 ### Explain the model (steps 7–12)
 7. **Each:** Colab → **File → Open notebook → GitHub tab** → your repo URL → open `Lab2_A_Global_SHAP.ipynb` (A) / `Lab2_B_Local_SHAP.ipynb` (B).
@@ -38,7 +45,7 @@
 12. **Each:** GitHub Desktop → **Repository → Show in Explorer** → drag both PNGs into **`images/`** *(rename any `(1)` first)* → top bar = your `dev-` branch → **Commit → Push.**
 
 ### Review & merge (steps 13–16)
-13. **Each:** github.com → **Compare & pull request** → title → **Create** → **Reviewers** → your partner.
+13. **Each:** github.com → **Compare & pull request** → title → **Create** → **Reviewers** → your partner. *(Partner not in the reviewer list? They never accepted the invite — step 3.)*
 14. **Each:** open your **partner's** PR → **Files changed** → read their SHAP cell, look at the PNG → **Approve.**
 15. **Merge** both PRs → **Delete branch** on each.
 16. **Both:** GitHub Desktop → **main → Fetch → Pull.** `images/` now has **four PNGs** — global + local of the same model.
@@ -58,6 +65,9 @@
 - **Commit early.** Once committed, it's essentially impossible to lose.
 - **`main` rejecting your push is the protection working** — switch to your `dev-` branch.
 - **Same path every save** — a different path makes a *second* notebook.
+- **Reviewer/PR/branch not showing up?** 9 times out of 10 the invite wasn't accepted (step 3). Otherwise GitHub is just lagging — wait ~30s and refresh.
+- **No loop in the network graph?** Someone committed straight to `main`. Make a `dev-` branch, add your name to the README, commit → PR → merge, and the loop appears.
+- **Empty folder after a new branch?** Hit **Fetch origin** then **Pull** in GitHub Desktop.
 
 ---
 
