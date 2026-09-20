@@ -35,9 +35,10 @@ Open **https://github.com/drdave-teaching/opim5512-lab2-template** → green **U
 Click **Create repository.** You now have a repo with the data, both notebooks, an empty `images/`,
 a README with the data dictionary, and a `REPORT.md` skeleton. **You built none of it.**
 
-### 1.2 Add your partner
+### 1.2 Add your partner — then STOP until they accept
 Repo **Settings → Collaborators → Add people** → Partner B's GitHub username → **Add**.
-**Partner B:** accept the invite (email, or the 🔔 on github.com). Until you accept, you can't push.
+
+> ⛔ **STOP. Partner B: accept the invite RIGHT NOW** — check email (and spam), or the 🔔 on github.com → **Accept invitation.** This is the single most common thing that stalls the lab: until B accepts, **B can't push, B won't appear as a reviewer, and B's clone won't list the repo.** Don't move on until B confirms "accepted."
 
 ### 1.3 Protect `main`
 Repo **Settings → Rules → Rulesets → New ruleset → New branch ruleset**:
@@ -176,5 +177,9 @@ sentence each. Then **Insights → Network** shows the loop going both ways.
 | Saved but GitHub didn't change | You hit Ctrl+S (Drive autosave). **File → Save**, and re-save after each edit. |
 | Report shows a broken image | Filename mismatch — usually a `(1)` in the PNG name, or it's in the wrong folder. Exact name, in `images/`. |
 | Can't pick my branch in the Colab save dialog | It lists only *existing* branches. Make it in GitHub Desktop first (1.5), then save. |
+| Partner not in the **Reviewers** list / PR won't assign / repo missing from B's clone | The invite was never accepted. Go back to **1.2** — accept it, then refresh. |
+| New branch's folder looks **empty** in Explorer | **Fetch origin → Pull** in GitHub Desktop after publishing the branch. |
+| Network graph shows **no loop** (just a straight line) | Someone committed straight to `main`. Work on a `dev-` branch → PR → merge; the loop then appears. |
+| PR / reviewer / network graph just **isn't showing** | GitHub lags on lab night. Wait ~30s and refresh before assuming it's broken. |
 
 *Never used this workflow? The Lab 1 kit walks every GitHub move slowly: [Lab1_FirstCommit](../../../Module1/Week1_TechStack/Lab1_FirstCommit/START_HERE.md).*
