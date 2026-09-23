@@ -50,7 +50,8 @@
 15. **Merge** both PRs → **Delete branch** on each.
 16. **Both:** GitHub Desktop → **main → Fetch → Pull.** `images/` now has **four PNGs** — global + local of the same model.
 
-### Report & read-out (steps 17–20)
+### Report & read-out (steps 17–20) — *optional (skip tonight if short on time)*
+> The win tonight is the two plots + the branch → PR → review → merge loop. The written report is a **bonus** — do it only if you're ahead.
 17. **One screen, two people:** open `REPORT.md` → ✏️ **Edit** → one sentence per **➜** line (units on every number).
 18. **Commit the report** to a new branch `report` → PR → the *other* partner approves → **Merge.** *(main is protected — the rule working.)*
 19. **If you're ahead:** run `Lab2_Joint_Optional.ipynb` → `shap_dependence.png` → `images/` → PR → merge → drops into section 5.
@@ -58,7 +59,7 @@
 
 ---
 
-## Don't panic
+## Good Advice
 
 - **`No module named 'shap'`?** Run all from the top — cell 1 installs it.
 - **SHAP plot errors?** You skipped the setup cell that makes `shap_values`. Run all from the top.
@@ -76,8 +77,8 @@
 - [ ] Both partners are collaborators; **branch protection** on `main`
 - [ ] `images/` has **four PNGs** with the exact filenames (two per partner)
 - [ ] Both notebooks saved back with **one SHAP line** each
-- [ ] **`REPORT.md`** — one real sentence per plot, plus one **honest-limits** line: *SHAP explains the **model**, not the real world — it shows the pattern the model leaned on, not proof of cause.*
-- [ ] **≥3 merged pull requests** (one each + the report), branches deleted, both authoring **and** reviewing
+- [ ] **≥2 merged pull requests** (one each), branches deleted, both authoring **and** reviewing
 - [ ] A **network graph** showing the loop going both ways
+- [ ] *(optional bonus)* **`REPORT.md`** filled in + merged — one real sentence per plot, plus one **honest-limits** line: *SHAP explains the **model**, not the real world.*
 
 *Global says what the model leans on. Local tells the story of one hour. Tonight you shipped both — and neither of you could have alone.*
