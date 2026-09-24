@@ -70,6 +70,11 @@ table.p td.win{{ background:{GOLD}; font-weight:800; }}
 .receipt .hr{{ border-top:1px dashed #3a4763; margin:7px 0; }}
 .receipt .base span, .receipt .final span{{ color:#fff; font-weight:800; }}
 .receipt .final .amt{{ color:{GOLD}; }}
+.defn{{ display:flex; gap:0.3in; align-items:flex-start; margin-top:0.05in; }}
+.defn ol{{ flex:1; margin:0; padding-left:0.28in; }}
+.defn li{{ font-size:14.5pt; line-height:1.4; margin-bottom:0.09in; color:{INK}; }}
+.defn li b{{ color:{NAVY}; }}
+.defn .code{{ flex:0 0 5.55in; font-size:12pt; margin-top:0.04in; }}
 """
 
 def foot(i): return f'<div class="foot">Lab 2 — Explaining a Model &nbsp;·&nbsp; {i}</div>'
@@ -102,7 +107,7 @@ slides_html.append(content("WHY WE'RE HERE","The deal",
 ("Your only code tonight is ONE SHAP line — type it.","You'll approve a partner's explanation of the same model. Approving what you didn't read is how review dies."),2))
 
 # 3 prize 2-player (NEW)
-slides_html.append(content("LECTURE · 1 of 7","Why it's fair: split a prize 🏆",
+slides_html.append(content("LECTURE · 1 of 8","Why it's fair: split a prize 🏆",
 f'''<div class="note">Before the model: you + a friend win a <b>$10,000</b> Kaggle prize. A time machine lets each of you redo it <b>alone</b> — you place 2nd ($7,500), your friend 3rd ($5,000), nobody → $0.</div>
 <table class="p"><tr><th>team</th><th>{{ }}</th><th>{{You}}</th><th>{{Friend}}</th><th>{{You, Friend}}</th></tr>
 <tr><td>prize</td><td>$0</td><td>$7,500</td><td>$5,000</td><td class="win">$10,000</td></tr></table>
@@ -111,15 +116,33 @@ f'''<div class="note">Before the model: you + a friend win a <b>$10,000</b> Kagg
 ("Your fair share = your average contribution across the ways the team could form.","This is the Shapley value — a fair split from game theory (Lloyd Shapley, 1953)."),3))
 
 # 4 prize 3-player + fixed weights (NEW)
-slides_html.append(content("LECTURE · 2 of 7","Add a player → the weights are FIXED 🔒",
+slides_html.append(content("LECTURE · 2 of 8","Add a player → the weights are FIXED 🔒",
 f'''<table class="p" style="font-size:13.5pt"><tr><th>team</th><th>{{ }}</th><th>P1</th><th>P2</th><th>P3</th><th>P1,P2</th><th>P1,P3</th><th>P2,P3</th><th>all</th></tr>
 <tr><td>prize</td><td>$0</td><td>$5,000</td><td>$5,000</td><td>$0</td><td>$7,500</td><td>$7,500</td><td>$5,000</td><td class="win">$10,000</td></tr></table>
 <div class="note"><b>3 players → 3! = 6 orderings → weights ⅓, ⅙, ⅙, ⅓.</b> &nbsp; Fair shares: P1 $5,000 · P2 $3,750 · P3 $1,250 → <b>$10,000</b> ✓</div>
 <div style="margin:0.16in 0"><span class="pill">2 players → 2! = 2 → ½, ½</span><span class="pill">3 players → 3! = 6 → ⅓, ⅙, ⅙, ⅓</span></div>''',
 ("The weights are just 1/n! counting — 3 things → 6 ways to form the team → ⅓,⅙,⅙,⅓ for EVERY problem, every dataset.","Only the values (v(S)) change. That's why the weights on your worksheet never move."),4))
 
+# 4a — SO WHAT IS A SHAP VALUE? (NEW, read-this-one definition + code mock-up)
+slides_html.append(content("LECTURE · 3 of 8","So what IS a SHAP value?",
+'''<div class="defn"><ol>
+<li><b>One number per feature, per prediction</b> &mdash; how far that feature pushed <i>this</i> prediction away from the <b>base value</b> (the average prediction). Same units as the target: MW.</li>
+<li><b>Signed.</b> + pushes the prediction up; &minus; pulls it down.</li>
+<li><b>Adds up exactly.</b> base value + all the SHAP values = the prediction.</li>
+<li><b>Fair.</b> It&rsquo;s the feature&rsquo;s <b>average bump</b> across every team of the other features it could join &mdash; the Kaggle-prize split. Features not on the team are filled in from <b>background rows</b>.</li></ol>
+<div class="code">sv = explainer(X_test)   <span class="c"># 149 rows x 6 features</span>
+
+sv.values[i, j]      <span class="c"># feature j's push, hour i (MW)</span>
+sv.base_values[i]    <span class="c"># the average prediction</span>
+
+<span class="c"># the receipt always balances:</span>
+sv.base_values[i] + sv.values[i].<span class="fn">sum</span>()
+    == model.<span class="fn">predict</span>(X_test)[i]   <span class="c"># True</span></div>
+</div>''',
+("A SHAP value = one feature&rsquo;s fair share of one prediction.","Same shape as X: one number per row, per feature."),5))
+
 # 4b — WHAT SHAP IS: the receipt (NEW, code mock-up)
-slides_html.append(content("LECTURE · 3 of 7","What SHAP is: a receipt, not a ranking",
+slides_html.append(content("LECTURE · 4 of 8","What SHAP is: a receipt, not a ranking",
 '''<div class="note">Permutation importance and partial dependence describe the <b>model</b>. SHAP explains <b>one prediction</b> — an itemized, <b>signed</b> receipt whose line items <b>add up exactly</b> to the answer.</div>
 <div class="receipt">
 <div class="r base"><span>base value &mdash; the average prediction</span><span>14,952 MW</span></div>
@@ -135,7 +158,7 @@ slides_html.append(content("LECTURE · 3 of 7","What SHAP is: a receipt, not a r
 ("Every prediction gets its own receipt.","The line items sum to the answer &mdash; the guarantee PI and PDP can&rsquo;t give you."),5))
 
 # 4c — THREE TOOLS (NEW, code mock-ups)
-slides_html.append(content("LECTURE · 4 of 7","Three tools, three boss-questions &mdash; use all three",
+slides_html.append(content("LECTURE · 5 of 8","Three tools, three boss-questions &mdash; use all three",
 '''<div class="cols3">
 <div class="col"><div class="tool">Permutation importance</div><div class="q">&ldquo;What matters?&rdquo;</div>
 <div class="code"><span class="c"># shuffle a column,</span>
@@ -164,7 +187,7 @@ shap.plots.<span class="fn">beeswarm</span>(sv)&nbsp;&nbsp;&nbsp;<span class="c"
 ("PI ranks. PDP shapes. SHAP itemizes.","Only SHAP explains a SINGLE prediction &mdash; and gives you the global view on the way."),6))
 
 # 5 SHAP in MW (existing lecture 1, now 5 of 7)
-slides_html.append(content("LECTURE · 5 of 7","SHAP: give every feature a number — in MW",
+slides_html.append(content("LECTURE · 6 of 8","SHAP: give every feature a number — in MW",
 f'''<div class="note">The model is that <b>same game</b>: the players are the <b>features</b>, the prize is the <b>prediction</b>.</div>
 <div class="note">SHAP splits ONE prediction into one number per feature: how many <b>MW</b> it pushed the answer up (+) or down (−) from the average prediction. Add every push and you land <b>exactly</b> on the answer — additive and honest.</div>
 <div class="eq"><div class="r1">average prediction &nbsp;+&nbsp; (all the feature pushes) &nbsp;=&nbsp; this hour's prediction</div>
@@ -173,7 +196,7 @@ f'''<div class="note">The model is that <b>same game</b>: the players are the <b
 None,5))
 
 # 6 local waterfall (image)
-slides_html.append(f'''<div class="slide"><div class="top"><div class="kick">LECTURE · 6 of 7</div><div class="h">Local: why THIS one prediction (waterfall)</div></div>
+slides_html.append(f'''<div class="slide"><div class="top"><div class="kick">LECTURE · 7 of 8</div><div class="h">Local: why THIS one prediction (waterfall)</div></div>
 <div class="body"><div class="two"><div class="im"><img src="img/waterfall.png"></div>
 <div class="tx"><ul class="b">
 <li>One hour, one story.</li><li>Start at the average, <b>E[f(X)]</b>.</li>
@@ -182,7 +205,7 @@ slides_html.append(f'''<div class="slide"><div class="top"><div class="kick">LEC
 <li>This is the answer you give a stakeholder.</li></ul></div></div></div>{foot(6)}</div>''')
 
 # 7 global beeswarm (image)
-slides_html.append(f'''<div class="slide"><div class="top"><div class="kick">LECTURE · 7 of 7</div><div class="h">Global: what drives the model overall (beeswarm)</div></div>
+slides_html.append(f'''<div class="slide"><div class="top"><div class="kick">LECTURE · 8 of 8</div><div class="h">Global: what drives the model overall (beeswarm)</div></div>
 <div class="body"><div class="two"><div class="im"><img src="img/beeswarm.png"></div>
 <div class="tx"><ul class="b">
 <li>Stack every hour's explanation.</li><li>One dot per hour; color = the feature's value (red high, blue low).</li>

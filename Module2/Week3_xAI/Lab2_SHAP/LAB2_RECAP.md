@@ -4,6 +4,26 @@
 
 ---
 
+## So what IS a SHAP value? (read this one)
+
+In Dave's words from class: *"A SHAP value is the marginal contribution of a variable to a prediction — that variable's contribution over baseline. When you know something, use it; when you don't, use the background information."* Unpacked:
+
+1. **One number per feature, per prediction** — how far that feature pushed *this* prediction away from the **base value** (the average prediction). Same units as the target: MW.
+2. **Signed.** `+` pushes the prediction up; `−` pulls it down.
+3. **Adds up exactly.** base value + all the SHAP values = the prediction.
+4. **Fair.** It's the feature's **average bump** across every team of the other features it could join — the Kaggle-prize split. Features not "on the team" are filled in from **background rows**.
+
+```python
+sv = explainer(X_test)        # 149 rows x 6 features -> 149 x 6 SHAP values
+sv.values[i, j]               # feature j's push on hour i (MW)
+sv.base_values[i]             # the average prediction
+sv.base_values[i] + sv.values[i].sum() == model.predict(X_test)[i]   # True, every row
+```
+
+**A SHAP value = one feature's fair share of one prediction.**
+
+---
+
 ## The one idea to remember
 
 **SHAP is a receipt, not a ranking.** For a *single* prediction it gives you an itemized, **signed** list of how many megawatts each feature added or subtracted — and the line items **add up exactly** to the prediction:
