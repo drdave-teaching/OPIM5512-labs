@@ -88,6 +88,4 @@ From now on, whenever you fit a model, run SHAP on it: *what's driving it?* and,
 
 ## Housekeeping
 
-- **Solutions** are posted so you can check your work.
-- **Next class is in person in two weeks** — let's all be in the room; it's more fun.
 - **Office hours:** Friday 1:30 (Teams). Email me twice if you're stuck — I'd rather hear from you.

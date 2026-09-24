@@ -166,8 +166,7 @@ def main():
          ["That's SHAP."],
          ["\u2022 Finish the lab: two plots + branch \u2192 PR \u2192 review \u2192 merge",
           "\u2022 Submit: a screenshot of Insights \u2192 Network (the two-way loop)",
-          "\u2022 Recap, instructions, 20 steps: HuskyCT \u2192 In-Class Labs \u2192 Lab 2",
-          "\u2022 Next lab: in person, in two weeks"])
+          "\u2022 Recap, instructions, 20 steps: HuskyCT \u2192 In-Class Labs \u2192 Lab 2"])
     p = os.path.join(WORK, "p999.mp4")
     silent_card(end_png, 9, p)
     parts.append(p)
