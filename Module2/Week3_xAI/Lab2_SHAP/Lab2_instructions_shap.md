@@ -144,7 +144,9 @@ Leave one real comment.
 
 ---
 
-# Part 4 — The report (one screen, two people, ~20 min)
+# Part 4 — The report (optional bonus, ~20 min)
+
+> The win tonight is the two plots + the branch → PR → review → merge loop. The written report is a **bonus** — do it only if you're ahead (and skip it tonight if short on time).
 
 ### 4.1 Fill in `REPORT.md`
 github.com → **`REPORT.md`** → ✏️ **Edit.** The four plots already render. Replace each **➜** line with **one

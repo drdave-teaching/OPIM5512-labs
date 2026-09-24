@@ -166,15 +166,15 @@ slides_html.append(content("ACT 3 · REVIEW & MERGE (steps 13–16)","The two-wa
 ("You can't approve your own PR — that's the gate.","Approve only the explanation you actually read. No loop in the network graph? Someone committed to main."),11))
 
 # 12 ACT 4
-slides_html.append(content("ACT 4 · REPORT & READ-OUT (steps 17–20)","Do global and local agree?",
+slides_html.append(content("ACT 4 · REPORT & READ-OUT (optional — steps 17–20)","Do global and local agree?",
 '''<div class="step"><span class="n">17 ·</span> One screen: REPORT.md → Edit → one sentence per ➜ line (every number gets a unit)</div>
 <div class="step"><span class="n">18 ·</span> Commit to a new branch 'report' → PR → the other partner approves → Merge</div>
 <div class="step"><span class="n">19 ·</span> Ahead? Run the joint notebook → shap_dependence.png → images/ → report section 5</div>
 <div class="step"><span class="n">20 ·</span> Read-out: beeswarm + waterfall on screen — do they tell the SAME story? Check Insights → Network</div>''',
-("The key finding:","global says what the model leans on; local tells one hour's story. Do they line up?"),12))
+("Optional bonus — skip tonight if short on time.","The two plots + the branch → PR → review → merge loop are the win; the report is extra."),12))
 
-# 13 don't panic
-slides_html.append(content("WHEN IT GETS SCARY","Don't panic",
+# 13 good advice
+slides_html.append(content("A FEW POINTERS","Good advice",
 '''<ul class="b">
 <li><b>No module named 'shap'?</b> The setup cell installs it — Runtime → Run all from the top.</li>
 <li><b>SHAP plot errors on shap_values?</b> You skipped the setup cell that builds it. Run all from the top.</li>
@@ -198,9 +198,9 @@ slides_html.append(content("AT 7:30","Definition of done",
 <li>☐ Both partners are collaborators; branch protection on main</li>
 <li>☐ images/ has FOUR PNGs with the exact filenames (two per partner)</li>
 <li>☐ Both notebooks saved back with one SHAP line each (beeswarm / waterfall)</li>
-<li>☐ REPORT.md — one real sentence under each plot, plus one 'what SHAP can't tell us'</li>
-<li>☐ ≥3 merged pull requests (one each + the report), branches deleted, both authoring AND reviewing</li>
-<li>☐ A network graph showing the loop going both ways</li></ul>''',
+<li>☐ ≥2 merged pull requests (one each), branches deleted, both authoring AND reviewing</li>
+<li>☐ A network graph showing the loop going both ways</li>
+<li>☐ <i>(optional bonus)</i> REPORT.md — one real sentence under each plot, plus one 'what SHAP can't tell us'</li></ul>''',
 None,15))
 
 html = "<!doctype html><html><head><meta charset='utf-8'><style>"+CSS+"</style></head><body>"+"".join(slides_html)+"</body></html>"
