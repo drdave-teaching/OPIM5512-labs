@@ -58,7 +58,7 @@ The two-person gate: nothing lands on `main` without your partner's approval, an
 ### 1.5 Each partner: make your branch
 **Current branch → New branch** → **`dev-global`** (A) / **`dev-local`** (B) → **Create branch** → **Publish branch**.
 
-> 🔴 Read the top bar before every commit. If it says **`main`**, stop and switch.
+> 🔴 Read the top bar before every commit. If it says **`main`**, stop and switch. **Already committed or dragged files onto `main` by accident?** Don't panic — **Current branch → New branch → `dev-…`**, and when GitHub Desktop asks **"Bring my changes to the new branch,"** say yes. Your work moves over and `main` stays clean. (This is the single most common stumble — even your professor did it live.)
 
 ---
 
@@ -132,6 +132,8 @@ save coming down), click that, then Push.
 github.com shows a yellow bar: **Compare & pull request** → check it's **`dev-global` → `main`** (or `dev-local`) →
 title it → **Create pull request** → **Reviewers** → your partner.
 
+> ⭐ **Don't skip Reviewers.** No reviewer = no approval = no two-way loop in the network graph — and the **network-graph screenshot is what you submit** for credit. Add your partner every PR.
+
 ### 3.2 Review your partner's
 Open your **partner's** PR → **Files changed.** Read their SHAP cell and look at the PNG. Does the plot
 answer their question — global "what matters," local "why this hour"? **Review changes → Approve → Submit review.**
@@ -175,6 +177,8 @@ sentence each. Then **Insights → Network** shows the loop going both ways.
 | `No module named 'shap'` | The setup cell installs it. **Runtime → Run all** from the top; don't skip cell 1. |
 | Beeswarm/waterfall cell errors on `shap_values` | You skipped the SHAP setup cell. Run all from the top. |
 | Push rejected on `main` | You're on `main`. Switch to your `dev-` branch and commit there — the rejection is the protection working. |
+| Committed or dragged files while on `main`? | **Current branch → New branch → `dev-…`** → GitHub Desktop offers **"Bring my changes to the new branch"** → yes. Your work moves over, `main` stays clean, nothing lost. |
+| Two PNGs with the **same name** collide on merge | Whoever adds a file second gets an overwrite prompt. Keep the **exact** given names (`shap_global.png`, `shap_local.png`, …) — they're already unique per partner, so don't rename or add `(1)`. |
 | "Where's *Save a copy in GitHub*?" | It doesn't exist. Plain **File → Save**. |
 | Saved but GitHub didn't change | You hit Ctrl+S (Drive autosave). **File → Save**, and re-save after each edit. |
 | Report shows a broken image | Filename mismatch — usually a `(1)` in the PNG name, or it's in the wrong folder. Exact name, in `images/`. |

@@ -65,6 +65,8 @@
 - **SHAP plot errors?** You skipped the setup cell that makes `shap_values`. Run all from the top.
 - **Commit early.** Once committed, it's essentially impossible to lose.
 - **`main` rejecting your push is the protection working** — switch to your `dev-` branch.
+- **Accidentally committed or dragged files onto `main`?** Current branch → **New branch** `dev-…` → GitHub Desktop asks **"Bring my changes to the new branch"** → yes. Work moves over, nothing lost. *(Everyone does this once — even Dave did it live.)*
+- **Add your partner as Reviewer on every PR.** No reviewer = no approval = no loop, and the **network-graph screenshot is what you submit.**
 - **Same path every save** — a different path makes a *second* notebook.
 - **Reviewer/PR/branch not showing up?** 9 times out of 10 the invite wasn't accepted (step 3). Otherwise GitHub is just lagging — wait ~30s and refresh.
 - **No loop in the network graph?** Someone committed straight to `main`. Make a `dev-` branch, add your name to the README, commit → PR → merge, and the loop appears.

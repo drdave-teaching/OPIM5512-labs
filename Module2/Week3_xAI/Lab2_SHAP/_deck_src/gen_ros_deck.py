@@ -53,6 +53,23 @@ table.p td.win{{ background:{GOLD}; font-weight:800; }}
 .title .subg{{ color:{GOLD}; font-size:24pt; font-weight:800; }}
 .title .meta{{ color:#c7d0de; font-size:15pt; margin-top:0.5in; }}
 .title .tag{{ color:{GOLD}; font-size:16pt; font-weight:700; margin-top:8px; }}
+/* code mock-ups (theory, not screen grabs) */
+.cols3{{ display:flex; gap:0.26in; margin-top:0.08in; }}
+.col{{ flex:1; background:#f6f8fb; border:1px solid {GREYL}; border-radius:10px; padding:0.14in 0.16in; }}
+.col .tool{{ color:{NAVY}; font-weight:800; font-size:12.5pt; letter-spacing:.04em; text-transform:uppercase; }}
+.col .q{{ color:{PURPLE}; font-weight:800; font-size:15.5pt; margin:3px 0 2px; }}
+.code{{ background:#0f1729; border-radius:8px; padding:0.12in 0.14in; margin:0.09in 0;
+        font-family:Consolas,'Courier New',monospace; font-size:11pt; line-height:1.45; color:#e6edf3; white-space:pre; }}
+.code .c{{ color:#7d8ba6; }} .code .k{{ color:#7aa2f7; }} .code .fn{{ color:#e0af68; }} .code .s{{ color:#9ece6a; }}
+.good{{ color:#1a7f37; font-size:12pt; margin-top:5px; font-weight:600; }}
+.blind{{ color:#b04a3a; font-size:12pt; margin-top:2px; }}
+.receipt{{ background:#0f1729; border-radius:10px; padding:0.2in 0.34in; margin:0.14in auto;
+           font-family:Consolas,'Courier New',monospace; font-size:15.5pt; color:#e6edf3; width:9.3in; }}
+.receipt .r{{ display:flex; justify-content:space-between; padding:2.5px 0; }}
+.receipt .pos{{ color:#9ece6a; font-weight:700; }} .receipt .neg{{ color:#f7768e; font-weight:700; }}
+.receipt .hr{{ border-top:1px dashed #3a4763; margin:7px 0; }}
+.receipt .base span, .receipt .final span{{ color:#fff; font-weight:800; }}
+.receipt .final .amt{{ color:{GOLD}; }}
 """
 
 def foot(i): return f'<div class="foot">Lab 2 — Explaining a Model &nbsp;·&nbsp; {i}</div>'
@@ -85,7 +102,7 @@ slides_html.append(content("WHY WE'RE HERE","The deal",
 ("Your only code tonight is ONE SHAP line — type it.","You'll approve a partner's explanation of the same model. Approving what you didn't read is how review dies."),2))
 
 # 3 prize 2-player (NEW)
-slides_html.append(content("LECTURE · 1 of 5","Why it's fair: split a prize 🏆",
+slides_html.append(content("LECTURE · 1 of 7","Why it's fair: split a prize 🏆",
 f'''<div class="note">Before the model: you + a friend win a <b>$10,000</b> Kaggle prize. A time machine lets each of you redo it <b>alone</b> — you place 2nd ($7,500), your friend 3rd ($5,000), nobody → $0.</div>
 <table class="p"><tr><th>team</th><th>{{ }}</th><th>{{You}}</th><th>{{Friend}}</th><th>{{You, Friend}}</th></tr>
 <tr><td>prize</td><td>$0</td><td>$7,500</td><td>$5,000</td><td class="win">$10,000</td></tr></table>
@@ -94,15 +111,60 @@ f'''<div class="note">Before the model: you + a friend win a <b>$10,000</b> Kagg
 ("Your fair share = your average contribution across the ways the team could form.","This is the Shapley value — a fair split from game theory (Lloyd Shapley, 1953)."),3))
 
 # 4 prize 3-player + fixed weights (NEW)
-slides_html.append(content("LECTURE · 2 of 5","Add a player → the weights are FIXED 🔒",
+slides_html.append(content("LECTURE · 2 of 7","Add a player → the weights are FIXED 🔒",
 f'''<table class="p" style="font-size:13.5pt"><tr><th>team</th><th>{{ }}</th><th>P1</th><th>P2</th><th>P3</th><th>P1,P2</th><th>P1,P3</th><th>P2,P3</th><th>all</th></tr>
 <tr><td>prize</td><td>$0</td><td>$5,000</td><td>$5,000</td><td>$0</td><td>$7,500</td><td>$7,500</td><td>$5,000</td><td class="win">$10,000</td></tr></table>
 <div class="note"><b>3 players → 3! = 6 orderings → weights ⅓, ⅙, ⅙, ⅓.</b> &nbsp; Fair shares: P1 $5,000 · P2 $3,750 · P3 $1,250 → <b>$10,000</b> ✓</div>
 <div style="margin:0.16in 0"><span class="pill">2 players → 2! = 2 → ½, ½</span><span class="pill">3 players → 3! = 6 → ⅓, ⅙, ⅙, ⅓</span></div>''',
 ("The weights are just 1/n! counting — 3 things → 6 ways to form the team → ⅓,⅙,⅙,⅓ for EVERY problem, every dataset.","Only the values (v(S)) change. That's why the weights on your worksheet never move."),4))
 
-# 5 SHAP in MW (existing lecture 1, now 3 of 5)
-slides_html.append(content("LECTURE · 3 of 5","SHAP: give every feature a number — in MW",
+# 4b — WHAT SHAP IS: the receipt (NEW, code mock-up)
+slides_html.append(content("LECTURE · 3 of 7","What SHAP is: a receipt, not a ranking",
+'''<div class="note">Permutation importance and partial dependence describe the <b>model</b>. SHAP explains <b>one prediction</b> — an itemized, <b>signed</b> receipt whose line items <b>add up exactly</b> to the answer.</div>
+<div class="receipt">
+<div class="r base"><span>base value &mdash; the average prediction</span><span>14,952 MW</span></div>
+<div class="hr"></div>
+<div class="r"><span>hour_of_day = 17&nbsp;&nbsp;(5 PM)</span><span class="pos">+3,000</span></div>
+<div class="r"><span>dewpoint_f = 71&nbsp;&nbsp;(humid)</span><span class="pos">+2,300</span></div>
+<div class="r"><span>temp_f = 85&nbsp;&nbsp;(hot)</span><span class="pos">+2,200</span></div>
+<div class="r"><span>weekend = 0&nbsp;&nbsp;(weekday)</span><span class="pos">+900</span></div>
+<div class="r"><span>wind_kt = 12&nbsp;&nbsp;(some cooling)</span><span class="neg">&minus;270</span></div>
+<div class="hr"></div>
+<div class="r final"><span>this hour&rsquo;s prediction</span><span class="amt">23,082 MW</span></div>
+</div>''',
+("Every prediction gets its own receipt.","The line items sum to the answer &mdash; the guarantee PI and PDP can&rsquo;t give you."),5))
+
+# 4c — THREE TOOLS (NEW, code mock-ups)
+slides_html.append(content("LECTURE · 4 of 7","Three tools, three boss-questions &mdash; use all three",
+'''<div class="cols3">
+<div class="col"><div class="tool">Permutation importance</div><div class="q">&ldquo;What matters?&rdquo;</div>
+<div class="code"><span class="c"># shuffle a column,</span>
+<span class="c"># watch R&sup2; drop</span>
+<span class="fn">permutation_importance</span>(
+    model, X_test, y_test)</div>
+<div class="good">&#10003; fast, model-agnostic ranking</div>
+<div class="blind">&#10007; global only; correlated<br>&nbsp;&nbsp;&nbsp;features can fool it</div></div>
+
+<div class="col"><div class="tool">Partial dependence</div><div class="q">&ldquo;How does it behave?&rdquo;</div>
+<div class="code"><span class="c"># sweep one feature,</span>
+<span class="c"># average the response</span>
+<span class="fn">PartialDependenceDisplay</span>
+ .<span class="fn">from_estimator</span>(model, X,
+    [<span class="s">"hour_of_day"</span>])</div>
+<div class="good">&#10003; shows the SHAPE (up/down/curvy)</div>
+<div class="blind">&#10007; an average &mdash; hides<br>&nbsp;&nbsp;&nbsp;who&rsquo;s different</div></div>
+
+<div class="col"><div class="tool">SHAP</div><div class="q">&ldquo;Why THIS one?&rdquo;</div>
+<div class="code">sv = shap.<span class="fn">TreeExplainer</span>(model)(X)
+shap.plots.<span class="fn">waterfall</span>(sv[i]) <span class="c"># 1 row</span>
+shap.plots.<span class="fn">beeswarm</span>(sv)&nbsp;&nbsp;&nbsp;<span class="c"># all</span></div>
+<div class="good">&#10003; per-row + signed + adds up;<br>&nbsp;&nbsp;&nbsp;rolls up to global for free</div>
+<div class="blind">&#10007; costs more compute</div></div>
+</div>''',
+("PI ranks. PDP shapes. SHAP itemizes.","Only SHAP explains a SINGLE prediction &mdash; and gives you the global view on the way."),6))
+
+# 5 SHAP in MW (existing lecture 1, now 5 of 7)
+slides_html.append(content("LECTURE · 5 of 7","SHAP: give every feature a number — in MW",
 f'''<div class="note">The model is that <b>same game</b>: the players are the <b>features</b>, the prize is the <b>prediction</b>.</div>
 <div class="note">SHAP splits ONE prediction into one number per feature: how many <b>MW</b> it pushed the answer up (+) or down (−) from the average prediction. Add every push and you land <b>exactly</b> on the answer — additive and honest.</div>
 <div class="eq"><div class="r1">average prediction &nbsp;+&nbsp; (all the feature pushes) &nbsp;=&nbsp; this hour's prediction</div>
@@ -111,7 +173,7 @@ f'''<div class="note">The model is that <b>same game</b>: the players are the <b
 None,5))
 
 # 6 local waterfall (image)
-slides_html.append(f'''<div class="slide"><div class="top"><div class="kick">LECTURE · 4 of 5</div><div class="h">Local: why THIS one prediction (waterfall)</div></div>
+slides_html.append(f'''<div class="slide"><div class="top"><div class="kick">LECTURE · 6 of 7</div><div class="h">Local: why THIS one prediction (waterfall)</div></div>
 <div class="body"><div class="two"><div class="im"><img src="img/waterfall.png"></div>
 <div class="tx"><ul class="b">
 <li>One hour, one story.</li><li>Start at the average, <b>E[f(X)]</b>.</li>
@@ -120,7 +182,7 @@ slides_html.append(f'''<div class="slide"><div class="top"><div class="kick">LEC
 <li>This is the answer you give a stakeholder.</li></ul></div></div></div>{foot(6)}</div>''')
 
 # 7 global beeswarm (image)
-slides_html.append(f'''<div class="slide"><div class="top"><div class="kick">LECTURE · 5 of 5</div><div class="h">Global: what drives the model overall (beeswarm)</div></div>
+slides_html.append(f'''<div class="slide"><div class="top"><div class="kick">LECTURE · 7 of 7</div><div class="h">Global: what drives the model overall (beeswarm)</div></div>
 <div class="body"><div class="two"><div class="im"><img src="img/beeswarm.png"></div>
 <div class="tx"><ul class="b">
 <li>Stack every hour's explanation.</li><li>One dot per hour; color = the feature's value (red high, blue low).</li>
