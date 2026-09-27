@@ -60,7 +60,7 @@ That repo takes everything in this lab and runs it for real:
 - Scraper deployed as a **GCP Cloud Function** (runs in the cloud, not on your laptop)
 - **LLM-powered ETL** — uses an LLM to extract structured fields from raw listing text
 - **GitHub Actions CI/CD** — push code, it deploys automatically
-- Results stored in **Google Cloud Storage** and synced back to GitHub
+- Results stored in **Google Cloud Storage**
 - A decision tree model trained automatically on the scraped data
 
 This is what a real data pipeline looks like. The midterm project asks you to build something like this for a domain of your choice.

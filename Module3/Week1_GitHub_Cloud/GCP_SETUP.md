@@ -256,7 +256,6 @@ echo "SA relationships configured."
 ## Step 7 -- Create Bucket and Grant Access
 
 The scraper writes raw listing text here. The extractor, materializer, and trainer all read from it.
-The deployer SA also needs read access so the `sync-data` workflow can push results back to GitHub.
 
 ```bash
 # Create the bucket if it does not already exist
@@ -274,11 +273,6 @@ fi
 gcloud storage buckets add-iam-policy-binding "gs://${BUCKET_NAME}" \
   --member="serviceAccount:${RUNTIME_SA}" \
   --role="roles/storage.objectAdmin"
-
-# Grant deployer SA read access (needed for sync-data.yml to push results to GitHub)
-gcloud storage buckets add-iam-policy-binding "gs://${BUCKET_NAME}" \
-  --member="serviceAccount:${DEPLOYER_SA}" \
-  --role="roles/storage.objectViewer"
 
 echo "Bucket permissions set."
 ```
@@ -390,7 +384,6 @@ GitHub Actions (OIDC)
         |
         |-- deploys Cloud Functions Gen2
         |-- creates/updates Cloud Scheduler jobs
-        |-- reads from GCS bucket (sync-data workflow)
         |
         v
   cf-runtime SA                      (vars.RUNTIME_SA in all workflows)
@@ -406,8 +399,8 @@ GitHub Actions (OIDC)
   Cloud Function HTTP endpoint        (invoked hourly per CRON_EXPR in each workflow)
 ```
 
-Results from GCS are synced back to the `results/` folder in your GitHub repo
-by the `sync-data.yml` workflow so you can see model predictions without opening the GCP console.
+Predictions are written to your GCS bucket under `structured/preds/`. Browse them in the Cloud Console,
+or download a copy with `gcloud storage cp` when you want to chart them in a notebook.
 
 ---
 
