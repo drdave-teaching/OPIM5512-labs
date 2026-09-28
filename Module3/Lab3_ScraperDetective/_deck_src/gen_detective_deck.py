@@ -1,0 +1,259 @@
+# -*- coding: utf-8 -*-
+"""Lab 3 'Scraper Detective' run-of-show deck (navy/gold, code mock-ups instead of screen grabs).
+HTML -> Chrome --print-to-pdf. Reuses the Lab 3 (robot) deck styling. The regex slide builds the pattern
+step by step but stops short of the full answer (students finish it live in class)."""
+import os
+import subprocess
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+CHROME = r"C:/Program Files/Google/Chrome/Application/chrome.exe"
+OUT_PDF = os.path.join(os.path.dirname(HERE), "handouts", "OPIM5512_Lab3_Detective_Deck.pdf")
+
+NAVY = "#0A1F44"
+GOLD = "#F2A900"
+PURPLE = "#7b2fbe"
+LAV = "#f2effc"
+INK = "#1c2530"
+GREY = "#5d6f80"
+GREYL = "#c8cfda"
+
+CSS = f"""
+@page{{ size:13.333in 7.5in; margin:0; }}
+*{{ box-sizing:border-box; }}
+body{{ margin:0; font-family:'Segoe UI',Arial,Helvetica,sans-serif; color:{INK}; }}
+.slide{{ position:relative; width:13.333in; height:7.5in; overflow:hidden; background:#fff; page-break-after:always; }}
+.slide:last-child{{ page-break-after:auto; }}
+.top{{ background:{NAVY}; border-bottom:6px solid {GOLD}; padding:0.34in 0.7in 0.26in; }}
+.kick{{ color:{GOLD}; font-size:13pt; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }}
+.h{{ color:#fff; font-size:29pt; font-weight:800; margin-top:6px; line-height:1.1; }}
+.body{{ padding:0.34in 0.7in; }}
+ul.b{{ margin:0; padding-left:0.3in; }}
+ul.b li{{ font-size:16.5pt; line-height:1.5; margin-bottom:0.1in; color:{INK}; }}
+ul.b li b{{ color:{NAVY}; }}
+.step{{ font-size:16pt; line-height:1.45; margin-bottom:0.08in; color:{INK}; }}
+.step .n{{ color:{GOLD}; font-weight:800; }}
+.callout{{ position:absolute; left:0.7in; right:0.7in; bottom:0.55in; background:{LAV}; border-radius:8px; padding:0.16in 0.24in; }}
+.callout .lead{{ color:{PURPLE}; font-weight:800; font-size:15pt; }}
+.callout .rest{{ color:{GREY}; font-size:13.5pt; }}
+.note{{ font-size:15.5pt; line-height:1.5; color:{INK}; margin:0.06in 0; }}
+.note b{{ color:{NAVY}; }}
+.foot{{ position:absolute; right:0.55in; bottom:0.24in; color:{GREY}; font-size:10.5pt; }}
+.code{{ background:#0f1729; border-radius:8px; padding:0.13in 0.16in; margin:0.08in 0;
+        font-family:Consolas,'Courier New',monospace; font-size:12pt; line-height:1.45; color:#e6edf3; white-space:pre; }}
+.code .c{{ color:#7d8ba6; }} .code .k{{ color:#7aa2f7; }} .code .fn{{ color:#e0af68; }} .code .s{{ color:#9ece6a; }}
+.code .hl{{ background:#3a2f0b; color:{GOLD}; font-weight:700; }} .code .bad{{ color:#f7768e; font-weight:700; }}
+.code .q{{ color:#bb9af7; font-weight:800; }}
+.cols2{{ display:flex; gap:0.3in; align-items:stretch; }}
+.cols2 > div{{ flex:1; }}
+.lbl{{ font-weight:800; color:{NAVY}; font-size:13pt; letter-spacing:.04em; text-transform:uppercase; margin-bottom:2px; }}
+.lbl.bad{{ color:#b04a3a; }} .lbl.good{{ color:#1a7f37; }}
+table.t{{ border-collapse:collapse; font-size:14pt; margin:0.1in 0; width:100%; }}
+table.t th, table.t td{{ border:1px solid {GREYL}; padding:6px 12px; text-align:left; }}
+table.t th{{ background:{NAVY}; color:#fff; }}
+table.t td.ok{{ color:#1a7f37; font-weight:700; }} table.t td.no{{ color:#b04a3a; font-weight:700; }} table.t td.q{{ color:{PURPLE}; font-weight:800; }}
+table.t td code, .note code{{ font-family:Consolas,monospace; font-size:13pt; background:#eef1f6; padding:1px 5px; border-radius:4px; }}
+.title{{ background:{NAVY}; width:13.333in; height:7.5in; position:relative; padding:1.0in 1.0in; }}
+.title .eyebrow{{ color:#fff; font-size:16pt; font-weight:800; }}
+.title .eyebrow span{{ color:{GOLD}; }}
+.title h1{{ color:#fff; font-size:46pt; font-weight:800; margin:0.5in 0 0.22in; line-height:1.06; }}
+.title .ul{{ width:2.4in; height:0.09in; background:{PURPLE}; border-radius:3px; margin:0.12in 0 0.3in; }}
+.title .subg{{ color:{GOLD}; font-size:24pt; font-weight:800; }}
+.title .meta{{ color:#c7d0de; font-size:15pt; margin-top:0.5in; }}
+.title .tag{{ color:{GOLD}; font-size:16pt; font-weight:700; margin-top:8px; }}
+.flow{{ display:flex; align-items:center; gap:0.12in; margin:0.12in 0 0.2in; }}
+.flow .box{{ flex:1; background:{LAV}; border:2px solid {PURPLE}; border-radius:10px; padding:0.12in; text-align:center; }}
+.flow .box b{{ color:{NAVY}; font-size:15pt; display:block; }}
+.flow .box span{{ color:{GREY}; font-size:12pt; }}
+.flow .ar{{ color:{GOLD}; font-size:28pt; font-weight:800; }}
+"""
+
+
+def foot(i):
+    return f'<div class="foot">Lab 3 &mdash; Scraper Detective &nbsp;&middot;&nbsp; {i}</div>'
+
+
+def content(kick, h, body, callout=None, idx=0):
+    c = ""
+    if callout:
+        c = f'<div class="callout"><span class="lead">{callout[0]}</span> <span class="rest">{callout[1]}</span></div>'
+    return (f'<div class="slide"><div class="top"><div class="kick">{kick}</div><div class="h">{h}</div></div>'
+            f'<div class="body">{body}</div>{c}{foot(idx)}</div>')
+
+
+slides = []
+
+# 1 title
+slides.append('''<div class="slide"><div class="title">
+<div class="eyebrow">UConn <span>&middot; School of Business</span></div>
+<h1>Lab 3 &mdash; Scraper Detective</h1><div class="ul"></div>
+<div class="subg">Does your pipeline see what <i>you</i> see?</div>
+<div class="meta">OPIM 5512 &middot; Module 3 &middot; Solo &middot; Colab &middot; your own Google Cloud bucket</div>
+<div class="tag">Tonight you grade your robot &mdash; then fix it with one regular expression.</div>
+</div></div>''')
+
+# 2 the deal
+slides.append(content("WHY WE'RE HERE", "Your robot has been busy. Is it any good?",
+'''<div class="flow">
+<div class="box"><b>:00 scraper</b><span>up to 10 NEW ads &rarr; scrapes/</span></div><div class="ar">&rarr;</div>
+<div class="box"><b>:10 extractor</b><span>regex &rarr; price, year, make, model, mileage</span></div><div class="ar">&rarr;</div>
+<div class="box"><b>:15 materialize</b><span>one tidy table</span></div><div class="ar">&rarr;</div>
+<div class="box"><b>:20 train-dt</b><span>predicts prices (day 2+)</span></div></div>
+<table class="t">
+<tr><th>Part</th><th>Time</th><th>You do</th></tr>
+<tr><td>1 &middot; Get it running</td><td>30 min</td><td>5 green checks, then Force run scraper &rarr; extractor &rarr; materialize</td></tr>
+<tr><td>2 &middot; Search and see</td><td>25 min</td><td>your bucket in Colab &middot; search your cars &middot; open 3 live ads</td></tr>
+<tr><td>3 &middot; Grade the robot</td><td>30 min</td><td>a truth table for 5 cars &rarr; accuracy per field</td></tr>
+<tr><td>4 &middot; Fix it with regex</td><td>30 min</td><td><b>one line</b>: a better make/model regex &rarr; re-grade</td></tr>
+</table>''',
+("Solo tonight.", "Everyone's bucket is a different city and seller type, so everyone's answers are a little different."), 2))
+
+# 3 part 1
+slides.append(content("PART 1 &middot; 30 MIN", "Get it running (if it isn't yet)",
+'''<div class="step"><span class="n">1 &middot;</span> Final GCP Guide F26 (HuskyCT, Week 3.1), Steps 0&ndash;10 &rarr; <b>5 green checks</b> in your fork's Actions tab</div>
+<div class="step"><span class="n">2 &middot;</span> Cloud Scheduler: <b>tick the checkbox first</b>, then <b>Force run</b> &mdash; one at a time, wait for <b>Success</b>:</div>
+<div class="step" style="padding-left:0.5in">&#9312; <code>craigslist-scraper-hourly</code> &nbsp; &#9313; <code>extractor-per-listing-hourly</code> &nbsp; &#9314; <code>materialize-master-hourly</code></div>
+<div class="step"><span class="n">3 &middot;</span> Cloud Storage &rarr; your bucket: <code>scrapes/</code> and <code>structured/</code> are there</div>
+<div class="step"><span class="n">4 &middot;</span> Already done? Skip to Part 2 and help a neighbor.</div>''',
+("Stuck? Ask Claude first:", "paste the step, the command, and the FULL error. Then raise your hand."), 3))
+
+# 4 bucket map
+slides.append(content("WHERE YOUR DATA LIVES", "A map of your bucket",
+'''<div class="cols2"><div><div class="code">gs://your-project-id/
+&#9500;&#9472; <span class="k">scrapes/</span>
+&#9474;   &#9492;&#9472; 20260928155246/            <span class="c"># one folder per scraper run (UTC)</span>
+&#9474;       &#9500;&#9472; eH4UEPtCwKz2Vox1upEYCw.txt  <span class="c"># the raw ad text</span>
+&#9474;       &#9492;&#9472; index.csv                 <span class="c"># which URL each file came from</span>
+&#9500;&#9472; <span class="k">state/</span>seen_post_ids.txt         <span class="c"># how it never grabs a car twice</span>
+&#9492;&#9472; <span class="k">structured/</span>
+    &#9500;&#9472; run_id=20260928155246/jsonl/  <span class="c"># the regex's answers, per ad</span>
+    &#9500;&#9472; datasets/<span class="fn">listings_master.csv</span>   <span class="c"># &larr; tonight's table</span>
+    &#9492;&#9472; preds/preds_master.csv       <span class="c"># predictions (once you have 2 days)</span></div></div></div>''',
+("Raw &rarr; structured &rarr; one table.", "That's ETL. Tonight you check the T."), 4))
+
+# 5 part 2
+slides.append(content("PART 2 &middot; 25 MIN", "Search and see",
+'''<div class="cols2">
+<div><div class="lbl">In your notebook</div><div class="code">SEARCH_WORD = <span class="s">"toyota"</span>   <span class="c"># try sunroof, 4wd...</span>
+
+<span class="k">for</span> i <span class="k">in</span> <span class="fn">range</span>(<span class="fn">len</span>(cars)):
+    row = cars.iloc[i]
+    text = <span class="fn">read_ad_text</span>(row[<span class="s">"source_txt"</span>])
+    <span class="k">if</span> SEARCH_WORD.<span class="fn">lower</span>() <span class="k">in</span> text.<span class="fn">lower</span>():
+        matches.<span class="fn">append</span>(row)
+
+<span class="c">3 of 10 ads mention 'toyota'</span></div></div>
+<div><div class="lbl">Then open the real ad next to its raw text</div><div class="code"><span class="c">1980 Lincoln Continental Town Coupe</span>
+$4,450
+image 1 of 24
+<span class="hl">1980</span>
+<span class="hl">lincoln continental</span>
+condition:
+good
+odometer:
+47,939</div></div></div>''',
+("Why search the raw text and not the make column?", "Look at the make column first. You'll see."), 5))
+
+# 6 part 3
+slides.append(content("PART 3 &middot; 30 MIN", "Grade the robot: a truth table",
+'''<div class="note">Open 5 ads. Write down what each ad <b>really</b> says. Compare it to what the regex extracted:</div>
+<table class="t">
+<tr><th>post_id</th><th>price</th><th>year</th><th>make</th><th>model</th><th>mileage</th></tr>
+<tr><td>eH4UEPt&hellip;</td><td class="ok">4450 &#10003;</td><td class="ok">1980 &#10003;</td><td class="no">Contact &#10007;</td><td class="no">Information &#10007;</td><td class="ok">47939 &#10003;</td></tr>
+<tr><td>5H9PrAV&hellip;</td><td class="ok">7000 &#10003;</td><td class="ok">2017 &#10003;</td><td class="no">Contact &#10007;</td><td class="no">Information &#10007;</td><td class="ok">188500 &#10003;</td></tr>
+<tr><td colspan="6" style="color:#5d6f80">&hellip; 3 more of yours</td></tr>
+<tr><th>accuracy</th><th>?</th><th>?</th><th>0%?</th><th>0%?</th><th>?</th></tr>
+</table>''',
+("Your prices might not be perfect either.", "What happens when an ad says \"$588/month\" before the real price? Find one."), 6))
+
+# 7 why make/model fails
+slides.append(content("THE MYSTERY", "Why does every car say \"Contact Information\"?",
+'''<div class="cols2">
+<div><div class="lbl bad">The extractor's rule (Module 3.2)</div><div class="code">MAKE_MODEL_RE = re.<span class="fn">compile</span>(
+  r<span class="s">"\\b([A-Z][a-z]+)\\s+([A-Z][A-Za-z0-9]+)"</span>)
+
+<span class="c"># in words: the FIRST place where one</span>
+<span class="c"># Capitalized word is followed by another</span></div></div>
+<div><div class="lbl">What the page says, top to bottom</div><div class="code">'Posted'
+'2026-09-27 17:35'
+'<span class="bad">Contact Information</span>:'   <span class="c">&larr; first match!</span>
+'print'
+'1980 Lincoln Continental Town Coupe'
+...
+'<span class="hl">1980</span>'
+'<span class="hl">lincoln continental</span>'   <span class="c">&larr; the real answer</span></div></div></div>''',
+("Regex does exactly what you say, not what you mean.", "Craigslist changed its page, and \"first two capitalized words\" became a button label."), 7))
+
+# 8 regex in 5 minutes
+slides.append(content("REGEX IN 5 MINUTES &middot; LIVE", "Build it one piece at a time",
+'''<table class="t">
+<tr><th>piece</th><th>means</th><th>piece</th><th>means</th></tr>
+<tr><td><code>^</code> <code>$</code> + <code>re.MULTILINE</code></td><td>start / end of a <b>line</b></td><td><code>\\n</code></td><td>the line break</td></tr>
+<tr><td><code>\\d{2}</code></td><td>exactly two digits</td><td><code>\\s+</code></td><td>one or more spaces</td></tr>
+<tr><td><code>(?:19|20)</code></td><td>19 or 20, grouped, not captured</td><td><code>( ... )</code></td><td>capture group &rarr; <code>.group(1)</code></td></tr>
+</table>
+<div class="code"><span class="c">step 1  a line that is only a year        </span>r<span class="s">"^(?:19|20)\\d{2}$"</span>       <span class="c">&rarr; matches '1980'</span>
+<span class="c">step 2  ...followed by the next line      </span>r<span class="s">"^(?:19|20)\\d{2}\\n"</span>
+<span class="c">step 3  capture the first word (make)     </span><span class="q">your turn</span>
+<span class="c">step 4  a space, then capture the model   </span><span class="q">your turn</span></div>''',
+("Test fast at regex101.com (Python flavor).", "Paste 20 lines of an ad as the test string and watch the match light up."), 8))
+
+# 9 part 4
+slides.append(content("PART 4 &middot; 30 MIN", "Fix it with ONE line, then re-grade",
+'''<div class="cols2">
+<div><div class="lbl">You write</div><div class="code">BETTER_MAKE_MODEL_RE = re.<span class="fn">compile</span>(
+    r<span class="s">"YOUR PATTERN HERE"</span>, re.MULTILINE)
+
+<span class="fn">better_make_model</span>(text)
+<span class="c"># ('lincoln', 'continental')</span></div></div>
+<div><div class="lbl good">The notebook re-grades your 5 cars</div>
+<table class="t">
+<tr><th>field</th><th>before</th><th>after</th></tr>
+<tr><td>price</td><td>&hellip;</td><td>&hellip;</td></tr>
+<tr><td>make</td><td class="no">0.0</td><td class="q">?</td></tr>
+<tr><td>model</td><td class="no">0.0</td><td class="q">?</td></tr>
+</table></div></div>
+<div class="note"><b>Stretch:</b> run it on <b>all</b> your cars. How many ads does your pattern miss, and why?</div>''',
+("One regular expression. One better dataset.", "That's what \"update the ETL\" means in A06."), 9))
+
+# 10 stretch: CI/CD
+slides.append(content("STRETCH &middot; A PREVIEW OF A06", "Ship your regex: branch &rarr; PR &rarr; deploy",
+'''<div class="flow">
+<div class="box"><b>dev-regex</b><span>edit extractor-per-listing/main.py</span></div><div class="ar">&rarr;</div>
+<div class="box"><b>push</b><span>deploys NOTHING (safe sandbox)</span></div><div class="ar">&rarr;</div>
+<div class="box"><b>pull request</b><span>review your own diff</span></div><div class="ar">&rarr;</div>
+<div class="box"><b>merge to main</b><span>GitHub redeploys your extractor</span></div></div>
+<ul class="b">
+<li>Only <b>main</b> deploys: the workflows run on main, and Google Cloud only trusts main.</li>
+<li>Keep your own analysis in <b>separate files</b> (notebooks) so <b>Sync fork</b> still works when Dr. Wanik updates the course code.</li></ul>''',
+("That's CI/CD:", "code change &rarr; review &rarr; automatic deploy. No clicking around in the cloud."), 10))
+
+# 11 good advice
+slides.append(content("A FEW POINTERS", "Good advice",
+'''<ul class="b">
+<li><b>Colab pop-up:</b> pick the Gmail you used for <b>Google Cloud</b>, not necessarily your UConn account.</li>
+<li><b>listings_master.csv not found?</b> Force run the extractor, then materialize-master; wait for <b>Success</b>.</li>
+<li><b>Your regex matches nothing?</b> Print the lines with <code>repr()</code>: hidden spaces and line breaks show up.</li>
+<li><b>Only 10 cars?</b> That's one scrape. It adds up to 10 <b>new</b> cars every hour; leave it running.</li>
+<li><b>Force run the scraper once</b>, then the extractor. Two scrapes are fine now, but one is all you need.</li></ul>''',
+None, 11))
+
+# 12 done
+slides.append(content("DEFINITION OF DONE", "Submit Lab 3 on HuskyCT",
+'''<ul class="b" style="list-style:none;padding-left:0">
+<li>&#9744; Part 2: search results + 2&ndash;3 sentences on what the raw text keeps and loses</li>
+<li>&#9744; Part 3: your <b>truth table</b> for 5 cars + the <b>before</b> accuracy table</li>
+<li>&#9744; Part 4: your <b>BETTER_MAKE_MODEL_RE</b> line + the <b>before vs after</b> table</li>
+<li>&#9744; Part 5: three short answers</li>
+<li>&#9744; File &rarr; Download &rarr; <b>.ipynb</b> &rarr; <b>Submit Lab 3</b> (due <b>Thu Oct 8, 11:59 PM</b>)</li></ul>''',
+("Leave the robot running.", "Next: A06 (update the ETL), then A07, where Gemini reads the ads instead of a regex."), 12))
+
+html = ("<!doctype html><html><head><meta charset='utf-8'><style>" + CSS + "</style></head><body>"
+        + "".join(slides) + "</body></html>")
+hp = os.path.join(HERE, "_detective_deck.html")
+with open(hp, "w", encoding="utf-8") as f:
+    f.write(html)
+os.makedirs(os.path.dirname(OUT_PDF), exist_ok=True)
+subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
+                "--run-all-compositor-stages-before-draw", "--virtual-time-budget=20000",
+                "--print-to-pdf=" + OUT_PDF, "file:///" + hp.replace("\\", "/")], capture_output=True)
+print(("OK " if os.path.exists(OUT_PDF) else "FAIL ") + OUT_PDF, "|", len(slides), "slides")
