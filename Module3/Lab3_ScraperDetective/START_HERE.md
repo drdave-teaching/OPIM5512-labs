@@ -21,15 +21,18 @@ regex extractor got right, then **fix the worst field with one regular expressio
 
 Not there yet? That is Part 1 of the lab: we finish it together, and Claude helps you debug.
 
+**Pipeline still not ready by class?** No problem: in Part 2 set `USE_BACKUP_DATA = True` and you get Dr. Wanik's
+Hartford cars (30 real ads). You can do the whole lab, then fix your pipeline afterwards.
+
 ## Tonight in 5 parts
 
 | Part | Time | You do |
 |---|---|---|
 | 1. Get it running | 30 min | Finish the guide: 5 green checks and one scrape |
-| 2. Search and see | 25 min | Load your bucket into Colab, search your cars, open 3 live ads next to their raw text |
+| 2. Search and see | 25 min | Your cars land in Colab's **Files panel** (one `.txt` + one `.json` per car): search them, open 3 live ads |
 | 3. Grade the robot | 30 min | A truth table for 5 cars; accuracy for price, year, make, model, mileage |
-| 4. Fix it with regex | 30 min | **One line:** a better make/model regex. Re-grade: before vs after |
-| 5. Wrap up | 5 min | Three short answers; save and submit your notebook |
+| 4. Fix it three ways | 30 min | Plain Python (given), **your one-line regex**, and a typo-fixer (stretch). Re-grade all three |
+| 5. Wrap up | 5 min | Save your truth table (**you reuse it in A07** to grade Gemini), three short answers, submit |
 
 **Submit:** HuskyCT → *Submit Lab 3* (upload your `.ipynb`), due **Thu Oct 8, 11:59 PM** (Hartford and Stamford).
 

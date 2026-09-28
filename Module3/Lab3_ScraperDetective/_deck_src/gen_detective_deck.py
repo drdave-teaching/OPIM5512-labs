@@ -101,11 +101,11 @@ slides.append(content("WHY WE'RE HERE", "Your robot has been busy. Is it any goo
 <table class="t">
 <tr><th>Part</th><th>Time</th><th>You do</th></tr>
 <tr><td>1 &middot; Get it running</td><td>30 min</td><td>5 green checks, then Force run scraper &rarr; extractor &rarr; materialize</td></tr>
-<tr><td>2 &middot; Search and see</td><td>25 min</td><td>your bucket in Colab &middot; search your cars &middot; open 3 live ads</td></tr>
+<tr><td>2 &middot; Search and see</td><td>25 min</td><td>your cars land in Colab's <b>Files panel</b> &middot; search them &middot; open 3 live ads</td></tr>
 <tr><td>3 &middot; Grade the robot</td><td>30 min</td><td>a truth table for 5 cars &rarr; accuracy per field</td></tr>
-<tr><td>4 &middot; Fix it with regex</td><td>30 min</td><td><b>one line</b>: a better make/model regex &rarr; re-grade</td></tr>
+<tr><td>4 &middot; Fix it three ways</td><td>30 min</td><td>plain Python (given) &middot; <b>your one-line regex</b> &middot; a typo-fixer &rarr; re-grade</td></tr>
 </table>''',
-("Solo tonight.", "Everyone's bucket is a different city and seller type, so everyone's answers are a little different."), 2))
+("Pipeline not ready? One switch: USE_BACKUP_DATA = True", "loads Dr. Wanik's Hartford cars. Nobody sits out."), 2))
 
 # 3 part 1
 slides.append(content("PART 1 &middot; 30 MIN", "Get it running (if it isn't yet)",
@@ -141,47 +141,49 @@ slides.append(content("PART 2 &middot; 25 MIN", "Search and see",
     <span class="k">if</span> SEARCH_WORD.<span class="fn">lower</span>() <span class="k">in</span> text.<span class="fn">lower</span>():
         matches.<span class="fn">append</span>(row)
 
-<span class="c">3 of 10 ads mention 'toyota'</span></div></div>
-<div><div class="lbl">Then open the real ad next to its raw text</div><div class="code"><span class="c">1980 Lincoln Continental Town Coupe</span>
-$4,450
-image 1 of 24
-<span class="hl">1980</span>
-<span class="hl">lincoln continental</span>
+<span class="c">3 of 30 ads mention 'toyota'</span></div></div>
+<div><div class="lbl">Files panel &rarr; my_cars/01_2013_8500_&hellip;.txt</div><div class="code"><span class="c">2013 Hyunda Sonata GLS Limited for sale by owner</span>
+$8,500
+(East Hartford)
+image 1 of 13
+<span class="hl">2013</span>
+<span class="hl">Hyunda Sonata GLS Limited</span>
 condition:
-good
+like new
 odometer:
-47,939</div></div></div>''',
-("Why search the raw text and not the make column?", "Look at the make column first. You'll see."), 5))
+40,000</div></div></div>''',
+("Double-click any car on the left:", "the .txt is the raw ad, the .json is what the robot extracted, and every car keeps its link to the live ad."), 5))
 
 # 6 part 3
 slides.append(content("PART 3 &middot; 30 MIN", "Grade the robot: a truth table",
-'''<div class="note">Open 5 ads. Write down what each ad <b>really</b> says. Compare it to what the regex extracted:</div>
+'''<div class="note">Real Hartford cars. The robot nails the numbers. Make and model? <b>Vernon Rockville</b> is a town. <b>Hyunda</b> is the seller's typo:</div>
 <table class="t">
 <tr><th>post_id</th><th>price</th><th>year</th><th>make</th><th>model</th><th>mileage</th></tr>
-<tr><td>eH4UEPt&hellip;</td><td class="ok">4450 &#10003;</td><td class="ok">1980 &#10003;</td><td class="no">Contact &#10007;</td><td class="no">Information &#10007;</td><td class="ok">47939 &#10003;</td></tr>
-<tr><td>5H9PrAV&hellip;</td><td class="ok">7000 &#10003;</td><td class="ok">2017 &#10003;</td><td class="no">Contact &#10007;</td><td class="no">Information &#10007;</td><td class="ok">188500 &#10003;</td></tr>
-<tr><td colspan="6" style="color:#5d6f80">&hellip; 3 more of yours</td></tr>
-<tr><th>accuracy</th><th>?</th><th>?</th><th>0%?</th><th>0%?</th><th>?</th></tr>
+<tr><td>Sonata</td><td class="ok">8500 &#10003;</td><td class="ok">2013 &#10003;</td><td class="no">Hyunda &#10007;</td><td class="ok">Sonata &#10003;</td><td class="ok">40000 &#10003;</td></tr>
+<tr><td>Accord</td><td class="ok">3800 &#10003;</td><td class="ok">2011 &#10003;</td><td class="ok">Honda &#10003;</td><td class="ok">Accord &#10003;</td><td class="ok">198000 &#10003;</td></tr>
+<tr><td>Elantra</td><td class="ok">4995 &#10003;</td><td class="ok">2013 &#10003;</td><td class="no">Contact &#10007;</td><td class="no">Information &#10007;</td><td class="ok">88000 &#10003;</td></tr>
+<tr><td>Odyssey</td><td class="ok">1800 &#10003;</td><td class="ok">2007 &#10003;</td><td class="no">Vernon &#10007;</td><td class="no">Rockville &#10007;</td><td class="ok">213000 &#10003;</td></tr>
+<tr><th>accuracy (5 cars)</th><th>100%</th><th>100%</th><th>20%</th><th>40%</th><th>100%</th></tr>
 </table>''',
-("Your prices might not be perfect either.", "What happens when an ad says \"$588/month\" before the real price? Find one."), 6))
+("Truth-table rule: write the REAL make.", "If the seller typed Hyunda, the truth is hyundai. Lowercase; model = first word."), 6))
 
 # 7 why make/model fails
-slides.append(content("THE MYSTERY", "Why does every car say \"Contact Information\"?",
+slides.append(content("THE MYSTERY", "What is the make/model regex really grabbing?",
 '''<div class="cols2">
 <div><div class="lbl bad">The extractor's rule (Module 3.2)</div><div class="code">MAKE_MODEL_RE = re.<span class="fn">compile</span>(
   r<span class="s">"\\b([A-Z][a-z]+)\\s+([A-Z][A-Za-z0-9]+)"</span>)
 
 <span class="c"># in words: the FIRST place where one</span>
 <span class="c"># Capitalized word is followed by another</span></div></div>
-<div><div class="lbl">What the page says, top to bottom</div><div class="code">'Posted'
-'2026-09-27 17:35'
-'<span class="bad">Contact Information</span>:'   <span class="c">&larr; first match!</span>
-'print'
-'1980 Lincoln Continental Town Coupe'
-...
-'<span class="hl">1980</span>'
-'<span class="hl">lincoln continental</span>'   <span class="c">&larr; the real answer</span></div></div></div>''',
-("Regex does exactly what you say, not what you mean.", "Craigslist changed its page, and \"first two capitalized words\" became a button label."), 7))
+<div><div class="lbl">The page title the seller typed &rarr; what it grabs</div><div class="code"><span class="s">2011 Honda Accord</span> LX ...        &rarr; Honda Accord  &#10003;
+<span class="s">2013 Hyunda Sonata</span> GLS ...       &rarr; Hyunda Sonata <span class="c">(typo)</span>
+2013 hyundai elantra ...          &rarr; <span class="bad">Contact Information</span>
+2007 Honda odyssey lx - <span class="bad">Vernon Rockville</span> &rarr; <span class="bad">Vernon Rockville</span>
+
+<span class="c"># the reliable spot, near the photos:</span>
+'<span class="hl">2007</span>'
+'<span class="hl">Honda odyssey lx</span>'</div></div></div>''',
+("Regex does exactly what you say, not what you mean.", "Lowercase title? The first two Capitalized words are a button, or the town."), 7))
 
 # 8 regex in 5 minutes
 slides.append(content("REGEX IN 5 MINUTES &middot; LIVE", "Build it one piece at a time",
@@ -198,22 +200,27 @@ slides.append(content("REGEX IN 5 MINUTES &middot; LIVE", "Build it one piece at
 ("Test fast at regex101.com (Python flavor).", "Paste 20 lines of an ad as the test string and watch the match light up."), 8))
 
 # 9 part 4
-slides.append(content("PART 4 &middot; 30 MIN", "Fix it with ONE line, then re-grade",
+slides.append(content("PART 4 &middot; 30 MIN", "Fix it three ways, then re-grade",
 '''<div class="cols2">
-<div><div class="lbl">You write</div><div class="code">BETTER_MAKE_MODEL_RE = re.<span class="fn">compile</span>(
+<div><div class="lbl">Way 1 given &middot; Way 2 is yours &middot; Way 3 stretch</div><div class="code"><span class="c"># Way 1: plain Python (given)</span>
+<span class="k">if</span> <span class="fn">len</span>(line) == 4 <span class="k">and</span> line.<span class="fn">isdigit</span>():
+    words = next_line.<span class="fn">lower</span>().<span class="fn">split</span>()
+
+<span class="c"># Way 2: the same idea in ONE regex line</span>
+BETTER_MAKE_MODEL_RE = re.<span class="fn">compile</span>(
     r<span class="s">"YOUR PATTERN HERE"</span>, re.MULTILINE)
 
-<span class="fn">better_make_model</span>(text)
-<span class="c"># ('lincoln', 'continental')</span></div></div>
+<span class="c"># Way 3: fix typos with a list of makes</span>
+difflib.<span class="fn">get_close_matches</span>(<span class="s">"hyunda"</span>, KNOWN_MAKES)
+<span class="c"># ['hyundai']</span></div></div>
 <div><div class="lbl good">The notebook re-grades your 5 cars</div>
 <table class="t">
-<tr><th>field</th><th>before</th><th>after</th></tr>
-<tr><td>price</td><td>&hellip;</td><td>&hellip;</td></tr>
-<tr><td>make</td><td class="no">0.0</td><td class="q">?</td></tr>
-<tr><td>model</td><td class="no">0.0</td><td class="q">?</td></tr>
-</table></div></div>
+<tr><th>field</th><th>robot</th><th>way 1</th><th>way 2</th><th>way 3</th></tr>
+<tr><td>make</td><td class="no">0.2</td><td>0.8</td><td class="q">?</td><td>1.0</td></tr>
+<tr><td>model</td><td class="no">0.4</td><td>1.0</td><td class="q">?</td><td>1.0</td></tr>
+</table><div class="note" style="font-size:12.5pt;color:#5d6f80">Dr. Wanik's Hartford sample, 5 cars</div></div></div>
 <div class="note"><b>Stretch:</b> run it on <b>all</b> your cars. How many ads does your pattern miss, and why?</div>''',
-("One regular expression. One better dataset.", "That's what \"update the ETL\" means in A06."), 9))
+("Same idea, three tools.", "Rules are fast and cheap, and brittle. In A07, Gemini tries to beat way 3."), 9))
 
 # 10 stretch: CI/CD
 slides.append(content("STRETCH &middot; A PREVIEW OF A06", "Ship your regex: branch &rarr; PR &rarr; deploy",
@@ -234,7 +241,7 @@ slides.append(content("A FEW POINTERS", "Good advice",
 <li><b>listings_master.csv not found?</b> Force run the extractor, then materialize-master; wait for <b>Success</b>.</li>
 <li><b>Your regex matches nothing?</b> Print the lines with <code>repr()</code>: hidden spaces and line breaks show up.</li>
 <li><b>Only 10 cars?</b> That's one scrape. It adds up to 10 <b>new</b> cars every hour; leave it running.</li>
-<li><b>Force run the scraper once</b>, then the extractor. Two scrapes are fine now, but one is all you need.</li></ul>''',
+<li><b>Pipeline not ready?</b> <code>USE_BACKUP_DATA = True</code> loads Dr. Wanik's Hartford cars. Do the lab now, fix your pipeline after.</li></ul>''',
 None, 11))
 
 # 12 done
@@ -243,7 +250,7 @@ slides.append(content("DEFINITION OF DONE", "Submit Lab 3 on HuskyCT",
 <li>&#9744; Part 2: search results + 2&ndash;3 sentences on what the raw text keeps and loses</li>
 <li>&#9744; Part 3: your <b>truth table</b> for 5 cars + the <b>before</b> accuracy table</li>
 <li>&#9744; Part 4: your <b>BETTER_MAKE_MODEL_RE</b> line + the <b>before vs after</b> table</li>
-<li>&#9744; Part 5: three short answers</li>
+<li>&#9744; Part 5: truth table <b>saved for A07</b> (Gemini gets graded on the same 5 cars) + three short answers</li>
 <li>&#9744; File &rarr; Download &rarr; <b>.ipynb</b> &rarr; <b>Submit Lab 3</b> (due <b>Thu Oct 8, 11:59 PM</b>)</li></ul>''',
 ("Leave the robot running.", "Next: A06 (update the ETL), then A07, where Gemini reads the ads instead of a regex."), 12))
 
