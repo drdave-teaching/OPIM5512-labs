@@ -39,6 +39,8 @@ Hartford cars (30 real ads). You can do the whole lab, then fix your pipeline af
 **Submit:** HuskyCT → *Submit Lab 3* (upload your `.ipynb`), due **Thu Oct 8, 11:59 PM** (Hartford and Stamford).
 
 **The one thing you write:** `BETTER_MAKE_MODEL_RE = re.compile(r"...", re.MULTILINE)`.
+
+> **Tonight is only the make/model fix.** In **A06** you ship that same one line to your pipeline through a pull request. The *100 Regex Ideas* sheet is a menu for later: extra columns for your midterm model, and text clean-up before Gemini in A07.
 Everything else is already in the notebook. We build it together live, and regex101.com (Python flavor) is great for testing.
 
 ## Want more? (stretch, and a preview of A06)

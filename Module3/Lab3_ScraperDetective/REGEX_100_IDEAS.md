@@ -4,6 +4,8 @@
 
 > A **regular expression** (regex) is a tiny search pattern. Instead of searching for the exact text `2013`, you search for **"four digits on a line by themselves"**, and it finds the year in every ad at once. That is how your pipeline turns a messy web page into a row in a table.
 
+> **Tonight (Lab 3) you only need ONE of these: the make/model fix (Way 2, idea 10.10).** In **A06** you ship that one line to your pipeline through a pull request. The other 99 are a menu for later: new columns for your **midterm** price model (sections 1, 5, 6 and 8) and text clean-up before Gemini reads your ads in **A07** (section 9).
+
 **How to use this sheet**
 - 10 sections × 10 ideas. Sections go from easiest to hardest, and so do the ideas inside each one (★☆☆ easy · ★★☆ medium · ★★★ stretch).
 - **Every pattern was tested** on Dr. Wanik's 40 Hartford ads (the Lab 3 backup data). The **Tested** line tells you how many ads it matched and what it grabbed. Your area will be different, and that is the point: test on YOUR cars.
