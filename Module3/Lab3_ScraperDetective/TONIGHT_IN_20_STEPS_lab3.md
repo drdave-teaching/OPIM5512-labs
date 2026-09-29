@@ -34,7 +34,7 @@
 
 ### Part 2 · Search and see (steps 6–10, 25 min)
 6. **2a:** type your `PROJECT_ID` and `BUCKET_NAME` (or set `USE_BACKUP_DATA = True`) → run both cells → pick your Google Cloud Gmail → **Allow**.
-7. **2b:** run it → click the **folder icon** on the left → `my_cars` → double-click a `.txt` (the raw ad) and its `.json` (what the robot extracted).
+7. **2b:** run it → click the **folder icon** on the left → `my_cars` → double-click a `.txt` (the raw ad) and its `.json` (what the robot extracted). Backup data? Open **01** (the robot copied the seller's `Hyunda` typo) and **03** (make = `Contact`, model = `Information`).
 8. **2c:** change `SEARCH_WORD` to a brand (`toyota`, `honda`, `ford`) → run → how many of your ads mention it?
 9. **2d:** pick **3 cars**. Open each one's link in a new tab, next to its `.txt` file.
 10. Write 2–3 sentences: what does the raw text keep from the web page, and what does it lose?
