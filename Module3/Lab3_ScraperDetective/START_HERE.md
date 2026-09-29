@@ -1,4 +1,4 @@
-# Lab 3 — Scraper Detective · **START HERE**
+# Lab 3: Auditing Your ETL Pipeline · **START HERE**
 
 **Solo · about 2 hours · Colab · your own Google Cloud bucket.** Your Craigslist robot has been scraping cars
 every hour. Tonight you check its work: **search** your data, open the **real ads** side by side, **grade** what the
@@ -6,7 +6,7 @@ regex extractor got right, then **fix the worst field with one regular expressio
 
 | | What | Link |
 |---|---|---|
-| 🕵️ | **The lab notebook** (open in Colab, run top to bottom) | [Lab3_Scraper_Detective.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/Lab3_Scraper_Detective.ipynb) |
+| 🔍 | **The lab notebook** (open in Colab, run top to bottom) | [Lab3_Scraper_Detective.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/Lab3_Scraper_Detective.ipynb) |
 | ☁️ | **Final GCP Guide F26** (if your pipeline is not running yet) | [FINAL_GCP_Guide_F26.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/FINAL_GCP_Guide_F26.ipynb) |
 | 🗺️ | **Your BASE_SITE link** (your area on Craigslist) | HuskyCT → Module 3 → Week 3.1 → *Your BASE_SITE link* |
 | 🗺️ | **Tonight in 20 steps** (print it, or keep it on a second screen) | [OPIM5512_Lab3_Detective_20_Steps_PRINT.pdf](handouts/OPIM5512_Lab3_Detective_20_Steps_PRINT.pdf) · [markdown](TONIGHT_IN_20_STEPS_lab3.md) |

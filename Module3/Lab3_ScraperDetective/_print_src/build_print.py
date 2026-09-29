@@ -11,7 +11,7 @@ LAB = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(LAB, "handouts")
 
 DOCS = [
-    ("TONIGHT_IN_20_STEPS_lab3.md", "OPIM5512_Lab3_Detective_20_Steps_PRINT.pdf", "Lab 3 — Scraper Detective — Tonight in 20 Steps"),
+    ("TONIGHT_IN_20_STEPS_lab3.md", "OPIM5512_Lab3_Detective_20_Steps_PRINT.pdf", "Lab 3: Auditing Your ETL Pipeline — Tonight in 20 Steps"),
     ("REGEX_100_IDEAS.md", "OPIM5512_Regex_100_Ideas.pdf", "100 Regex Ideas for Your Craigslist Cars"),
 ]
 

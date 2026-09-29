@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Lab 3 'Scraper Detective' run-of-show deck (navy/gold, code mock-ups instead of screen grabs).
+"""Lab 3 'Auditing Your ETL Pipeline' run-of-show deck (navy/gold, code mock-ups instead of screen grabs).
 HTML -> Chrome --print-to-pdf. Reuses the Lab 3 (robot) deck styling. The regex slide builds the pattern
 step by step but stops short of the full answer (students finish it live in class)."""
 import os
@@ -69,7 +69,7 @@ table.t td code, .note code{{ font-family:Consolas,monospace; font-size:13pt; ba
 
 
 def foot(i):
-    return f'<div class="foot">Lab 3 &mdash; Scraper Detective &nbsp;&middot;&nbsp; {i}</div>'
+    return f'<div class="foot">Lab 3: Auditing Your ETL Pipeline &nbsp;&middot;&nbsp; {i}</div>'
 
 
 def content(kick, h, body, callout=None, idx=0):
@@ -85,7 +85,7 @@ slides = []
 # 1 title
 slides.append('''<div class="slide"><div class="title">
 <div class="eyebrow">UConn <span>&middot; School of Business</span></div>
-<h1>Lab 3 &mdash; Scraper Detective</h1><div class="ul"></div>
+<h1>Lab 3: Auditing Your ETL Pipeline</h1><div class="ul"></div>
 <div class="subg">Does your pipeline see what <i>you</i> see?</div>
 <div class="meta">OPIM 5512 &middot; Module 3 &middot; Solo &middot; Colab &middot; your own Google Cloud bucket</div>
 <div class="tag">Tonight you grade your robot &mdash; then fix it with one regular expression.</div>

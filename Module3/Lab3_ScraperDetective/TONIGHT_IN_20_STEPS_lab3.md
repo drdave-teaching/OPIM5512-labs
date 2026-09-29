@@ -1,4 +1,4 @@
-# Lab 3 — Scraper Detective · Tonight in 20 Steps
+# Lab 3: Auditing Your ETL Pipeline · Tonight in 20 Steps
 
 **OPIM 5512 · Module 3 · Solo · Colab · your own Google Cloud bucket**
 
@@ -12,7 +12,7 @@
 
 - [ ] **5 green checks** in your fork's **Actions** tab (Final GCP Guide F26, Steps 0 to 10)
 - [ ] Your bucket has `structured/datasets/listings_master.csv` (Force run scraper → extractor → materialize-master)
-- [ ] The lab notebook is open in Colab: HuskyCT → In-Class Labs → **Lab 3 — Scraper Detective**
+- [ ] The lab notebook is open in Colab: HuskyCT → In-Class Labs → **Lab 3: Auditing Your ETL Pipeline**
 
 > ### ⚠️ The 3 things that trip everyone up (read this first)
 > 1. **The Colab sign-in pop-up: pick the Gmail you used for Google Cloud**, not necessarily your UConn account. Wrong account = "permission denied" or an empty bucket.
