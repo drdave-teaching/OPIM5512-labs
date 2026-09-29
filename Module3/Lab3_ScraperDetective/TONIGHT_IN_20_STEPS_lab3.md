@@ -47,7 +47,7 @@
 
 ### Part 4 · Fix it three ways (steps 15–18, 30 min)
 15. **Way 1** (given): read the plain-Python version → run it.
-16. **Way 2** (yours): write **one line**, `BETTER_MAKE_MODEL_RE = re.compile(r"...", re.MULTILINE)`. Use the hints (click to open) and **regex101.com** (Python flavor). Run it: you should get something like `('hyunda', 'sonata')`.
+16. **Way 2** (yours): run the **4-step build**. Steps 1 to 3 are given and print what they match in file 03. **Step 4 is yours:** paste `\s+([A-Za-z0-9-]+)` inside the quotes, re-run, and you should see `('hyundai', 'elantra')`. Stuck? The full answer is behind the *Still stuck?* click.
 17. **Way 3** (stretch): run the typo-fixer → `hyunda` becomes `hyundai`.
 18. **4b:** run the re-score → original extractor vs way 1 vs **your regex** vs way 3. *(Stretch cell: how many of ALL your ads does your regex miss?)*
 

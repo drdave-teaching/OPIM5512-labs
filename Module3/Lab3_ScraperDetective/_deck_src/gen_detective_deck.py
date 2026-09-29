@@ -195,7 +195,7 @@ slides.append(content("REGEX IN 5 MINUTES &middot; LIVE", "Build it one piece at
 </table>
 <div class="code"><span class="c">step 1  a line that is only a year        </span>r<span class="s">"^(?:19|20)\\d{2}$"</span>       <span class="c">&rarr; matches '1980'</span>
 <span class="c">step 2  ...followed by the next line      </span>r<span class="s">"^(?:19|20)\\d{2}\\n"</span>
-<span class="c">step 3  capture the first word (make)     </span><span class="q">your turn</span>
+<span class="c">step 3  capture the first word (make)     </span>r<span class="s">"^(?:19|20)\\d{2}\\n([A-Za-z-]+)"</span>
 <span class="c">step 4  a space, then capture the model   </span><span class="q">your turn</span></div>
 <div class="note">Why the year line is safe: Craigslist's form writes it, so it is always 4 digits (never <code>'23</code>).
 Quirk: now and then the make/model line is one word, like <b>Pontiac</b> (no model).</div>''',

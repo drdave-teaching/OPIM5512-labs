@@ -38,7 +38,7 @@ Hartford cars (29 real ads). You can do the whole lab, then fix your pipeline af
 
 **Submit:** HuskyCT → *Submit Lab 3* (upload your `.ipynb`), due **Thu Oct 8, 11:59 PM** (Hartford and Stamford).
 
-**The one thing you write:** `BETTER_MAKE_MODEL_RE = re.compile(r"...", re.MULTILINE)`.
+**The one thing you write:** step 4 of the Way 2 regex build (one short piece, `\s+([A-Za-z0-9-]+)`), which completes `BETTER_MAKE_MODEL_RE`. Steps 1 to 3 are given and show what each piece matches.
 
 **The anchor it hangs on:** in every ad, a line that is only the year, with make and model on the next line. The anchor is safe because Craigslist's posting form writes that year line (the seller picks it from a list), so it is always 4 digits, never `'23`. Two quirks to know: a seller's own title can say `'23` or be in ALL CAPS (that is why the title is unreliable), and once in a while the make/model line is a single word, like `Pontiac` with no model (file 08 in the backup data).
 
