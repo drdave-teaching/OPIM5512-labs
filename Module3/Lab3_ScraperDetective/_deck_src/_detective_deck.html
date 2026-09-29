@@ -85,7 +85,7 @@ table.t td code, .note code{ font-family:Consolas,monospace; font-size:13pt; bac
     <span class="k">if</span> SEARCH_WORD.<span class="fn">lower</span>() <span class="k">in</span> text.<span class="fn">lower</span>():
         matches.<span class="fn">append</span>(row)
 
-<span class="c">3 of 30 ads mention 'toyota'</span></div></div>
+<span class="c">2 of 29 ads mention 'toyota'</span></div></div>
 <div><div class="lbl">Files panel &rarr; my_cars/01_2013_8500_&hellip;.txt</div><div class="code"><span class="c">2013 Hyunda Sonata GLS Limited for sale by owner</span>
 $8,500
 (East Hartford)
@@ -125,7 +125,9 @@ odometer:
 <div class="code"><span class="c">step 1  a line that is only a year        </span>r<span class="s">"^(?:19|20)\d{2}$"</span>       <span class="c">&rarr; matches '1980'</span>
 <span class="c">step 2  ...followed by the next line      </span>r<span class="s">"^(?:19|20)\d{2}\n"</span>
 <span class="c">step 3  capture the first word (make)     </span><span class="q">your turn</span>
-<span class="c">step 4  a space, then capture the model   </span><span class="q">your turn</span></div></div><div class="callout"><span class="lead">Test fast at regex101.com (Python flavor).</span> <span class="rest">Paste 20 lines of an ad as the test string and watch the match light up.</span></div><div class="foot">Lab 3: Auditing Your ETL Pipeline &nbsp;&middot;&nbsp; 8</div></div><div class="slide"><div class="top"><div class="kick">PART 4 &middot; 30 MIN</div><div class="h">Fix it three ways, then re-score</div></div><div class="body"><div class="cols2">
+<span class="c">step 4  a space, then capture the model   </span><span class="q">your turn</span></div>
+<div class="note">Why the year line is safe: Craigslist's form writes it, so it is always 4 digits (never <code>'23</code>).
+Quirk: now and then the make/model line is one word, like <b>Pontiac</b> (no model).</div></div><div class="callout"><span class="lead">Test fast at regex101.com (Python flavor).</span> <span class="rest">Paste 20 lines of an ad as the test string and watch the match light up.</span></div><div class="foot">Lab 3: Auditing Your ETL Pipeline &nbsp;&middot;&nbsp; 8</div></div><div class="slide"><div class="top"><div class="kick">PART 4 &middot; 30 MIN</div><div class="h">Fix it three ways, then re-score</div></div><div class="body"><div class="cols2">
 <div><div class="lbl">Way 1 given &middot; Way 2 is yours &middot; Way 3 stretch</div><div class="code"><span class="c"># Way 1: plain Python (given)</span>
 <span class="k">if</span> <span class="fn">len</span>(line) == 4 <span class="k">and</span> line.<span class="fn">isdigit</span>():
     words = next_line.<span class="fn">lower</span>().<span class="fn">split</span>()

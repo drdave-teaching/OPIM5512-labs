@@ -36,14 +36,14 @@
 6. **2a:** leave the `USE_BACKUP_DATA` box **ticked** (Dr. Wanik's Hartford cars) → run both cells. *(Later: untick it, type your `PROJECT_ID`, re-run from 2a, and pick your Google Cloud Gmail.)*
 7. **2b:** run it → click the **folder icon** on the left → `my_cars` → double-click a `.txt` (the raw ad) and its `.json` (what the extractor pulled out). Backup data? Open **01** (the extractor copied the seller's `Hyunda` typo) and **03** (make = `Contact`, model = `Information`).
 8. **2c:** change `SEARCH_WORD` to a brand (`toyota`, `honda`, `ford`) → run → how many of your ads mention it?
-9. **2d:** run it → each car **three ways**: the web page, the saved text, the extracted fields. Start with **01, 03, 05**, then try **11** (the seller deleted that ad).
+9. **2d:** run it → each car **three ways**: the web page, the saved text, the extracted fields. Start with **01, 03, 05**.
 10. Write 2–3 sentences: what does the raw text keep from the web page, and what does it lose?
 
 ### Part 3 · Validate the extractor against ground truth (steps 11–14, 30 min)
 11. **3a:** run it → files 01 to 05 and what the extractor pulled out of each.
 12. **Check the ground truth.** With the backup data it is already filled in: open at least **two** `.txt` files and confirm the price, year, make, model and mileage. **Rules:** numbers without `$` or commas · make and model in lowercase · model = first word · the **real** make (a `Hyunda` is a `hyundai`). *(Own data: paste the skeleton and type your own.)*
 13. **3b:** run it → the **before** table. Which fields does the extractor get right? Which does it miss?
-14. **3c:** run it → what is the old regex grabbing? (`Contact Information`? A town?) Then find the **anchor**: a line that is just the **year**, with **make model** on the next line (file 03, lines 39 and 40).
+14. **3c:** run it → what is the old regex grabbing? (`Contact Information`? A town?) Then find the **anchor**: a line that is just the **year**, with **make model** on the next line (file 03, lines 39 and 40). The anchor is safe because Craigslist's posting form writes that year line (the seller picks it from a list), so it is always 4 digits, never `'23`. Two quirks to know: a seller's own title can say `'23` or be in ALL CAPS (that is why the title is unreliable), and once in a while the make/model line is a single word, like `Pontiac` with no model (file 08 in the backup data).
 
 ### Part 4 · Fix it three ways (steps 15–18, 30 min)
 15. **Way 1** (given): read the plain-Python version → run it.

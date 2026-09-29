@@ -141,7 +141,7 @@ slides.append(content("PART 2 &middot; 25 MIN", "Search and see",
     <span class="k">if</span> SEARCH_WORD.<span class="fn">lower</span>() <span class="k">in</span> text.<span class="fn">lower</span>():
         matches.<span class="fn">append</span>(row)
 
-<span class="c">3 of 30 ads mention 'toyota'</span></div></div>
+<span class="c">2 of 29 ads mention 'toyota'</span></div></div>
 <div><div class="lbl">Files panel &rarr; my_cars/01_2013_8500_&hellip;.txt</div><div class="code"><span class="c">2013 Hyunda Sonata GLS Limited for sale by owner</span>
 $8,500
 (East Hartford)
@@ -196,7 +196,9 @@ slides.append(content("REGEX IN 5 MINUTES &middot; LIVE", "Build it one piece at
 <div class="code"><span class="c">step 1  a line that is only a year        </span>r<span class="s">"^(?:19|20)\\d{2}$"</span>       <span class="c">&rarr; matches '1980'</span>
 <span class="c">step 2  ...followed by the next line      </span>r<span class="s">"^(?:19|20)\\d{2}\\n"</span>
 <span class="c">step 3  capture the first word (make)     </span><span class="q">your turn</span>
-<span class="c">step 4  a space, then capture the model   </span><span class="q">your turn</span></div>''',
+<span class="c">step 4  a space, then capture the model   </span><span class="q">your turn</span></div>
+<div class="note">Why the year line is safe: Craigslist's form writes it, so it is always 4 digits (never <code>'23</code>).
+Quirk: now and then the make/model line is one word, like <b>Pontiac</b> (no model).</div>''',
 ("Test fast at regex101.com (Python flavor).", "Paste 20 lines of an ad as the test string and watch the match light up."), 8))
 
 # 9 part 4

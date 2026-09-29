@@ -24,7 +24,7 @@ regex extractor got right, then **fix the worst field with one regular expressio
 Not there yet? That is Part 1 of the lab: we finish it together, and Claude helps you debug.
 
 **Pipeline still not ready by class?** No problem: in Part 2 set `USE_BACKUP_DATA = True` and you get Dr. Wanik's
-Hartford cars (30 real ads). You can do the whole lab, then fix your pipeline afterwards.
+Hartford cars (29 real ads). You can do the whole lab, then fix your pipeline afterwards.
 
 ## Tonight in 5 parts
 
@@ -39,6 +39,8 @@ Hartford cars (30 real ads). You can do the whole lab, then fix your pipeline af
 **Submit:** HuskyCT → *Submit Lab 3* (upload your `.ipynb`), due **Thu Oct 8, 11:59 PM** (Hartford and Stamford).
 
 **The one thing you write:** `BETTER_MAKE_MODEL_RE = re.compile(r"...", re.MULTILINE)`.
+
+**The anchor it hangs on:** in every ad, a line that is only the year, with make and model on the next line. The anchor is safe because Craigslist's posting form writes that year line (the seller picks it from a list), so it is always 4 digits, never `'23`. Two quirks to know: a seller's own title can say `'23` or be in ALL CAPS (that is why the title is unreliable), and once in a while the make/model line is a single word, like `Pontiac` with no model (file 08 in the backup data).
 
 > **Tonight is only the make/model fix.** In **A06** you ship that same one line to your pipeline through a pull request. The *100 Regex Ideas* sheet is a menu for later: extra columns for your midterm model, and text clean-up before Gemini in A07.
 Everything else is already in the notebook. We build it together live, and regex101.com (Python flavor) is great for testing.
