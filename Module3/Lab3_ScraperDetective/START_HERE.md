@@ -12,6 +12,7 @@ regex extractor got right, then **fix the worst field with one regular expressio
 | 🗺️ | **Tonight in 20 steps** (print it, or keep it on a second screen) | [OPIM5512_Lab3_Detective_20_Steps_PRINT.pdf](handouts/OPIM5512_Lab3_Detective_20_Steps_PRINT.pdf) · [markdown](TONIGHT_IN_20_STEPS_lab3.md) |
 | 🎞️ | **Run-of-show slides** (tonight's plan + regex in 5 minutes) | [OPIM5512_Lab3_Detective_Deck.pdf](handouts/OPIM5512_Lab3_Detective_Deck.pdf) |
 | 🔤 | **The regex you are grading** | [`extractor-per-listing/main.py`](https://github.com/drdave-teaching/myscrapers/blob/main/cloud_function/extractor-per-listing/main.py) |
+| 💡 | **100 Regex Ideas** (year, price, mileage, color, make/model... simple to hard, all tested on real ads) | [OPIM5512_Regex_100_Ideas.pdf](handouts/OPIM5512_Regex_100_Ideas.pdf) · [markdown](REGEX_100_IDEAS.md) · [Try-It notebook](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/Regex_Idea_Sheet_TryIt.ipynb) |
 
 ## Before class (10 minutes, please)
 

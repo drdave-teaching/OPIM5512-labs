@@ -12,6 +12,7 @@ OUT = os.path.join(LAB, "handouts")
 
 DOCS = [
     ("TONIGHT_IN_20_STEPS_lab3.md", "OPIM5512_Lab3_Detective_20_Steps_PRINT.pdf", "Lab 3 — Scraper Detective — Tonight in 20 Steps"),
+    ("REGEX_100_IDEAS.md", "OPIM5512_Regex_100_Ideas.pdf", "100 Regex Ideas for Your Craigslist Cars"),
 ]
 
 CSS = """
@@ -22,7 +23,7 @@ body { font-family: 'Segoe UI', Calibri, Arial, sans-serif; font-size: 10.5pt; l
 h1 { font-size: 21pt; color:#0A1F44; border-bottom:3px solid #F2A900; padding-bottom:5px; margin:16px 0 10px; }
 h1:first-of-type { margin-top:0; }
 h2 { font-size: 15pt; color:#0A1F44; margin:18px 0 6px; border-bottom:1px solid #d0d5dd; padding-bottom:3px; page-break-after:avoid; }
-h3 { font-size: 12.5pt; color:#0A1F44; margin:12px 0 4px; page-break-after:avoid; }
+h3 { font-size: 12pt; border-top:1px dashed #e1e5ec; padding-top:6px; color:#0A1F44; margin:12px 0 4px; page-break-after:avoid; }
 p, li { margin: 3px 0; }
 ul, ol { margin:4px 0 8px; padding-left:22px; }
 li { page-break-inside:avoid; }
