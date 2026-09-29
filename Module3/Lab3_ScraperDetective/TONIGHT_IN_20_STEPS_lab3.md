@@ -40,8 +40,8 @@
 10. Write 2–3 sentences: what does the raw text keep from the web page, and what does it lose?
 
 ### Part 3 · Validate the extractor against ground truth (steps 11–14, 30 min)
-11. **3a:** run it → copy the printed `truth = { ... }` skeleton into the next cell.
-12. Fill in the **truth** for your 5 cars from the ads. **Rules:** numbers without `$` or commas · make and model in lowercase · model = first word · write the **real** make (a `Hyunda` is a `hyundai`). *(Short on time? The filled-in backup truth is in the text cell under the paste cell. Spot-check one car first.)*
+11. **3a:** run it → files 01 to 05 and what the extractor pulled out of each.
+12. **Check the ground truth.** With the backup data it is already filled in: open at least **two** `.txt` files and confirm the price, year, make, model and mileage. **Rules:** numbers without `$` or commas · make and model in lowercase · model = first word · the **real** make (a `Hyunda` is a `hyundai`). *(Own data: paste the skeleton and type your own.)*
 13. **3b:** run it → the **before** table. Which fields does the extractor get right? Which does it miss?
 14. **3c:** run it → what is the old regex grabbing? (`Contact Information`? A town?) Then find the **anchor**: a line that is just the **year**, with **make model** on the next line (file 03, lines 39 and 40).
 
