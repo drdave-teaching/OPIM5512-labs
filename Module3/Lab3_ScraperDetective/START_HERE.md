@@ -1,7 +1,7 @@
 # Lab 3: Auditing Your ETL Pipeline · **START HERE**
 
-**Solo · about 2 hours · Colab · your own Google Cloud bucket.** Your Craigslist robot has been scraping cars
-every hour. Tonight you check its work: **search** your data, open the **real ads** side by side, **grade** what the
+**Solo · about 2 hours · Colab · your own Google Cloud bucket.** Your Craigslist pipeline has been scraping cars
+every hour. Tonight you audit it: **search** your data, see each ad as a web page, as text and as extracted fields, **measure** what the
 regex extractor got right, then **fix the worst field with one regular expression.**
 
 | | What | Link |
@@ -32,9 +32,9 @@ Hartford cars (30 real ads). You can do the whole lab, then fix your pipeline af
 |---|---|---|
 | 1. Get it running | 30 min | Finish the guide: 5 green checks and one scrape |
 | 2. Search and see | 25 min | Your cars land in Colab's **Files panel** (one `.txt` + one `.json` per car): search them, open 3 live ads |
-| 3. Grade the robot | 30 min | A truth table for 5 cars; accuracy for price, year, make, model, mileage |
-| 4. Fix it three ways | 30 min | Plain Python (given), **your one-line regex**, and a typo-fixer (stretch). Re-grade all three |
-| 5. Wrap up | 5 min | Save your truth table (**you reuse it in A07** to grade Gemini), three short answers, submit |
+| 3. Validate the extractor | 30 min | Ground truth for 5 cars; accuracy for price, year, make, model, mileage |
+| 4. Fix it three ways | 30 min | Plain Python (given), **your one-line regex**, and a typo-fixer (stretch). Re-score all three |
+| 5. Wrap up | 5 min | Save your truth table (**you reuse it in A07** to score Gemini), three short answers, submit |
 
 **Submit:** HuskyCT → *Submit Lab 3* (upload your `.ipynb`), due **Thu Oct 8, 11:59 PM** (Hartford and Stamford).
 

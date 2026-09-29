@@ -1099,7 +1099,7 @@ re.search(r"\d*(?:zero|one|two|three|four|five|six|seven|eight|nine)\d*[-\s]?\d{
 
 ## 10. Make and model (the boss level)
 
-The field the robot gets wrong. Build up to it here, then finish it in **Lab 3, Way 2**.
+The field the extractor gets wrong. Build up to it here, then finish it in **Lab 3, Way 2**.
 
 ### 10.1  ★☆☆  One brand
 
@@ -1183,7 +1183,7 @@ re.search(r"\b(?:honda|toyota|ford|jeep|acura)\s+([\w-]+)", text, re.I)
 
 **Tested:** 25 of 40 Hartford ads → `hr-v`, `wrangler`, `f-150`
 
-### 10.9  ★★★  Why the robot fails
+### 10.9  ★★★  Why the current extractor fails
 
 ```python
 re.search(r"\b([A-Z][a-z]+)\s+([A-Z][A-Za-z0-9]+)", text)

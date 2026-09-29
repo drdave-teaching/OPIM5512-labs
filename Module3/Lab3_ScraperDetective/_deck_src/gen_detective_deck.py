@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Lab 3 'Auditing Your ETL Pipeline' run-of-show deck (navy/gold, code mock-ups instead of screen grabs).
-HTML -> Chrome --print-to-pdf. Reuses the Lab 3 (robot) deck styling. The regex slide builds the pattern
+HTML -> Chrome --print-to-pdf. Reuses the Lab 3 deck styling. The regex slide builds the pattern
 step by step but stops short of the full answer (students finish it live in class)."""
 import os
 import subprocess
@@ -88,11 +88,11 @@ slides.append('''<div class="slide"><div class="title">
 <h1>Lab 3: Auditing Your ETL Pipeline</h1><div class="ul"></div>
 <div class="subg">Does your pipeline see what <i>you</i> see?</div>
 <div class="meta">OPIM 5512 &middot; Module 3 &middot; Solo &middot; Colab &middot; your own Google Cloud bucket</div>
-<div class="tag">Tonight you grade your robot &mdash; then fix it with one regular expression.</div>
+<div class="tag">Tonight you measure your extractor &mdash; then fix it with one regular expression.</div>
 </div></div>''')
 
 # 2 the deal
-slides.append(content("WHY WE'RE HERE", "Your robot has been busy. Is it any good?",
+slides.append(content("WHY WE'RE HERE", "Your pipeline has been busy. Is it any good?",
 '''<div class="flow">
 <div class="box"><b>:00 scraper</b><span>up to 10 NEW ads &rarr; scrapes/</span></div><div class="ar">&rarr;</div>
 <div class="box"><b>:10 extractor</b><span>regex &rarr; price, year, make, model, mileage</span></div><div class="ar">&rarr;</div>
@@ -102,7 +102,7 @@ slides.append(content("WHY WE'RE HERE", "Your robot has been busy. Is it any goo
 <tr><th>Part</th><th>Time</th><th>You do</th></tr>
 <tr><td>1 &middot; Get it running</td><td>30 min</td><td>5 green checks, then Force run scraper &rarr; extractor &rarr; materialize</td></tr>
 <tr><td>2 &middot; Search and see</td><td>25 min</td><td>your cars land in Colab's <b>Files panel</b> &middot; search them &middot; open 3 live ads</td></tr>
-<tr><td>3 &middot; Grade the robot</td><td>30 min</td><td>a truth table for 5 cars &rarr; accuracy per field</td></tr>
+<tr><td>3 &middot; Validate the extractor</td><td>30 min</td><td>a truth table for 5 cars &rarr; accuracy per field</td></tr>
 <tr><td>4 &middot; Fix it three ways</td><td>30 min</td><td>plain Python (given) &middot; <b>your one-line regex</b> &middot; a typo-fixer &rarr; re-grade</td></tr>
 </table>''',
 ("Pipeline not ready? One switch: USE_BACKUP_DATA = True", "loads Dr. Wanik's Hartford cars. Nobody sits out."), 2))
@@ -152,11 +152,11 @@ condition:
 like new
 odometer:
 40,000</div></div></div>''',
-("Double-click any car on the left:", "the .txt is the raw ad, the .json is what the robot extracted, and every car keeps its link to the live ad."), 5))
+("Double-click any car on the left:", "the .txt is the raw ad, the .json is what the extractor pulled out, and every car keeps its link to the live ad."), 5))
 
 # 6 part 3
-slides.append(content("PART 3 &middot; 30 MIN", "Grade the robot: a truth table",
-'''<div class="note">Real Hartford cars. The robot nails the numbers. Make and model? <b>Vernon Rockville</b> is a town. <b>Hyunda</b> is the seller's typo:</div>
+slides.append(content("PART 3 &middot; 30 MIN", "Validate the extractor: ground truth",
+'''<div class="note">Real Hartford cars. The extractor nails the numbers. Make and model? <b>Vernon Rockville</b> is a town. <b>Hyunda</b> is the seller's typo:</div>
 <table class="t">
 <tr><th>post_id</th><th>price</th><th>year</th><th>make</th><th>model</th><th>mileage</th></tr>
 <tr><td>Sonata</td><td class="ok">8500 &#10003;</td><td class="ok">2013 &#10003;</td><td class="no">Hyunda &#10007;</td><td class="ok">Sonata &#10003;</td><td class="ok">40000 &#10003;</td></tr>
@@ -200,7 +200,7 @@ slides.append(content("REGEX IN 5 MINUTES &middot; LIVE", "Build it one piece at
 ("Test fast at regex101.com (Python flavor).", "Paste 20 lines of an ad as the test string and watch the match light up."), 8))
 
 # 9 part 4
-slides.append(content("PART 4 &middot; 30 MIN", "Fix it three ways, then re-grade",
+slides.append(content("PART 4 &middot; 30 MIN", "Fix it three ways, then re-score",
 '''<div class="cols2">
 <div><div class="lbl">Way 1 given &middot; Way 2 is yours &middot; Way 3 stretch</div><div class="code"><span class="c"># Way 1: plain Python (given)</span>
 <span class="k">if</span> <span class="fn">len</span>(line) == 4 <span class="k">and</span> line.<span class="fn">isdigit</span>():
@@ -213,9 +213,9 @@ BETTER_MAKE_MODEL_RE = re.<span class="fn">compile</span>(
 <span class="c"># Way 3: fix typos with a list of makes</span>
 difflib.<span class="fn">get_close_matches</span>(<span class="s">"hyunda"</span>, KNOWN_MAKES)
 <span class="c"># ['hyundai']</span></div></div>
-<div><div class="lbl good">The notebook re-grades your 5 cars</div>
+<div><div class="lbl good">The notebook re-scores your 5 cars</div>
 <table class="t">
-<tr><th>field</th><th>robot</th><th>way 1</th><th>way 2</th><th>way 3</th></tr>
+<tr><th>field</th><th>original</th><th>way 1</th><th>way 2</th><th>way 3</th></tr>
 <tr><td>make</td><td class="no">0.2</td><td>0.8</td><td class="q">?</td><td>1.0</td></tr>
 <tr><td>model</td><td class="no">0.4</td><td>1.0</td><td class="q">?</td><td>1.0</td></tr>
 </table><div class="note" style="font-size:12.5pt;color:#5d6f80">Dr. Wanik's Hartford sample, 5 cars</div></div></div>
@@ -250,9 +250,9 @@ slides.append(content("DEFINITION OF DONE", "Submit Lab 3 on HuskyCT",
 <li>&#9744; Part 2: search results + 2&ndash;3 sentences on what the raw text keeps and loses</li>
 <li>&#9744; Part 3: your <b>truth table</b> for 5 cars + the <b>before</b> accuracy table</li>
 <li>&#9744; Part 4: your <b>BETTER_MAKE_MODEL_RE</b> line + the <b>before vs after</b> table</li>
-<li>&#9744; Part 5: truth table <b>saved for A07</b> (Gemini gets graded on the same 5 cars) + three short answers</li>
+<li>&#9744; Part 5: truth table <b>saved for A07</b> (Gemini gets scored on the same 5 cars) + three short answers</li>
 <li>&#9744; File &rarr; Download &rarr; <b>.ipynb</b> &rarr; <b>Submit Lab 3</b> (due <b>Thu Oct 8, 11:59 PM</b>)</li></ul>''',
-("Leave the robot running.", "Next: A06 (update the ETL), then A07, where Gemini reads the ads instead of a regex."), 12))
+("Leave your pipeline running.", "Next: A06 (update the ETL), then A07, where Gemini reads the ads instead of a regex."), 12))
 
 html = ("<!doctype html><html><head><meta charset='utf-8'><style>" + CSS + "</style></head><body>"
         + "".join(slides) + "</body></html>")
