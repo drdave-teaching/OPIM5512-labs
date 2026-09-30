@@ -1,6 +1,8 @@
 # Lab 3: Auditing Your ETL Pipeline · **START HERE**
 
-**Solo · about 2 hours · Colab · your own Google Cloud bucket.** Your Craigslist pipeline has been scraping cars
+![How your pipeline works: scrape, extract with regex and Gemini, combine, predict, and what you build on top](../img/OPIM5512_M3_Pipeline_Overview.png)
+
+**Solo · about 2 hours · Colab · Dr. Wanik's backup data first, then your own Google Cloud bucket.** Your Craigslist pipeline has been scraping cars
 every hour. Tonight you audit it: **search** your data, see each ad as a web page, as text and as extracted fields, **measure** what the
 regex extractor got right, then **fix the worst field with one regular expression.**
 
@@ -23,17 +25,17 @@ regex extractor got right, then **fix the worst field with one regular expressio
 
 Not there yet? That is Part 1 of the lab: we finish it together, and Claude helps you debug.
 
-**Pipeline still not ready by class?** No problem: in Part 2 set `USE_BACKUP_DATA = True` and you get Dr. Wanik's
-Hartford cars (29 real ads). You can do the whole lab, then fix your pipeline afterwards.
+**Tonight everyone starts on the backup data.** The `USE_BACKUP_DATA` box in Part 2a is already ticked: Dr. Wanik's
+Hartford cars (29 real ads), no sign-in. When your own pipeline is running, untick it and re-run from 2a.
 
 ## Tonight in 5 parts
 
 | Part | Time | You do |
 |---|---|---|
 | 1. Get it running | 30 min | Finish the guide: 5 green checks and one scrape |
-| 2. Search and see | 25 min | Your cars land in Colab's **Files panel** (one `.txt` + one `.json` per car): search them, open 3 live ads |
+| 2. Search and see | 25 min | Your cars land in Colab's **Files panel** (`.txt` + `.json`, plus `.html` + `.jpg` for the backup cars): search them, see each ad three ways |
 | 3. Validate the extractor | 30 min | Ground truth for 5 cars; accuracy for price, year, make, model, mileage |
-| 4. Fix it three ways | 30 min | Plain Python (given), **your one-line regex**, and a typo-fixer (stretch). Re-score all three |
+| 4. Fix it three ways | 30 min | Plain Python (given), **your regex** (guided build), a typo-fixer + review flags (stretch). Re-score, then every car before and after |
 | 5. Wrap up | 5 min | Save your truth table (**you reuse it in A07** to score Gemini), three short answers, submit |
 
 **Submit:** HuskyCT → *Submit Lab 3* (upload your `.ipynb`), due **Thu Oct 8, 11:59 PM** (Hartford and Stamford).

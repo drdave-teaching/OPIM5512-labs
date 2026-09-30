@@ -101,11 +101,11 @@ slides.append(content("WHY WE'RE HERE", "Your pipeline has been busy. Is it any 
 <table class="t">
 <tr><th>Part</th><th>Time</th><th>You do</th></tr>
 <tr><td>1 &middot; Get it running</td><td>30 min</td><td>5 green checks, then Force run scraper &rarr; extractor &rarr; materialize</td></tr>
-<tr><td>2 &middot; Search and see</td><td>25 min</td><td>your cars land in Colab's <b>Files panel</b> &middot; search them &middot; open 3 live ads</td></tr>
-<tr><td>3 &middot; Validate the extractor</td><td>30 min</td><td>a truth table for 5 cars &rarr; accuracy per field</td></tr>
-<tr><td>4 &middot; Fix it three ways</td><td>30 min</td><td>plain Python (given) &middot; <b>your one-line regex</b> &middot; a typo-fixer &rarr; re-grade</td></tr>
+<tr><td>2 &middot; Search and see</td><td>25 min</td><td>your cars land in Colab's <b>Files panel</b> &middot; search them &middot; each ad three ways</td></tr>
+<tr><td>3 &middot; Validate the extractor</td><td>30 min</td><td>ground truth for 5 cars (pre-filled for backup data: check 2) &rarr; accuracy per field</td></tr>
+<tr><td>4 &middot; Fix it three ways</td><td>30 min</td><td>plain Python (given) &middot; <b>your regex</b> (guided) &middot; typo-fixer + review flags &rarr; every car before/after</td></tr>
 </table>''',
-("Pipeline not ready? One switch: USE_BACKUP_DATA = True", "loads Dr. Wanik's Hartford cars. Nobody sits out."), 2))
+("Tonight: backup data first. The USE_BACKUP_DATA box is already ticked.", "29 Hartford cars, no sign-in. Untick it later for your own cars."), 2))
 
 # 3 part 1
 slides.append(content("PART 1 &middot; 30 MIN", "Get it running (if it isn't yet)",
@@ -152,7 +152,7 @@ condition:
 like new
 odometer:
 40,000</div></div></div>''',
-("Double-click any car on the left:", "the .txt is the raw ad, the .json is what the extractor pulled out, and every car keeps its link to the live ad."), 5))
+("Double-click any car on the left:", "the .txt is the raw ad, the .json is what the extractor pulled out; backup cars also have the web page (.html) and a snapshot (.jpg)."), 5))
 
 # 6 part 3
 slides.append(content("PART 3 &middot; 30 MIN", "Validate the extractor: ground truth",
@@ -243,15 +243,15 @@ slides.append(content("A FEW POINTERS", "Good advice",
 <li><b>listings_master.csv not found?</b> Force run the extractor, then materialize-master; wait for <b>Success</b>.</li>
 <li><b>Your regex matches nothing?</b> Print the lines with <code>repr()</code>: hidden spaces and line breaks show up.</li>
 <li><b>Only 10 cars?</b> That's one scrape. It adds up to 10 <b>new</b> cars every hour; leave it running.</li>
-<li><b>Pipeline not ready?</b> <code>USE_BACKUP_DATA = True</code> loads Dr. Wanik's Hartford cars. Do the lab now, fix your pipeline after.</li></ul>''',
+<li><b>Backup data is the default</b> (the <code>USE_BACKUP_DATA</code> box is ticked). Do the lab now, switch to your own cars after.</li></ul>''',
 None, 11))
 
 # 12 done
 slides.append(content("DEFINITION OF DONE", "Submit Lab 3 on HuskyCT",
 '''<ul class="b" style="list-style:none;padding-left:0">
 <li>&#9744; Part 2: search results + 2&ndash;3 sentences on what the raw text keeps and loses</li>
-<li>&#9744; Part 3: your <b>truth table</b> for 5 cars + the <b>before</b> accuracy table</li>
-<li>&#9744; Part 4: your <b>BETTER_MAKE_MODEL_RE</b> line + the <b>before vs after</b> table</li>
+<li>&#9744; Part 3: your <b>checked</b> truth table for 5 cars + the <b>before</b> accuracy table</li>
+<li>&#9744; Part 4: your <b>step 4</b> regex piece + the <b>4b and 4c</b> before-vs-after tables</li>
 <li>&#9744; Part 5: truth table <b>saved for A07</b> (Gemini gets scored on the same 5 cars) + three short answers</li>
 <li>&#9744; File &rarr; Download &rarr; <b>.ipynb</b> &rarr; <b>Submit Lab 3</b> (due <b>Thu Oct 8, 11:59 PM</b>)</li></ul>''',
 ("Leave your pipeline running.", "Next: A06 (update the ETL), then A07, where Gemini reads the ads instead of a regex."), 12))

@@ -1,0 +1,153 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Your Pipeline</title>
+<style>
+:root { --ink:#1c1c1e; --muted:#5b5f6a; --purple:#6D28A3; --tint:#F4EDFA; --line:#D9CBE8; --dark:#181A20; --code:#E8E6EF; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { width:1920px; height:1080px; background:#fff; font-family:'Segoe UI', Calibri, Arial, sans-serif; color:var(--ink); padding:44px 60px 0; position:relative; overflow:hidden; }
+.head { display:flex; align-items:flex-end; justify-content:space-between; }
+h1 { font-size:50px; font-weight:800; letter-spacing:-0.5px; }
+h1 span { color:var(--purple); }
+.sub { font-size:23px; color:var(--muted); margin-top:6px; }
+.tag { font-size:18px; color:var(--muted); text-align:right; line-height:1.4; }
+.tag b { color:var(--purple); }
+
+.flow { display:flex; align-items:stretch; margin-top:30px; gap:0; }
+.stage { flex:1; background:#fff; border:2px solid var(--line); border-radius:16px; padding:16px 16px 14px; display:flex; flex-direction:column; }
+.time { display:inline-block; background:var(--purple); color:#fff; font-weight:700; font-size:17px; border-radius:20px; padding:3px 12px; align-self:flex-start; }
+.name { font-size:25px; font-weight:800; margin-top:10px; }
+.what { font-size:18px; color:var(--muted); margin-top:4px; line-height:1.35; min-height:66px; }
+.snip { margin-top:10px; background:var(--dark); color:var(--code); border-radius:10px; padding:10px 12px; font-family:Consolas, 'Courier New', monospace; font-size:16px; line-height:1.45; white-space:pre; flex:1; }
+.snip .k { color:#C9A6F0; } .snip .s { color:#9FE0B0; } .snip .n { color:#F2C572; } .snip .bad { color:#FF8A8A; }
+.arrow { width:34px; display:flex; align-items:center; justify-content:center; }
+.arrow svg { width:30px; height:30px; }
+
+.bands { display:flex; gap:22px; margin-top:22px; }
+.band { flex:1; border-radius:14px; padding:13px 18px; font-size:18px; display:flex; align-items:center; gap:14px; background:#F6F6F8; border:1.5px solid #E4E4EA; }
+.band b { color:var(--purple); }
+.band .ic { font-size:26px; }
+
+.you { margin-top:30px; }
+.you h2 { font-size:30px; font-weight:800; }
+.you h2 span { color:var(--purple); }
+.cards { display:grid; grid-template-columns:repeat(6, 1fr); gap:16px; margin-top:14px; }
+.card { background:var(--tint); border:2px solid var(--line); border-radius:14px; padding:14px 15px; }
+.card .t { font-size:20px; font-weight:800; color:var(--purple); }
+.card .when { font-size:14px; font-weight:700; color:var(--muted); letter-spacing:0.3px; text-transform:uppercase; margin-top:2px; }
+.card .d { font-size:17.5px; margin-top:6px; line-height:1.35; }
+
+.foot { position:absolute; left:0; right:0; bottom:0; height:52px; background:var(--dark); display:flex; align-items:center; justify-content:space-between; padding:0 32px; }
+.foot::before { content:""; position:absolute; left:0; top:0; bottom:0; width:10px; background:var(--purple); }
+.foot .l { color:#fff; font-size:26px; font-weight:800; }
+.foot .l span { color:#A7A9B0; font-weight:400; font-size:19px; margin-left:14px; }
+.foot .r { color:#fff; font-size:20px; font-weight:600; }
+</style></head>
+<body>
+<div class="head">
+  <div>
+    <h1>From a Craigslist ad to a <span>price prediction</span>, every hour</h1>
+    <div class="sub">Your pipeline runs on Google Cloud while you sleep. Nobody presses a button.</div>
+  </div>
+  <div class="tag">Real data from Dr. Wanik's Hartford cars<br>(the prediction panel is an illustration)</div>
+</div>
+
+<div class="flow">
+  <div class="stage">
+    <span class="time">:00 · Scrape</span>
+    <div class="name">Scraper</div>
+    <div class="what">Visits your Craigslist area (your BASE_SITE), saves up to 10 new ads, never the same ad twice.</div>
+<div class="snip"><span class="k">2013 HYUNDAI ELANTRA</span>
+<span class="k">GLS * ONLY 88K MILES*</span>
+$4,995
+(Avon)
+image 1 of 14
+<span class="n">2013</span>
+<span class="n">hyundai elantra</span>
+condition: excellent
+odometer: 88,000
+title status: rebuilt</div>
+  </div>
+  <div class="arrow"><svg viewBox="0 0 24 24"><path d="M4 12h14m-5-6 6 6-6 6" fill="none" stroke="#6D28A3" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+  <div class="stage">
+    <span class="time">:10 · Extract</span>
+    <div class="name">Regex extractor</div>
+    <div class="what">Regular expressions pull five fields out of the text. Fast, free, and exactly as smart as your pattern.</div>
+<div class="snip">{
+  <span class="k">"price"</span>:   <span class="n">4995</span>,
+  <span class="k">"year"</span>:    <span class="n">2013</span>,
+  <span class="k">"make"</span>:    <span class="bad">"Contact"</span>,
+  <span class="k">"model"</span>:   <span class="bad">"Information"</span>,
+  <span class="k">"mileage"</span>: <span class="n">88000</span>
+}
+<span class="bad">file 03: the bug you</span>
+<span class="bad">fix in Lab 3 + A06</span></div>
+  </div>
+  <div class="arrow"><svg viewBox="0 0 24 24"><path d="M4 12h14m-5-6 6 6-6 6" fill="none" stroke="#6D28A3" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+  <div class="stage">
+    <span class="time">:12 · Extract</span>
+    <div class="name">Gemini extractor</div>
+    <div class="what">An LLM reads the same ad and writes JSON too. Smarter with typos and negation. Costs a little.</div>
+<div class="snip"><span class="k">file 11, gemini-2.5-flash</span>
+{
+  <span class="k">"price"</span>: <span class="n">2500</span>,
+  <span class="k">"year"</span>:  <span class="n">2005</span>,
+  <span class="k">"make"</span>:  <span class="s">"Jeep"</span>,
+  <span class="k">"model"</span>: <span class="s">"Liberty Limited 4x4"</span>
+}
+Right car, but not "liberty":
+graded on your truth table
+in A07</div>
+  </div>
+  <div class="arrow"><svg viewBox="0 0 24 24"><path d="M4 12h14m-5-6 6 6-6 6" fill="none" stroke="#6D28A3" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+  <div class="stage">
+    <span class="time">:15 · Combine</span>
+    <div class="name">Master table</div>
+    <div class="what">Every car you have ever scraped, one row each, newest version wins. Ready for pandas.</div>
+<div class="snip"><span class="k">listings_master.csv</span>
+
+price year make   ...
+<span class="n">8500</span>  2013 hyundai
+<span class="n">3800</span>  2011 honda
+<span class="n">4995</span>  2013 hyundai
+<span class="n">4900</span>  2009 acura
+<span class="n">1800</span>  2007 honda
+...  <span class="s">+10 rows/hour</span></div>
+  </div>
+  <div class="arrow"><svg viewBox="0 0 24 24"><path d="M4 12h14m-5-6 6 6-6 6" fill="none" stroke="#6D28A3" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+  <div class="stage">
+    <span class="time">:20 · Predict</span>
+    <div class="name">Price model</div>
+    <div class="what">A decision tree retrains on your table and predicts a price for every new car.</div>
+<div class="snip"><span class="k">preds_master.csv</span> (illustration)
+
+car          asking  model
+elantra '13  <span class="n">4995</span>    <span class="s">5,410</span>
+accord  '11  <span class="n">3800</span>    <span class="s">4,120</span>
+tl      '09  <span class="n">4900</span>    <span class="s">4,350</span>
+
+<span class="s">Underpriced? Buy!</span></div>
+  </div>
+</div>
+
+<div class="bands">
+  <div class="band"><span class="ic">🪣</span><div>Everything lands in <b>your own bucket</b> on Google Cloud: raw text, JSON, the master table, predictions. Nothing is lost when an ad disappears.</div></div>
+  <div class="band"><span class="ic">🔁</span><div><b>Change code, and the cloud updates itself:</b> branch → pull request → merge → GitHub Actions redeploys. That is CI/CD.</div></div>
+</div>
+
+<div class="you">
+  <h2>Now it is yours. <span>What will you build on top?</span></h2>
+  <div class="cards">
+    <div class="card"><div class="t">Fix the extractor</div><div class="when">Lab 3 · A06</div><div class="d">One line of regex turns "Contact Information" into real makes and models, and you ship it with a pull request.</div></div>
+    <div class="card"><div class="t">Mine more features</div><div class="when">100 Regex Ideas</div><div class="d">Condition, title status, cylinders, photos, one owner, new tires: all sitting in the ad, waiting for a pattern.</div></div>
+    <div class="card"><div class="t">Regex vs. Gemini</div><div class="when">A07</div><div class="d">Score the LLM on your own truth table. Where is it smarter? Where is plain regex faster, cheaper, and just as right?</div></div>
+    <div class="card"><div class="t">Clean before you train</div><div class="when">Lab 3 · midterm</div><div class="d">Flag the suspicious rows (unknown make, 99,999 miles) and keep them out of your model.</div></div>
+    <div class="card"><div class="t">Explain every price</div><div class="when">xAI · Module 2</div><div class="d">SHAP shows why the model priced a car the way it did: the mileage, the year, that rebuilt title.</div></div>
+    <div class="card"><div class="t">Go bigger</div><div class="when">The class dataset</div><div class="d">50 of you scrape 50 different areas. Pool them and train one master model on all 50 areas.</div></div>
+  </div>
+</div>
+
+<div class="foot"><div class="l">OPIM 5512<span>· Applied Data Science</span></div><div class="r">Module 3 · Your Craigslist Pipeline</div></div>
+</body></html>
