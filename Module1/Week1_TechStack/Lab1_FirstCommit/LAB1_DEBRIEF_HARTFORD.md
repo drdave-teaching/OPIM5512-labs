@@ -1,7 +1,7 @@
 # Lab 1 — Debrief & Skills Check
 
 **OPIM 5512 · Module 1 · Hartford section, Wed Sep 2 2026**
-Pulled from the class recording. Watch it here: **[Lab 1 (Hartford) recording](https://kaltura.uconn.edu/media/t/1_b192yazq)**.
+Pulled from the class recording. Watch it here: **[Lab 1 (Hartford) recording](https://lms.uconn.edu/webapps/blackboard/execute/blti/launchLink?course_id=_200751_1&content_id=_14866009_1)**.
 
 > **The headline:** tonight the deliverable was a *repo, not a notebook.* Two people each owned half
 > of the same problem — weather and electricity demand — and the only way to the answer was to merge

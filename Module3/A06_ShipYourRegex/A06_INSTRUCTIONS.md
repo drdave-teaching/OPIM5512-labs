@@ -2,7 +2,7 @@
 
 **OPIM 5512 · Module 3.2 · Update the ETL · Group discussion · Due Friday, October 16, 11:59 PM**
 
-📺 **Watch first:** [A06 walkthrough video (6 min)](https://kaltura.uconn.edu/media/t/1_ll0abm2a): Dr. Wanik does every step below on his own fork.
+📺 **Watch first:** [A06 walkthrough video (6 min)](https://lms.uconn.edu/webapps/blackboard/execute/blti/launchLink?course_id=_200751_1&content_id=_14866015_1) (opens in HuskyCT; sign in first): Dr. Wanik does every step below on his own fork.
 
 In Lab 3 you wrote a regular expression that pulls the right make and model, but only inside a notebook. Your pipeline
 on Google Cloud is still using the old one. This week you **ship** it: change one line in your pipeline's code on a
@@ -54,7 +54,7 @@ Screenshot it. Expect a lot of `Contact` and town names like `East`, `West` and 
 ## Step 3 · Merge and watch it deploy
 1. **Merge pull request** → **Confirm merge** → **Delete branch**.
 2. **Actions** tab: **Deploy Extractor** starts by itself. Wait for the **green check** (2 to 3 minutes).
-   Stuck? The [walkthrough video](https://kaltura.uconn.edu/media/t/1_ll0abm2a) shows every click.
+   Stuck? The [walkthrough video](https://lms.uconn.edu/webapps/blackboard/execute/blti/launchLink?course_id=_200751_1&content_id=_14866015_1) shows every click.
    *(Red X? Click it, open the failed step, and ask Claude with the full error.)*
 
 ## Step 4 · Re-extract your cars with the new regex (Cloud Shell)
