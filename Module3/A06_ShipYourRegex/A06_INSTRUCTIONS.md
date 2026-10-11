@@ -1,6 +1,6 @@
 # A06 · Ship your regex
 
-**OPIM 5512 · Module 3.2 · Update the ETL · Group discussion · Due Friday, October 16, 11:59 PM**
+**OPIM 5512 · Module 3.2 · Update the ETL · Group discussion · Due Sunday, October 18, 11:59 PM**
 
 📺 **Watch first:** [A06 walkthrough video (6 min)](https://lms.uconn.edu/webapps/blackboard/execute/blti/launchLink?course_id=_200751_1&content_id=_14866015_1) (opens in HuskyCT; sign in first): Dr. Wanik does every step below on his own fork.
 
@@ -120,7 +120,7 @@ gcloud storage cat "gs://${BUCKET_NAME}/structured/datasets/listings_master.csv"
 is now **your regex, running in the cloud**, and it should match your Way 2 column from Lab 3.
 
 ## What to post in the A06 discussion
-Due **Friday, October 16, 11:59 PM**. Post in your group's A06 thread:
+Due **Sunday, October 18, 11:59 PM**. Post in your group's A06 thread:
 
 1. A screenshot of your **merged pull request** (the one-line diff).
 2. A screenshot of the **green Deploy Extractor** run.
