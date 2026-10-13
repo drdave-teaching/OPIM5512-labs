@@ -41,10 +41,11 @@ find your case (Part 0 of the notebook has every step and command):
 | 2. Clean | 10 min | `Ford` vs `ford`, `chevy` vs `chevrolet`, flag junk rows (odd price, placeholder mileage) |
 | 3. Baseline | 10 min | The numbers to beat: guess the median, and the decision tree your pipeline already trains |
 | 4. Tune | 25 min | Tune a decision tree, a random forest and KNN with cross-validation. **You pick the champion** |
+| Your turn | 15 min | **You code it:** actual-vs-predicted scatter, error histogram and summary stats, champion vs baseline |
 | 5. Explain | 20 min | SHAP on your champion, then **price a car you know** and see why |
 | 6. Ship | 20 min | Save the model + model card, upload to your bucket (your account is checked first), run `predict-shap` right from Colab |
 | 7. Read production | 15 min | Read what production saved, score it honestly, explain one prediction (and read its ad) |
-| 8. Wrap up | 5 min | Four short answers, submit |
+| 8. Wrap up | 5 min | Five short answers, submit |
 
 **Submit:** HuskyCT → *Submit Lab 4* (upload your `.ipynb`). Due date coming with the final version.
 
