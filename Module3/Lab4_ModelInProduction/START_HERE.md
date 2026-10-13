@@ -30,6 +30,7 @@ find your case (Part 0 of the notebook has every step and command):
 - [ ] **Deploy predict-shap** shows a green check (A or B), or the Cloud Shell block finished (C)
 - [ ] Your **A06 regex fix** is shipped (otherwise half your makes say `contact`)
 - [ ] You know your **project ID** and **bucket name** (usually the same)
+- [ ] **2-step verification is on** for your Google Cloud Gmail. Since Oct 13, Google Cloud may show a "Turn on 2-step verification" box and can lock you out of the console without it: click **Enable MFA** (or turn it on later at myaccount.google.com → Security), not just "Remind me later"
 
 ## Tonight in 8 parts
 
