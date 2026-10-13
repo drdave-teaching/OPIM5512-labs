@@ -1,13 +1,12 @@
-# Lab 4: Ship It (Your Model in Production) · **START HERE**
+# Lab 4: Deploying Your Model to Production · **START HERE**
 
-> **90% draft.** The notebook is complete and tested. Small wording changes are still possible before your lab night,
-> and the print sheet and slides are coming. Hartford: **Wed Oct 14** · Stamford: **Wed Oct 21**.
+> Hartford: **Wed Oct 14** · Stamford: **Wed Oct 21** · Submit by **Thu Oct 22, 11:59 PM** (both campuses).
 
 ![How your pipeline works: scrape, extract with regex and Gemini, combine, predict, and what you build on top](../img/OPIM5512_M3_Pipeline_Overview.png)
 
 **Solo · about 2 hours · Colab · Dr. Wanik's cleaned Hartford cars, then your own Google Cloud bucket.** Your pipeline
-scrapes, extracts and combines cars every hour. Tonight you put a **model you tuned yourself** into that pipeline, and
-make it **explain every prediction it makes with SHAP**, saved right next to the prediction in your bucket.
+scrapes, extracts and combines cars every hour. Tonight you **fit a really good model** (tuned, and better than the
+baseline) and **deploy it** into that pipeline, so it prices every new car on its own, every hour (and saves why, with SHAP).
 
 | | What | Link |
 |---|---|---|
@@ -61,7 +60,7 @@ structured/preds/                        the pipeline's background decision tree
 **Your model is frozen**: production never retrains it. Retraining = run the notebook again and upload; production
 switches to the new model by itself, and the old predictions stay, tagged with the old version.
 
-**Submit:** HuskyCT → *Submit Lab 4* (upload your `.ipynb`). Due date coming with the final version.
+**Submit:** HuskyCT → *Submit Lab 4* (upload your `.ipynb`), due **Thu Oct 22, 11:59 PM** (Hartford and Stamford).
 
 **Leave `predict-shap` running.** Every hour at :25 it predicts and explains your newest cars, and your midterm can
 chart how your model's errors and explanations move over time.
