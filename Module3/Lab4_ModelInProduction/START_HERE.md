@@ -44,8 +44,22 @@ find your case (Part 0 of the notebook has every step and command):
 | Your turn | 15 min | **You code it:** actual-vs-predicted scatter, error histogram and summary stats, champion vs baseline |
 | 5. Explain | 20 min | SHAP on your champion, then **price a car you know** and see why |
 | 6. Ship | 20 min | Save the model + model card, upload to your bucket (your account is checked first), run `predict-shap` right from Colab |
-| 7. Read production | 15 min | Read what production saved, score it honestly, explain one prediction (and read its ad) |
+| 7. Your model at work | 5 min | What your frozen model priced in the cloud (open the two CSVs yourself), and why one price |
 | 8. Wrap up | 5 min | Five short answers, submit |
+
+## Where everything lives in your bucket
+
+```
+models/model.joblib, model_card.json     your LIVE model (the newest upload; predict-shap reads only this)
+models/history/model_<time>.joblib       a copy of every model you ever shipped, named by time (never overwritten)
+structured/datasets/listings_master.csv  all your cars (the scraper adds ~10 an hour)
+structured/preds_lab4/preds_master.csv   every price your model made, tagged with the model version that made it
+structured/preds_lab4/shap_master.csv    the SHAP values behind each of those prices
+structured/preds/                        the pipeline's background decision tree (train-dt): ignore it for Lab 4
+```
+
+**Your model is frozen**: production never retrains it. Retraining = run the notebook again and upload; production
+switches to the new model by itself, and the old predictions stay, tagged with the old version.
 
 **Submit:** HuskyCT → *Submit Lab 4* (upload your `.ipynb`). Due date coming with the final version.
 
