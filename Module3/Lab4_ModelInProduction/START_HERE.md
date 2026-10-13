@@ -42,8 +42,8 @@ find your case (Part 0 of the notebook has every step and command):
 | 3. Baseline | 10 min | The numbers to beat: guess the median, and the decision tree your pipeline already trains |
 | 4. Tune | 25 min | Tune a decision tree, a random forest and KNN with cross-validation. **You pick the champion** |
 | 5. Explain | 20 min | SHAP on your champion, then **price a car you know** and see why |
-| 6. Ship | 20 min | Save the model + model card, upload to your bucket, run `predict-shap` from Cloud Shell |
-| 7. Read production | 15 min | The predictions **and** SHAP values production saved, honest scoring, and the ads behind the "bargains" |
+| 6. Ship | 20 min | Save the model + model card, upload to your bucket (your account is checked first), run `predict-shap` right from Colab |
+| 7. Read production | 15 min | Read what production saved, score it honestly, explain one prediction (and read its ad) |
 | 8. Wrap up | 5 min | Four short answers, submit |
 
 **Submit:** HuskyCT → *Submit Lab 4* (upload your `.ipynb`). Due date coming with the final version.
@@ -54,6 +54,6 @@ chart how your model's errors and explanations move over time.
 ## Stuck?
 
 Ask Claude: paste the cell, the **full** error, and what you expected. Most problems are one of these:
-- **Wrong Google account** in the Colab pop-up: pick the Gmail you used for Google Cloud.
+- **Wrong Google account** in the Colab pop-up: pick the Gmail you used for Google Cloud. Part 6c prints "Signed in as ..." and stops with a clear message if that account cannot see your bucket.
 - **`status: no_model`** from `predict-shap`: your upload in Part 6c did not run (check `PROJECT_ID` and `BUCKET_NAME` in Part 1b).
-- **Part 7 says "No production predictions yet"**: run the Part 6d commands in Cloud Shell, wait a minute, re-run the cell.
+- **Part 7 says "No production predictions yet"**: run Part 6d (it starts `predict-shap` from Colab and waits for it), then re-run the cell.
