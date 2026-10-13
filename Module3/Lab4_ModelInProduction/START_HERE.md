@@ -14,7 +14,7 @@ make it **explain every prediction it makes with SHAP**, saved right next to the
 | 🚀 | **The lab notebook** (open in Colab, then File → Save a copy in Drive) | [Lab4_Model_In_Production.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/Lab4_Model_In_Production.ipynb) |
 | ☁️ | **Final GCP Guide F26** (if your pipeline is not running yet) | [FINAL_GCP_Guide_F26.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/FINAL_GCP_Guide_F26.ipynb) |
 | 🧠 | **The production function** your model runs inside | [`cloud_function/predict-shap/main.py`](https://github.com/drdave-teaching/myscrapers/blob/main/cloud_function/predict-shap/main.py) |
-| 📊 | **The training data** (267 cleaned Hartford cars, after the A06 regex fix) | [lab4_listings_master_snapshot.csv](https://github.com/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/data/lab4_listings_master_snapshot.csv) |
+| 📊 | **The training data** (453 Hartford cars, Sep 28 to Oct 13, after the A06 regex fix) | [lab4_listings_master_snapshot.csv](https://github.com/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/data/lab4_listings_master_snapshot.csv) |
 
 ## Before class (10 minutes, please)
 
@@ -40,7 +40,7 @@ find your case (Part 0 of the notebook has every step and command):
 | 1. Load | 10 min | Dr. Wanik's cleaned cars, same versions as production (scikit-learn 1.6.1, shap 0.48.0) |
 | 2. Clean | 10 min | `Ford` vs `ford`, `chevy` vs `chevrolet`, flag junk rows (odd price, placeholder mileage) |
 | 3. Baseline | 10 min | The numbers to beat: guess the median, and the decision tree your pipeline already trains |
-| 4. Tune | 25 min | **Guess the winner first**, then tune a decision tree, a random forest and KNN. **You pick the champion** |
+| 4. Tune | 25 min | Tune a decision tree, a random forest and KNN with cross-validation. **You pick the champion** |
 | 5. Explain | 20 min | SHAP on your champion, then **price a car you know** and see why |
 | 6. Ship | 20 min | Save the model + model card, upload to your bucket, run `predict-shap` from Cloud Shell |
 | 7. Read production | 15 min | The predictions **and** SHAP values production saved, honest scoring, and the ads behind the "bargains" |
