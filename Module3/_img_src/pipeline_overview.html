@@ -29,7 +29,7 @@ h1 span { color:var(--purple); }
 .you { margin-top:30px; }
 .you h2 { font-size:30px; font-weight:800; }
 .you h2 span { color:var(--purple); }
-.cards { display:grid; grid-template-columns:repeat(6, 1fr); gap:16px; margin-top:14px; }
+.cards { display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-top:14px; }
 .card { background:var(--tint); border:2px solid var(--line); border-radius:14px; padding:14px 15px; }
 .card .t { font-size:20px; font-weight:800; color:var(--purple); }
 .card .when { font-size:14px; font-weight:700; color:var(--muted); letter-spacing:0.3px; text-transform:uppercase; margin-top:2px; }
@@ -141,11 +141,9 @@ tl      '09  <span class="n">4900</span>    <span class="s">4,350</span>
   <h2>Now it is yours. <span>What will you build on top?</span></h2>
   <div class="cards">
     <div class="card"><div class="t">Fix the extractor</div><div class="when">Lab 3 · A06</div><div class="d">One line of regex turns "Contact Information" into real makes and models, and you ship it with a pull request.</div></div>
-    <div class="card"><div class="t">Mine more features</div><div class="when">100 Regex Ideas</div><div class="d">Condition, title status, cylinders, photos, one owner, new tires: all sitting in the ad, waiting for a pattern.</div></div>
-    <div class="card"><div class="t">Regex vs. Gemini</div><div class="when">A07</div><div class="d">Score the LLM on your own truth table. Where is it smarter? Where is plain regex faster, cheaper, and just as right?</div></div>
-    <div class="card"><div class="t">Clean before you train</div><div class="when">Lab 3 · midterm</div><div class="d">Flag the suspicious rows (unknown make, 99,999 miles) and keep them out of your model.</div></div>
-    <div class="card"><div class="t">Explain every price</div><div class="when">xAI · Module 2</div><div class="d">SHAP shows why the model priced a car the way it did: the mileage, the year, that rebuilt title.</div></div>
-    <div class="card"><div class="t">Go bigger</div><div class="when">The class dataset</div><div class="d">50 of you scrape 50 different areas. Pool them and train one master model on all 50 areas.</div></div>
+    <div class="card"><div class="t">Regex vs. Gemini</div><div class="when">A07</div><div class="d">Teach Gemini to read the whole ad and return new fields (transmission, condition...). Where does it beat plain regex?</div></div>
+    <div class="card"><div class="t">Ship a model</div><div class="when">Lab 4</div><div class="d">Train and tune a model in Colab, upload it to your bucket, and predict-shap prices every new car, every hour.</div></div>
+    <div class="card"><div class="t">Regex model vs. Gemini model</div><div class="when">Midterm</div><div class="d">Retrain with Gemini's features and race it against your regex model on the same cars and dates. Which one wins?</div></div>
   </div>
 </div>
 
