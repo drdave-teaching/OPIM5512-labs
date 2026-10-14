@@ -34,18 +34,18 @@ find your case (Part 0 of the notebook has every step and command):
 
 ## Tonight in 8 parts
 
-| Part | Time | You do |
+| Part | Minutes | You do |
 |---|---|---|
-| 0. Before you start | 5 min | Get `predict-shap` deploying (case A, B or C) |
-| 1. Load | 10 min | Dr. Wanik's cleaned cars, same versions as production (scikit-learn 1.6.1, shap 0.48.0) |
-| 2. Clean | 10 min | `Ford` vs `ford`, `chevy` vs `chevrolet`, flag junk rows (odd price, placeholder mileage) |
-| 3. Baseline | 10 min | The numbers to beat: guess the median, and the decision tree your pipeline already trains |
-| 4. Tune | 25 min | Tune a decision tree, a random forest and KNN with cross-validation. **You pick the champion** |
-| Your turn | 15 min | **You code it:** actual-vs-predicted scatter, error histogram and summary stats, champion vs baseline |
-| 5. Explain | 20 min | SHAP on your champion, then **price a car you know** and see why |
-| 6. Ship | 20 min | Save the model + model card, upload to your bucket (your account is checked first), run `predict-shap` right from Colab |
-| 7. Your model at work | 5 min | What your frozen model priced in the cloud (open the two CSVs yourself), and why one price |
-| 8. Wrap up | 5 min | Five short answers, submit |
+| 0. Before you start | 5 | Get `predict-shap` deploying (case A, B or C) |
+| 1. Load | 10 | Dr. Wanik's cleaned cars, same versions as production (scikit-learn 1.6.1, shap 0.48.0) |
+| 2. Clean | 10 | `Ford` vs `ford`, `chevy` vs `chevrolet`, flag junk rows (odd price, placeholder mileage) |
+| 3. Baseline | 10 | The numbers to beat: guess the median, and the decision tree your pipeline already trains |
+| 4. Tune | 25 | Tune a decision tree, a random forest and KNN with cross-validation. **You pick the champion** |
+| Your turn | 15 | **You code it:** actual-vs-predicted scatter, error histogram and summary stats, champion vs baseline |
+| 5. Explain | 20 | SHAP on your champion, then **price a car you know** and see why |
+| 6. Ship | 20 | Save the model + model card, upload to your bucket (your account is checked first), run `predict-shap` right from Colab |
+| 7. Your model at work | 5 | What your frozen model priced in the cloud (open the two CSVs yourself), and why one price |
+| 8. Wrap up | 5 | Five short answers, submit |
 
 ## Where everything lives in your bucket
 
@@ -69,8 +69,8 @@ chart how your model's errors and explanations move over time.
 ## Stuck?
 
 Ask Claude: paste the cell, the **full** error, and what you expected. Most problems are one of these:
+
 - **Wrong Google account** in the Colab pop-up: pick the Gmail you used for Google Cloud. Part 6c prints "Signed in as ..." and stops with a clear message if that account cannot see your bucket.
 - **`status: no_model`** from `predict-shap`: your upload in Part 6c did not run (check `PROJECT_ID` and `BUCKET_NAME` in Part 1b).
-- **Part 7 says your model priced exactly 500 cars**: you have more than 500 in your bucket. Production prices at most 500
-  per run (40 for KNN); the rest get priced at the next hourly :25 runs. Training is not limited: it uses every car you load.
+- **Part 7 says your model priced exactly 500 cars**: you have more than 500 in your bucket. Production prices at most 500 per run (40 for KNN); the rest get priced at the next hourly :25 runs. Training is not limited: it uses every car you load.
 - **Part 7 says "No production predictions yet"**: run Part 6d (it starts `predict-shap` from Colab and waits for it), then re-run the cell.

@@ -54,7 +54,8 @@ ul, ol { margin: 2px 0 4px; }
 blockquote { margin: 5px 0; padding: 4px 10px; }
 table { margin: 5px 0; font-size: 9pt; }
 hr { margin: 8px 0; }
-img { max-width: 100%; height: auto; }
+pre, pre code { white-space: pre-wrap; word-break: break-word; font-size: 7.9pt; }
+img { max-width: 82%; height: auto; display: block; margin: 0 auto; }
 """
 
 for src, pdf, title in DOCS:
