@@ -6,7 +6,7 @@
 > You answer it the way a data science team does at work: a fair test, a check that the result is real and not luck,
 > plots that explain the winner, a deployed model, and a short memo for your manager.
 
-**See it done first.** Dr. Wanik ran this exact experiment on his own cars:
+**See it done first.** Dr. Dave ran this exact experiment on his own cars:
 [his notebook, every chart included](https://github.com/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/A08_Midterm_WorkedExample_DrWanik.ipynb) and [his one-page memo](handouts/DrWanik_Bakeoff_Memo.pdf). His answer: on the newest cars and on 21 of 25 paired folds the Gemini model won,
 about $150 better per car, and **all** of the gain came from the new A07 fields (Gemini reading the same 4 fields was
 no better than regex). On his small training window alone it was a tie, which is why the "real or luck" check matters.
@@ -27,7 +27,7 @@ Your cars, your fields, your answer may differ. That is the point.
 Open the **[midterm starter notebook](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/A08_Midterm_Bakeoff_STARTER.ipynb)**
 (**File → Save a copy in Drive**), type your project ID and bucket name in Part 0, and run it top to bottom (it reads
 both tables straight from your bucket, like Lab 4). It is the same notebook as
-Dr. Wanik's report, set up for your data: it finds your new Gemini columns by itself.
+Dr. Dave's report, set up for your data: it finds your new Gemini columns by itself.
 
 **The fair-test rules (already built in; do not change them):**
 
@@ -78,7 +78,7 @@ Your frozen Lab 4 model has priced every new car since Lab 4 night. The starter'
 
 ## Part 4 · Tell your manager (25%)
 
-A **1 to 2 page memo** (like [Dr. Wanik's](handouts/DrWanik_Bakeoff_Memo.pdf)) **or** a **Looker Studio dashboard**
+A **1 to 2 page memo** (like [Dr. Dave's](handouts/DrWanik_Bakeoff_Memo.pdf)) **or** a **Looker Studio dashboard**
 a manager or recruiter could read. Four short sections, with your numbers:
 1. **The result:** which model won, by how much, on how many of the 25 folds.
 2. **Why:** reading better vs new fields; which fields mattered (permutation importance, SHAP).
@@ -99,7 +99,7 @@ a manager or recruiter could read. Four short sections, with your numbers:
 | You see | Do this |
 |---|---|
 | "No new Gemini columns found" | Your A07 Edit 3 (`out_record`) is missing: A07 Step 2, then Step 4 to re-read old cars |
-| Very few test cars (under 30) | Check your scraper is still running; tell Dr. Wanik (he will adjust your window) |
+| Very few test cars (under 30) | Check your scraper is still running; tell Dr. Dave (he will adjust your window) |
 | `predict-shap` says "your model needs columns ..." | Your model card is missing `data_key`: re-run the starter's Part 2 cell |
 | `predict-shap` ignores your new fields | You skipped Sync fork in Part 2, step 1 |
 | Anything else | Paste the cell, the full error and what you expected into Claude |

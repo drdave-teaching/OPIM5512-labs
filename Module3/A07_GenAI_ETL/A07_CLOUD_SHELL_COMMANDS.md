@@ -8,7 +8,7 @@ fuel, color, title status, condition, location...), and (2) deploy a **new** Clo
 collects Gemini's output into its own growing CSV, while your regex pipeline keeps running untouched. Then you compare
 the two.
 
-> **See it done first: Dr. Wanik's A07 (same steps, his fork).** Open each pull request and click **Files changed**:
+> **See it done first: Dr. Dave's A07 (same steps, his fork).** Open each pull request and click **Files changed**:
 > - [Part 1: Gemini extracts 10 new fields](https://github.com/drdww/myscrapers-f26-v2/pull/2/files) (one file, three edits)
 > - [Part 2: materialize-llm](https://github.com/drdww/myscrapers-f26-v2/pull/3/files) (three new files)
 > - [His results](DrWanik_example/README.md): both master tables (regex and Gemini, same 467 cars) and the code as deployed
@@ -20,7 +20,7 @@ the two.
 
 Cloud Shell blocks: open **Cloud Shell** (the `>_` icon, top right of the Google Cloud console) and paste them **one at a time**.
 
-**The worked example uses Dr. Wanik's names.** Change the names in Step 0 to yours, or let Claude do it:
+**The worked example uses Dr. Dave's names.** Change the names in Step 0 to yours, or let Claude do it:
 
 > **Personalize it with Claude.** Paste this prompt, then this whole page:
 > *"Here are Cloud Shell commands from my OPIM 5512 A07 instructions. My Google Cloud project ID is ____ and my bucket
@@ -57,7 +57,7 @@ gcloud storage cat "$(gcloud storage ls "gs://${BUCKET_NAME}/structured/**/jsonl
 
 ## Step 2 · Three edits in ONE file (on a branch, exactly like A06)
 In **your fork**, open `cloud_function/extractor-llm-poc/main.py` and click the pencil. You make **three edits**, all
-in this file. Each block below is ready to paste (Dr. Wanik's 10 fields); delete or rename lines to make them yours,
+in this file. Each block below is ready to paste (Dr. Dave's 10 fields); delete or rename lines to make them yours,
 but **use the same field names in all three places**.
 
 **Edit 1 · The schema** (what Gemini must return). Find `"mileage": {"type": "integer", "nullable": True},` inside
@@ -111,7 +111,7 @@ them invites made-up answers.
 ```
 Python is picky about spaces: keep each pasted line lined up with the line above it. Then **Commit changes… → Create
 a new branch → pull request → Files changed** (compare with
-[Dr. Wanik's](https://github.com/drdww/myscrapers-f26-v2/pull/2/files)) **→ Merge**. GitHub Actions runs
+[Dr. Dave's](https://github.com/drdww/myscrapers-f26-v2/pull/2/files)) **→ Merge**. GitHub Actions runs
 **Deploy LLM Extractor** by itself; wait for the green check (about 2 minutes). A red X? Open it, copy the error, and
 paste it into Claude with your three edits.
 
@@ -124,7 +124,7 @@ gcloud functions describe extractor-llm-poc --region="${REGION}" --gen2 --format
 ## Step 4 · Re-read your old cars with the new schema
 New cars get your new fields automatically. This sends every old batch back through Gemini, 3 batches at a time
 (your extractor runs at most 3 copies at once), with automatic retries. It costs about one Gemini call per car (a few
-cents for a few hundred cars) and takes **about 15 to 25 minutes for 150 batches** (Dr. Wanik's 153 batches: 16 minutes, 0 errors). Each batch
+cents for a few hundred cars) and takes **about 15 to 25 minutes for 150 batches** (Dr. Dave's 153 batches: 16 minutes, 0 errors). Each batch
 prints one line that starts `{"errors":0,...,"ok":true`. Start it, keep the Cloud Shell tab open, and work on something
 else; you are done when your prompt comes back.
 ```bash

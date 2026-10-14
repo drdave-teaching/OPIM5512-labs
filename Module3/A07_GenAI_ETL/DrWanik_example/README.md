@@ -1,6 +1,6 @@
-# Dr. Wanik's A07, start to finish (Oct 14, 2026)
+# Dr. Dave's A07, start to finish (Oct 14, 2026)
 
-Same steps as the [A07 sheet](../A07_CLOUD_SHELL_COMMANDS.md), done on Dr. Wanik's own fork. Use it as your model.
+Same steps as the [A07 sheet](../A07_CLOUD_SHELL_COMMANDS.md), done on Dr. Dave's own fork. Use it as your model.
 
 **The changes (click Files changed):**
 - [Part 1: Gemini extracts 10 new fields](https://github.com/drdww/myscrapers-f26-v2/pull/2/files): one file, three edits (schema, rules, `out_record`)
