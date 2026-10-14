@@ -123,7 +123,7 @@ gcloud functions describe extractor-llm-poc --region="${REGION}" --gen2 --format
 ## Step 4 · Re-read your old cars with the new schema
 New cars get your new fields automatically. This sends every old batch back through Gemini, 3 batches at a time
 (your extractor runs at most 3 copies at once), with automatic retries. It costs about one Gemini call per car (a few
-cents for a few hundred cars) and takes **about 20 seconds per batch**: roughly **45 minutes for 150 batches**. Each batch
+cents for a few hundred cars) and takes **about 15 to 25 minutes for 150 batches** (Dr. Wanik's 153 batches: 16 minutes, 0 errors). Each batch
 prints one line that starts `{"errors":0,...,"ok":true`. Start it, keep the Cloud Shell tab open, and work on something
 else; you are done when your prompt comes back.
 ```bash
