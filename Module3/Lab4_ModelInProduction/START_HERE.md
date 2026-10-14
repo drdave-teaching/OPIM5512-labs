@@ -70,4 +70,6 @@ chart how your model's errors and explanations move over time.
 Ask Claude: paste the cell, the **full** error, and what you expected. Most problems are one of these:
 - **Wrong Google account** in the Colab pop-up: pick the Gmail you used for Google Cloud. Part 6c prints "Signed in as ..." and stops with a clear message if that account cannot see your bucket.
 - **`status: no_model`** from `predict-shap`: your upload in Part 6c did not run (check `PROJECT_ID` and `BUCKET_NAME` in Part 1b).
+- **Part 7 says your model priced exactly 500 cars**: you have more than 500 in your bucket. Production prices at most 500
+  per run (40 for KNN); the rest get priced at the next hourly :25 runs. Training is not limited: it uses every car you load.
 - **Part 7 says "No production predictions yet"**: run Part 6d (it starts `predict-shap` from Colab and waits for it), then re-run the cell.
