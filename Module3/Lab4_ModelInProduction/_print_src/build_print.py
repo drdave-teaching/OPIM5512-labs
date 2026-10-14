@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Render the Lab 3 markdown handouts -> print-styled PDFs (same house style as Labs 1-2).
+"""Render the Lab 4 markdown handouts -> print-styled PDFs (same house style as Labs 1-2).
 Run from anywhere:  python _template_src/build_print.py"""
 import os
 import subprocess
@@ -11,8 +11,8 @@ LAB = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(LAB, "handouts")
 
 DOCS = [
-    ("TONIGHT_IN_20_STEPS_lab3.md", "OPIM5512_Lab3_Detective_20_Steps_PRINT.pdf", "Lab 3: Auditing Your ETL Pipeline — Tonight in 20 Steps"),
-    ("REGEX_100_IDEAS.md", "OPIM5512_Regex_100_Ideas.pdf", "100 Regex Ideas for Your Craigslist Cars"),
+    ("TONIGHT_IN_20_STEPS_lab4.md", "OPIM5512_Lab4_20_Steps_PRINT.pdf", "Lab 4: Deploying Your Model to Production — Tonight in 20 Steps"),
+    ("START_HERE.md", "OPIM5512_Lab4_START_HERE_PRINT.pdf", "Lab 4: Deploying Your Model to Production — START HERE"),
 ]
 
 CSS = """
@@ -42,6 +42,21 @@ strong { color:#111; }
 """
 
 os.makedirs(OUT, exist_ok=True)
+# Lab 4: tighter spacing so each handout prints on one double-sided sheet (2 pages)
+CSS += """
+@page { size: letter; margin: 0.45in 0.55in; }
+body { font-size: 9.8pt; line-height: 1.33; }
+h1 { font-size: 18pt; margin: 0 0 6px; }
+h2 { font-size: 13pt; margin: 10px 0 4px; }
+h3 { font-size: 11pt; margin: 7px 0 2px; padding-top: 3px; }
+p, li { margin: 1px 0; }
+ul, ol { margin: 2px 0 4px; }
+blockquote { margin: 5px 0; padding: 4px 10px; }
+table { margin: 5px 0; font-size: 9pt; }
+hr { margin: 8px 0; }
+img { max-width: 100%; height: auto; }
+"""
+
 for src, pdf, title in DOCS:
     with open(os.path.join(LAB, src), encoding="utf-8") as f:
         body = markdown.markdown(f.read(), extensions=["tables", "fenced_code", "sane_lists"])

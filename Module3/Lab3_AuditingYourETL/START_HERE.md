@@ -11,8 +11,8 @@ regex extractor got right, then **fix the worst field with one regular expressio
 | 🔍 | **The lab notebook** (open in Colab, run top to bottom) | [Lab3_Auditing_Your_ETL_Pipeline.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/Lab3_Auditing_Your_ETL_Pipeline.ipynb) |
 | ☁️ | **Final GCP Guide F26** (if your pipeline is not running yet) | [FINAL_GCP_Guide_F26.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/FINAL_GCP_Guide_F26.ipynb) |
 | 🗺️ | **Your BASE_SITE link** (your area on Craigslist) | HuskyCT → Module 3 → Week 3.1 → *Your BASE_SITE link* |
-| 🗺️ | **Tonight in 20 steps** (print it, or keep it on a second screen) | [OPIM5512_Lab3_Detective_20_Steps_PRINT.pdf](handouts/OPIM5512_Lab3_Detective_20_Steps_PRINT.pdf) · [markdown](TONIGHT_IN_20_STEPS_lab3.md) |
-| 🎞️ | **Run-of-show slides** (tonight's plan + regex in 5 minutes) | [OPIM5512_Lab3_Detective_Deck.pdf](handouts/OPIM5512_Lab3_Detective_Deck.pdf) |
+| 🗺️ | **Tonight in 20 steps** (print it, or keep it on a second screen) | [OPIM5512_Lab3_Auditing_20_Steps_PRINT.pdf](handouts/OPIM5512_Lab3_Auditing_20_Steps_PRINT.pdf) · [markdown](TONIGHT_IN_20_STEPS_lab3.md) |
+| 🎞️ | **Run-of-show slides** (tonight's plan + regex in 5 minutes) | [OPIM5512_Lab3_Auditing_Deck.pdf](handouts/OPIM5512_Lab3_Auditing_Deck.pdf) |
 | 🔤 | **The regex you are grading** | [`extractor-per-listing/main.py`](https://github.com/drdave-teaching/myscrapers/blob/main/cloud_function/extractor-per-listing/main.py) |
 | 💡 | **100 Regex Ideas** (year, price, mileage, color, make/model... simple to hard, all tested on real ads) | [OPIM5512_Regex_100_Ideas.pdf](handouts/OPIM5512_Regex_100_Ideas.pdf) · [markdown](REGEX_100_IDEAS.md) · [Try-It notebook](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/Regex_Idea_Sheet_TryIt.ipynb) |
 

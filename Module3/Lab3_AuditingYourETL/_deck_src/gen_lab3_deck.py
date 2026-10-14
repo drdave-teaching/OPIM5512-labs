@@ -7,7 +7,7 @@ import subprocess
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CHROME = r"C:/Program Files/Google/Chrome/Application/chrome.exe"
-OUT_PDF = os.path.join(os.path.dirname(HERE), "handouts", "OPIM5512_Lab3_Detective_Deck.pdf")
+OUT_PDF = os.path.join(os.path.dirname(HERE), "handouts", "OPIM5512_Lab3_Auditing_Deck.pdf")
 
 NAVY = "#0A1F44"
 GOLD = "#F2A900"
@@ -258,7 +258,7 @@ slides.append(content("DEFINITION OF DONE", "Submit Lab 3 on HuskyCT",
 
 html = ("<!doctype html><html><head><meta charset='utf-8'><style>" + CSS + "</style></head><body>"
         + "".join(slides) + "</body></html>")
-hp = os.path.join(HERE, "_detective_deck.html")
+hp = os.path.join(HERE, "_lab3_deck.html")
 with open(hp, "w", encoding="utf-8") as f:
     f.write(html)
 os.makedirs(os.path.dirname(OUT_PDF), exist_ok=True)

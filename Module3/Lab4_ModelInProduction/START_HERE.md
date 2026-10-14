@@ -11,6 +11,7 @@ baseline) and **deploy it** into that pipeline, so it prices every new car on it
 | | What | Link |
 |---|---|---|
 | 🚀 | **The lab notebook** (open in Colab, then File → Save a copy in Drive) | [Lab4_Model_In_Production.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/Lab4_Model_In_Production.ipynb) |
+| 🗺️ | **Tonight in 20 steps** (print it, or keep it on a second screen) | [OPIM5512_Lab4_20_Steps_PRINT.pdf](handouts/OPIM5512_Lab4_20_Steps_PRINT.pdf) |
 | ☁️ | **Final GCP Guide F26** (if your pipeline is not running yet) | [FINAL_GCP_Guide_F26.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/FINAL_GCP_Guide_F26.ipynb) |
 | 🧠 | **The production function** your model runs inside | [`cloud_function/predict-shap/main.py`](https://github.com/drdave-teaching/myscrapers/blob/main/cloud_function/predict-shap/main.py) |
 | 📊 | **The training data** (453 Hartford cars, Sep 28 to Oct 13, after the A06 regex fix) | [lab4_listings_master_snapshot.csv](https://github.com/drdave-teaching/OPIM5512-notebooks/blob/main/Module3/data/lab4_listings_master_snapshot.csv) |
