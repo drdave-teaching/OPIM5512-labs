@@ -11,6 +11,7 @@ the two.
 > **See it done first: Dr. Wanik's A07 (same steps, his fork).** Open each pull request and click **Files changed**:
 > - [Part 1: Gemini extracts 10 new fields](https://github.com/drdww/myscrapers-f26-v2/pull/2/files) (one file, three edits)
 > - [Part 2: materialize-llm](https://github.com/drdww/myscrapers-f26-v2/pull/3/files) (three new files)
+> - [His results](DrWanik_example/README.md): both master tables (regex and Gemini, same 467 cars) and the code as deployed
 >
 > His 10 fields: `trim`, `body_type` (convertible is one), `drivetrain`, `transmission`, `fuel_type`, `exterior_color`,
 > `title_status`, `condition`, `leather_seats`, `city`. **You may use the same 10** (the blocks in Step 2 are ready to
