@@ -14,6 +14,7 @@ student's forecasts go on a class leaderboard.
 | 🚀 | **The lab notebook** (open in Colab, then File → Save a copy in Drive) | [Lab5_Energy_Forecast_In_Production.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module4/Lab5_Energy_Forecast_In_Production.ipynb) |
 | 🗺️ | **Tonight in 20 steps** (print it, or keep it on a second screen) | [OPIM5512_Lab5_20_Steps_PRINT.pdf](handouts/OPIM5512_Lab5_20_Steps_PRINT.pdf) |
 | 🧹 | **How the training data was cleaned** (step by step, optional reading) | [Lab5_Building_the_Training_Data.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module4/Lab5_Building_the_Training_Data.ipynb) |
+| 🎁 | **Bonus (optional): more features, an ensemble, and a low/expected/high range for every hour** | [Lab5_Bonus_Features_Ensembles_Ranges.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module4/Lab5_Bonus_Features_Ensembles_Ranges.ipynb) |
 | 📊 | **The training data** (33,215 hours, Jan 2023 to Oct 15, 2026) + data dictionary | [data/README.md](https://github.com/drdave-teaching/OPIM5512-notebooks/blob/main/Module4/data/README.md) |
 | 🧠 | **Your energy repo** (fork it in the pre-lab) | [drdave-teaching/energy-forecasting](https://github.com/drdave-teaching/energy-forecasting) |
 
