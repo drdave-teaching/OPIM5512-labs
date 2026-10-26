@@ -22,6 +22,14 @@ student's forecasts go on a class leaderboard.
 Follow the **Energy Project Setup Guide** step by step. It's the same Cloud Shell routine as your Craigslist project, in a
 **new** Google Cloud project, for a **new** repo. Your Craigslist project keeps running as it is.
 
+**Two ways through it** (the prompts are at the top of the guide):
+- **Path 1 (recommended): you do every step, Claude is your tutor.** You paste each block and click through GitHub
+  yourself; Claude explains and fixes errors. This is the better path: Lab 6 and the final project build on this project.
+- **Path 2 (if you are stuck or out of time): Claude does the setup while you watch.** Claude in Chrome or Claude Code
+  runs the guide for you, one step at a time. You still sign in, approve the "Authorize" screens, and type your ISO
+  Express secrets yourself, and you are still responsible for understanding what each step did.
+- **Missed it or stuck either way?** Come at the start of class and we will fork and set it up together.
+
 - [ ] A **new Google Cloud project** for energy, with a budget alert
 - [ ] Your **fork of `drdave-teaching/energy-forecasting`**, with Actions **enabled** ("I understand my workflows...")
 - [ ] Your **own free ISO Express account** at iso-ne.com, saved in your fork as two **repository secrets**: `ISO_NE_USERNAME`, `ISO_NE_PASSWORD`
