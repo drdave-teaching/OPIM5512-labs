@@ -55,11 +55,11 @@
 
 ### Part 7 · Ship it (steps 17–18, 15 min)
 17. **7a:** save `model.joblib` + `model_card.json`. **7b:** sign in (pick your **energy** Gmail) → 3 checks: account, bucket, `forecast-24h` ACTIVE.
-18. **7c:** upload. **7d:** run `forecast-24h` now → dots → **"Done ... energy/forecasts/latest.csv"**.
+18. **7c:** upload. **7d:** run `forecast-24h` now → dots → **"Done ... energy/forecasts/latest.csv"**. **7e:** type your NetID → run → copy the `netid,bucket` line it prints.
 
 ### Part 8–9 · Tomorrow and wrap up (steps 19–20, 10 min)
 19. **Part 8:** your **first real forecast**: the next 24 hours, the last 48 hours of actual load, and ISO New England's forecast.
-20. Answer the **five short questions** → **File → Download → .ipynb** → upload to **Submit Lab 5** (due **Thu Nov 12, 11:59 PM**).
+20. Answer the **five short questions** → HuskyCT **Submit Lab 5** → paste your **7e line + the five answers** in the text box (no file) → Submit before you leave.
 
 ---
 

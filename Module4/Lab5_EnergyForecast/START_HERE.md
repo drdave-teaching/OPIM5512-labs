@@ -64,9 +64,11 @@ Follow the **Energy Project Setup Guide** step by step. It's the same Cloud Shel
 **Your model is frozen**: production never retrains it. Retraining = run the notebook again and upload; `forecast-24h`
 switches to the new model at its next run, and `models/history/` keeps a copy of every model you ever shipped.
 
-**Submit:** HuskyCT → *Submit Lab 5* (upload your `.ipynb`), due **Thu Nov 12, 11:59 PM** (Hartford and Stamford).
+**Submit (tonight, in class):** HuskyCT → *Submit Lab 5* → in the text box, paste the line **Part 7e** prints
+(`netid,bucket`), then your five Part 9 answers. No file upload. Final deadline **Thu Nov 12, 11:59 PM** (Hartford and Stamford).
 
-**Leave everything running.** Your bucket collects weather and load every hour, and your forecasts are what Lab 6 scores.
+**Leave everything running.** Your bucket collects weather and load every hour, and from tonight the class leaderboard
+scores every forecast your model makes.
 
 ## Stuck?
 
