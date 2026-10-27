@@ -65,7 +65,7 @@ Follow the **Energy Project Setup Guide** step by step. It's the same Cloud Shel
 switches to the new model at its next run, and `models/history/` keeps a copy of every model you ever shipped.
 
 **Submit (tonight, in class):** HuskyCT → *Submit Lab 5* → in the text box, paste the line **Part 7e** prints
-(`netid,bucket`), then your five Part 9 answers. No file upload. Final deadline **Thu Nov 12, 11:59 PM** (Hartford and Stamford).
+(`netid,bucket,nickname`), then your five Part 9 answers. No file upload. Final deadline **Thu Nov 12, 11:59 PM** (Hartford and Stamford).
 
 **Leave everything running.** Your bucket collects weather and load every hour, and from tonight the class leaderboard
 scores every forecast your model makes.
