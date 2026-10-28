@@ -13,10 +13,12 @@ student's forecasts go on a class leaderboard.
 | ☁️ | **Pre-lab: Energy Project Setup Guide** (do this BEFORE class, about 40 minutes) | [Energy_Project_Setup_F26.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module4/Energy_Project_Setup_F26.ipynb) |
 | 🚀 | **The lab notebook** (open in Colab, then File → Save a copy in Drive) | [Lab5_Energy_Forecast_In_Production.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module4/Lab5_Energy_Forecast_In_Production.ipynb) |
 | 🗺️ | **Tonight in 20 steps** (print it, or keep it on a second screen) | [OPIM5512_Lab5_20_Steps_PRINT.pdf](handouts/OPIM5512_Lab5_20_Steps_PRINT.pdf) |
-| 🧹 | **How the training data was cleaned** (step by step, optional reading) | [Lab5_Building_the_Training_Data.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module4/Lab5_Building_the_Training_Data.ipynb) |
-| 🎁 | **Bonus (optional): more features, an ensemble, and a low/expected/high range for every hour** | [Lab5_Bonus_Features_Ensembles_Ranges.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module4/Lab5_Bonus_Features_Ensembles_Ranges.ipynb) |
+| 🧹 | **How the training data was cleaned** (optional: plots of missing data, gap-filling tests one variable at a time, the daylight-saving trap, a preview of lags) | [Lab5_Building_the_Training_Data.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module4/Lab5_Building_the_Training_Data.ipynb) |
+| 🎁 | **Bonus (optional): lags one group at a time, tsfresh, an ensemble, and a low/expected/high range for every hour** | [Lab5_Bonus_Features_Ensembles_Ranges.ipynb](https://colab.research.google.com/github/drdave-teaching/OPIM5512-notebooks/blob/main/Module4/Lab5_Bonus_Features_Ensembles_Ranges.ipynb) |
 | 📊 | **The training data** (33,215 hours, Jan 2023 to Oct 15, 2026) + data dictionary | [data/README.md](https://github.com/drdave-teaching/OPIM5512-notebooks/blob/main/Module4/data/README.md) |
 | 🧠 | **Your energy repo** (fork it in the pre-lab) | [drdave-teaching/energy-forecasting](https://github.com/drdave-teaching/energy-forecasting) |
+| 🧩 | **How the four cloud functions fit together** (diagram: what's essential, what's optional) | [energy-forecasting: How it fits together](https://github.com/drdave-teaching/energy-forecasting#how-it-fits-together) |
+| 🏆 | **Class leaderboard** (live, updated every hour) | [opim5512-leaderboard-f26](https://storage.googleapis.com/opim5512-leaderboard-f26/index.html) |
 
 ## Before class (about 40 minutes, once)
 
@@ -47,8 +49,8 @@ Follow the **Energy Project Setup Guide** step by step. It's the same Cloud Shel
 | 2. Look | 15 | The daily, weekly and yearly rhythm, the U-shape, and why yesterday predicts today |
 | 3. Features | 10 | `make_features`: calendar + weather + the load at the same hour yesterday (**the same code runs in production**) |
 | 4. Baselines | 10 | Split by **time** (train 2023-2025, test 2026), then three numbers to beat |
-| 5. Tune | 25 | Tree, forest, gradient boosting with **time-series cross-validation**; your champion; its loss curve |
-| 6. Misses | 15 | Real weeks, error by hour, permutation importance, the U-shape your model learned. **Your turn:** add last week's load |
+| 5. Tune | 25 | Tree, forest, gradient boosting with **time-series cross-validation**; your champion; **early stopping** (when to stop adding trees) |
+| 6. Misses | 15 | Real weeks, error by hour (MW and %), permutation importance, the U-shape your model learned. **Your turn:** add last week's load (code provided) |
 | 7. Ship | 15 | Upload your model; run `forecast-24h` right from Colab |
 | 8–9. Tomorrow + wrap up | 10 | Your first real 24-hour forecast next to ISO New England's; five short answers |
 

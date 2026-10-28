@@ -44,14 +44,14 @@
 
 ### Part 5 · Tune (steps 10–13, 25 min)
 10. **5a:** `TimeSeriesSplit`: 5 folds, each trains on the past and validates on the six months right after it.
-11. **5b:** run the grid search (about a minute): decision tree **179**, random forest **144**, gradient boosting **121** (`train_cv_mae_mw`).
+11. **5b:** run the grid search (about a minute): decision tree **179**, random forest **144**, gradient boosting **122** (`train_cv_mae_mw`).
 12. **Class challenge:** add values to a grid, re-run, try for the lowest `train_cv_mae_mw`. **5c:** your champion → test MAE about **120 MW** (3.9 %).
-13. **5d:** the **loss curve**: watch boosting learn, tree by tree. Where does the validation error flatten?
+13. **5d:** what gradient boosting is, and **early stopping**: keep adding trees only while the validation error still drops.
 
 ### Part 6 · Look at the misses (steps 14–16, 15 min)
 14. **6a–6b:** this summer's hottest week and a January week, then error by hour of the day + the 5 worst hours of 2026.
 15. **6c–6d:** permutation importance (boxplot) and partial dependence: did your model learn the U-shape and the daily rhythm?
-16. **Your turn (you write the code):** add `load_last_week_mw`, refit, compare test MAE. Why can't production use it yet?
+16. **Your turn (code provided, paste and run):** add `load_last_week_mw`, refit, compare test MAE (about **120.7 → 117.4**). Why can't production use it yet?
 
 ### Part 7 · Ship it (steps 17–18, 15 min)
 17. **7a:** save `model.joblib` + `model_card.json`. **7b:** sign in (pick your **energy** Gmail) → 3 checks: account, bucket, `forecast-24h` ACTIVE.
