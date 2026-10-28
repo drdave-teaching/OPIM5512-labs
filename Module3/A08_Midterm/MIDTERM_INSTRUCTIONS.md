@@ -1,6 +1,6 @@
 # A08 Midterm: Regex Model vs Gemini Model, Run Like a Real Experiment
 
-**OPIM 5512 · Module 3 · Solo · Due Friday, Oct 30, 11:59 PM · Builds on Lab 4 (your regex model) and A07 (your Gemini fields)**
+**OPIM 5512 · Module 3 · Solo · Due Sunday, Nov 1, 11:59 PM (extended) · Builds on Lab 4 (your regex model) and A07 (your Gemini fields)**
 
 > **The one-sentence version: can large-language-model features beat regular expressions at pricing used cars, and are
 > they worth the money?** You answer it the way a data science team does at work: two tuned models on the same cars,
