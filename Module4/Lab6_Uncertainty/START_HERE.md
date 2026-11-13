@@ -51,7 +51,8 @@ The deliverable is simple: **your model is on the class leaderboard with a range
 2. The line your notebook printed when your range went live: **"Range is live"** from 6C, or **"Tuned range is live"**
    from 6D Part 11 if you did 6D
 
-The notebook questions (1-12 in 6A to 6C, 13-17 in 6D) are for your final project report; they are not submitted here.
+The questions at the end of each notebook (1-12 in 6A to 6C, 13-17 in 6D) are optional reflection prompts, not graded:
+they're for deeper understanding, and good material for your final project report.
 Leave your energy project running after you submit: the final project scores your live ranges from Sun Nov 29 (after Thanksgiving) to Fri Dec 4, 11:59 PM.
 
 ## Stuck?
