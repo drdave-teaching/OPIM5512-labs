@@ -9,7 +9,7 @@ the **weather forecast** is wrong sometimes (6A), and **your model** misses even
 combine them, ship the range, and go on the Lab 6 leaderboard, ranked by **CRPS**. That's the Lab 6 deliverable.
 **6D is optional, and recommended for the final project:** you **tune** that range, experiment after experiment,
 scored on 2025, one look at 2026, and the winner goes live. Its experiment log is a ready-made "one improvement" for
-your final report, and a tuned range should score better in the final project window (Nov 21 to Dec 1).
+your final report, and a tuned range should score better in the final project window (Sun Nov 29 to Fri Dec 4).
 
 | | What | Link |
 |---|---|---|
@@ -52,7 +52,7 @@ The deliverable is simple: **your model is on the class leaderboard with a range
    from 6D Part 11 if you did 6D
 
 The notebook questions (1-12 in 6A to 6C, 13-17 in 6D) are for your final project report; they are not submitted here.
-Leave your energy project running after you submit: the final project scores your live ranges from Sat Nov 21 to Tue Dec 1.
+Leave your energy project running after you submit: the final project scores your live ranges from Sun Nov 29 (after Thanksgiving) to Fri Dec 4, 11:59 PM.
 
 ## Stuck?
 Paste the error and the cell into Claude. For `forecast-24h` problems, run the troubleshooting log cell in 6C Part 5b and
